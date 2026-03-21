@@ -1,0 +1,57 @@
+[
+  {
+    "nome": "Show do Guns",
+    "lat": -3.8081,
+    "lng": -38.523,
+    "cidade": "Fortaleza",
+    "tipo": "show",
+    "descricao": "Arena Castelão",
+    "telefone": "(21)88888-1111",
+    "instagram": "https://instagram.com/hotelB",
+    "data": "2026-02-20",
+    "foto": "https://c-cdnet.cdn.smule.com/rs-s26/arr/59/37/6ae2a5ce-fbab-4e4c-a30c-60bd7e3a1377.jpg"
+  },
+  {
+    "nome": "CCBNB",
+    "lat": -3.7255869313406693,
+    "lng": -38.52570445671905,
+    "cidade": "Fortaleza",
+    "tipo": "bar",
+    "descricao": "Hotel 4 estrelas",
+    "telefone": "(21)88888-1111",
+    "instagram": "https://instagram.com/hotelB"
+  },
+  {
+    "nome": "Show do Matanza",
+    "lat": -3.7803671767369553,
+    "lng": -38.56526295283446,
+    "cidade": "Fortaleza",
+    "tipo": "show",
+    "descricao": "Baladinha Club",
+    "telefone": "(21)88888-1111",
+    "instagram": "https://instagram.com/hotelB"
+  },
+  {
+    "nome": "Fortaleza Rock Fest",
+    "lat": -3.7213815159864625,
+    "lng": -38.51922126933725,
+    "cidade": "Fortaleza",
+    "tipo": "show",
+    "descricao": "Havana Iraceme - Festival com várias bandas",
+    "telefone": "(21)88888-1111",
+    "instagram": "https://instagram.com/hotelB",
+    "data": "2026-03-14",
+    "foto": "https://images.sympla.com.br/69760d3b7fb25.jpg"
+  },
+  {
+    "nome": "Covil Rock Bar",
+    "tipo": "bar",
+    "cidade": "Fortaleza",
+    "lat": -3.7438,
+    "lng": -38.5385,
+    "descricao": "Birita e porrada",
+    "telefone": "(85)98808-7627",
+    "instagram": "https://instagram.com/restauranteA",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC2o96e7PctMYMp905Q6maFF9OYbkWuc__6Q&s"
+  }
+]

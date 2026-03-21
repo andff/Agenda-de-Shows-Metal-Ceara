@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Painel de Locais</title>
+
+<style>
+body{
+font-family:Arial;
+background:#111;
+color:#fff;
+padding:20px;
+}
+
+h1{margin-top:0}
+
+.container{
+display:grid;
+grid-template-columns:1fr 320px;
+gap:20px;
+}
+
+.lista{
+background:#1a1a1a;
+padding:15px;
+border-radius:12px;
+max-height:80vh;
+overflow:auto;
+}
+
+.card{
+background:#222;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+}
+
+.card button{
+margin-top:6px;
+margin-right:5px;
+}
+
+.form{
+background:#1a1a1a;
+padding:15px;
+border-radius:12px;
+}
+
+input,select{
+width:100%;
+margin-bottom:8px;
+padding:6px;
+border:none;
+border-radius:6px;
+}
+
+button{
+padding:7px 12px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.salvar{
+margin-top:20px;
+background:#0a84ff;
+color:#fff;
+font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<h1>Painel de Locais</h1>
+
+<div class="container">
+
+<div class="lista" id="lista"></div>
+
+<div class="form">
+
+<h3>Novo / Editar</h3>
+
+<input id="nome" placeholder="Nome">
+<input id="cidade" placeholder="Cidade">
+
+<select id="tipo">
+<option value="bar">Bar</option>
+<option value="show">Show</option>
+<option value="evento">Evento</option>
+</select>
+
+<input id="lat" placeholder="Latitude">
+<input id="lng" placeholder="Longitude">
+<input id="telefone" placeholder="Telefone">
+<input id="instagram" placeholder="Instagram URL">
+<input id="foto" placeholder="URL da foto">
+<input id="data" type="date">
+
+<input id="descricao" placeholder="Descrição">
+
+<button onclick="salvarLocal()">Salvar Local</button>
+
+<button class="salvar" onclick="baixar()">⬇ Baixar JSON</button>
+
+</div>
+</div>
+
+<script>
+let locais=[];
+let editIndex=null;
+
+// carregar json
+fetch("pontos.json")
+.then(r=>r.json())
+.then(d=>{
+locais=d;
+render();
+});
+
+
+// render lista
+function render(){
+lista.innerHTML="";
+
+locais.forEach((l,i)=>{
+
+let div=document.createElement("div");
+div.className="card";
+
+div.innerHTML=`
+<b>${l.nome}</b><br>
+${l.cidade}<br>
+${l.tipo}<br>
+${l.data || ""}<br>
+<button onclick="editar(${i})">Editar</button>
+<button onclick="remover(${i})">Excluir</button>
+`;
+
+lista.appendChild(div);
+
+});
+}
+
+
+// editar
+function editar(i){
+let l=locais[i];
+
+nome.value=l.nome;
+cidade.value=l.cidade;
+tipo.value=l.tipo;
+lat.value=l.lat;
+lng.value=l.lng;
+telefone.value=l.telefone;
+instagram.value=l.instagram;
+foto.value=l.foto || "";
+data.value=l.data || "";
+descricao.value=l.descricao;
+
+editIndex=i;
+}
+
+
+// remover
+function remover(i){
+if(confirm("Excluir local?")){
+locais.splice(i,1);
+render();
+}
+}
+
+
+// salvar local
+function salvarLocal(){
+
+let obj={
+nome:nome.value,
+cidade:cidade.value,
+tipo:tipo.value,
+lat:parseFloat(lat.value),
+lng:parseFloat(lng.value),
+telefone:telefone.value,
+instagram:instagram.value,
+foto:foto.value,
+data:data.value,
+descricao:descricao.value
+};
+
+if(editIndex!=null){
+locais[editIndex]=obj;
+editIndex=null;
+}else{
+locais.push(obj);
+}
+
+document.querySelectorAll("input").forEach(i=>i.value="");
+
+render();
+}
+
+
+// baixar json atualizado
+function baixar(){
+
+let blob=new Blob(
+[JSON.stringify(locais,null,2)],
+{type:"application/json"}
+);
+
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="pontos.json";
+a.click();
+}
+</script>
+
+</body>
+</html>
