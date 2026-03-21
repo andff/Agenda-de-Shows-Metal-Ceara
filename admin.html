@@ -122,7 +122,7 @@
         let editIndex = null;
 
         // carregar json
-        fetch("pontos.json")
+        fetch("database.json")
             .then(r => r.json())
             .then(d => {
                 locais = d;
@@ -221,7 +221,7 @@ ${l.data || ""}<br>
 
             let a = document.createElement("a");
             a.href = URL.createObjectURL(blob);
-            a.download = "pontos.json";
+            a.download = "database.json";
             a.click();
         }
     </script>

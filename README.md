@@ -31,7 +31,7 @@ Este ecossistema foi projetado para ser **rápido, leve e de custo zero** para h
 
 - **Interface do Usuário (UI):** `HTML5`, `CSS3`, `JavaScript Vanilla`
 - **Mapas & Clusters:** `Leaflet.js` e `Leaflet MarkerCluster`
-- **Banco de Dados Estático:** `JSON` (`pontos.json`)
+- **Banco de Dados Estático:** `JSON` (`database.json`)
 - **Gerenciador Administrativo Web:** Interface baseada no navegador (`admin.html`)
 - **Gerenciador Desktop Profissional:** Construído em `Python 3` utilizando `Tkinter` na interface gráfica e `Pillow` para processamento das thumbnails.
 

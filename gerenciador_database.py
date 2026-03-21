@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 import io
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ARQUIVO = os.path.join(BASE_DIR, "pontos.json")
+ARQUIVO = os.path.join(BASE_DIR, "database.json")
 
 # ---------- JSON ----------
 
