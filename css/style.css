@@ -1,0 +1,145 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+}
+
+#sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    background: #111;
+    color: white;
+    z-index: 1000;
+    overflow: auto;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+#map {
+    margin-left: 320px;
+    height: 100%;
+    transition: .3s;
+}
+
+input,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+    margin-bottom: 10px;
+    padding: 10px 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.item {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #1c1c1c;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.item:hover {
+    background: #333;
+}
+
+.proximo {
+    border-left: 4px solid orange;
+}
+
+.hoje {
+    border-left: 4px solid lime;
+}
+
+.passado {
+    opacity: .5;
+}
+
+/* Categorias Botões */
+.categorias-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.categoria-btn {
+    cursor: pointer;
+    user-select: none;
+}
+
+.categoria-btn input[type="checkbox"] {
+    display: none;
+}
+
+.categoria-btn span {
+    display: inline-block;
+    background: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: 0.2s;
+    border: 2px solid transparent;
+}
+
+.categoria-btn input[type="checkbox"]:checked+span {
+    background: orange;
+    color: #111;
+    font-weight: bold;
+}
+
+/* botão mobile */
+#menuBtn {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 2000;
+    background: #111;
+    color: white;
+    border: 2px solid #333;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+
+    #sidebar {
+        left: -100%;
+        width: 85%;
+        max-width: 320px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #sidebar.ativo {
+        left: 0;
+    }
+
+    #map {
+        margin-left: 0;
+    }
+
+    #menuBtn {
+        display: block;
+    }
+
+    /* Ajuste pos botão zoom */
+    .leaflet-top.leaflet-right {
+        top: 70px !important;
+        right: 5px !important;
+    }
+
+}
