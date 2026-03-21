@@ -1,0 +1,1130 @@
+[
+    {
+        "name": "A Quitanda",
+        "cat": "Alternativo Chique",
+        "color": "#af52de",
+        "lat": -3.7378,
+        "lon": -38.5109,
+        "desc": "Mercado orgânico. Público que curte MPB Lado B."
+    },
+    {
+        "name": "Budega do Raul",
+        "cat": "Universitário Gourmet",
+        "color": "#af52de",
+        "lat": -3.7449,
+        "lon": -38.5294,
+        "desc": "Coxinha gourmet no Benfica. Universitário com mesada."
+    },
+    {
+        "name": "Mormaço Bar",
+        "cat": "Cool & Vento",
+        "color": "#af52de",
+        "lat": -3.7218,
+        "lon": -38.5106,
+        "desc": "Vento na cara, drinks caros e gente falando de cinema."
+    },
+    {
+        "name": "Brisa de Fortaleza",
+        "cat": "Visual",
+        "color": "#af52de",
+        "lat": -3.7208,
+        "lon": -38.5078,
+        "desc": "Vista pro mar pra quem tem iPhone Pro e vota no PSOL."
+    },
+    {
+        "name": "Parqland",
+        "cat": "Festa Hype",
+        "color": "#af52de",
+        "lat": -3.7321,
+        "lon": -38.5478,
+        "desc": "Touro Neon. Gente bonita, suada e muito glitter na Parquelândia."
+    },
+    {
+        "name": "Fuzuê Bar",
+        "cat": "Esquenta Nobre",
+        "color": "#af52de",
+        "lat": -3.726,
+        "lon": -38.5041,
+        "desc": "Esquenta oficial do Meireles. Gente desconstruída de Uber Black."
+    },
+    {
+        "name": "Giz Cozinha Boêmia",
+        "cat": "Samba Caviar",
+        "color": "#af52de",
+        "lat": -3.7299,
+        "lon": -38.5036,
+        "desc": "Samba de rico. Garçom de gravata e feijoada preço de ouro."
+    },
+    {
+        "name": "Teresa & Jorge",
+        "cat": "Cult Turístico",
+        "color": "#af52de",
+        "lat": -3.7195,
+        "lon": -38.5142,
+        "desc": "Era raiz, virou point turístico. Samba excelente."
+    },
+    {
+        "name": "Zelig Drink Bar",
+        "cat": "Nova York",
+        "color": "#af52de",
+        "lat": -3.7305,
+        "lon": -38.5045,
+        "desc": "Escondido e escuro. Parece bar de filme noir."
+    },
+    {
+        "name": "Culinária da Van",
+        "cat": "Regional Cult",
+        "color": "#af52de",
+        "lat": -3.7447,
+        "lon": -38.5285,
+        "desc": "A chef Van é celebridade. Panelada premiada no Benfica."
+    },
+    {
+        "name": "O Mar Menino",
+        "cat": "Gastronomia Arte",
+        "color": "#af52de",
+        "lat": -3.7358,
+        "lon": -38.502,
+        "desc": "Comida que parece quadro. Lugar de arquitetos."
+    },
+    {
+        "name": "Bulls Beer House",
+        "cat": "Rock Pub",
+        "color": "#af52de",
+        "lat": -3.7381,
+        "lon": -38.5073,
+        "desc": "Rock e burger na Aldeota. Metaleiros programadores."
+    },
+    {
+        "name": "Clandestino",
+        "cat": "Jazz & Blues",
+        "color": "#af52de",
+        "lat": -3.7418,
+        "lon": -38.5302,
+        "desc": "Jazz no quintal. Vibe intimista no Benfica."
+    },
+    {
+        "name": "Hey Joe Food 'n' Bar",
+        "cat": "Descolado",
+        "color": "#af52de",
+        "lat": -3.7342,
+        "lon": -38.5088,
+        "desc": "Comida saudável e gente tatuada bonita."
+    },
+    {
+        "name": "Boozer's Pub",
+        "cat": "Hostel Vibe",
+        "color": "#af52de",
+        "lat": -3.7255,
+        "lon": -38.508,
+        "desc": "Gringos e rock clássico. Parece que você tá viajando."
+    },
+    {
+        "name": "Cervejaria Capitosa",
+        "cat": "Artesanal",
+        "color": "#af52de",
+        "lat": -3.7355,
+        "lon": -38.5002,
+        "desc": "Público que discute lúpulo a noite toda."
+    },
+    {
+        "name": "Brauhaus",
+        "cat": "Alemão",
+        "color": "#af52de",
+        "lat": -3.7334,
+        "lon": -38.5062,
+        "desc": "Templo da cerveja importada."
+    },
+    {
+        "name": "Mayú",
+        "cat": "Alta Gastronomia",
+        "color": "#af52de",
+        "lat": -3.7335,
+        "lon": -38.4969,
+        "desc": "Restaurante do Senac. Comida experimental."
+    },
+    {
+        "name": "Cinema do Dragão",
+        "cat": "Cinefilia",
+        "color": "#af52de",
+        "lat": -3.72,
+        "lon": -38.5175,
+        "desc": "Filmes que ninguém entende e debate sobre semiótica."
+    },
+    {
+        "name": "Café Couture",
+        "cat": "Jazz & Drinks",
+        "color": "#af52de",
+        "lat": -3.7342,
+        "lon": -38.505,
+        "desc": "Piano e luz vermelha. Boemia afrancesada."
+    },
+    {
+        "name": "Brewstone Pub",
+        "cat": "Cerveja & Rock",
+        "color": "#af52de",
+        "lat": -3.736,
+        "lon": -38.501,
+        "desc": "Pub sério. Cerveja própria excelente."
+    },
+    {
+        "name": "Amika Coffee",
+        "cat": "Café Geek",
+        "color": "#af52de",
+        "lat": -3.7363,
+        "lon": -38.5018,
+        "desc": "Café pra trabalhar remoto. Cheio de MacBooks."
+    },
+    {
+        "name": "Le Pain Le Café",
+        "cat": "Francês",
+        "color": "#af52de",
+        "lat": -3.734,
+        "lon": -38.4978,
+        "desc": "Croissant e ar condicionado. Madames e cults."
+    },
+    {
+        "name": "Benévolo",
+        "cat": "Gelato",
+        "color": "#af52de",
+        "lat": -3.733,
+        "lon": -38.4962,
+        "desc": "Sorvete e café. Ponto de encontro pós-almoço."
+    },
+    {
+        "name": "Museu da Fotografia",
+        "cat": "Cultura",
+        "color": "#af52de",
+        "lat": -3.721,
+        "lon": -38.517,
+        "desc": "Ar condicionado gelado e fotos incríveis."
+    },
+    {
+        "name": "Caixa Cultural",
+        "cat": "Exposições",
+        "color": "#af52de",
+        "lat": -3.7193,
+        "lon": -38.5184,
+        "desc": "Exposições gratuitas na Praia de Iracema."
+    },
+    {
+        "name": "Route Fortaleza",
+        "cat": "O Caos",
+        "color": "#ff3b30",
+        "lat": -3.7192,
+        "lon": -38.5162,
+        "desc": "O abismo. Onde a dignidade morre às 5 da manhã."
+    },
+    {
+        "name": "Fuzuê Club",
+        "cat": "Balada Centro",
+        "color": "#ff3b30",
+        "lat": -3.7194,
+        "lon": -38.5155,
+        "desc": "Vizinho do Route. Pop, funk e suor."
+    },
+    {
+        "name": "Bar do Seu Nonato",
+        "cat": "Raiz Intelectual",
+        "color": "#ff3b30",
+        "lat": -3.7441,
+        "lon": -38.5362,
+        "desc": "Ovo colorido e panelada. QG dos professores."
+    },
+    {
+        "name": "Bar do Vinil",
+        "cat": "Hipster Raiz",
+        "color": "#ff3b30",
+        "lat": -3.743,
+        "lon": -38.534,
+        "desc": "Bolachão na vitrola. Refúgio hipster do Benfica."
+    },
+    {
+        "name": "Rap Bar",
+        "cat": "Cena Urbana",
+        "color": "#ff3b30",
+        "lat": -3.7255,
+        "lon": -38.5258,
+        "desc": "Rima, skate e cerveja barata no Centro."
+    },
+    {
+        "name": "Budega dos Pinhões",
+        "cat": "Praça",
+        "color": "#ff3b30",
+        "lat": -3.7215,
+        "lon": -38.5197,
+        "desc": "Esquenta pro nada. Bebe em pé na praça."
+    },
+    {
+        "name": "Vinil Ambientz",
+        "cat": "Nostalgia",
+        "color": "#ff3b30",
+        "lat": -3.7435,
+        "lon": -38.5348,
+        "desc": "Mais vinil no Benfica."
+    },
+    {
+        "name": "Nomads",
+        "cat": "Alternativo",
+        "color": "#ff3b30",
+        "lat": -3.7405,
+        "lon": -38.5321,
+        "desc": "Gringo perdido e cerveja em copo de plástico."
+    },
+    {
+        "name": "Na Toca do Coelho",
+        "cat": "Underground",
+        "color": "#ff3b30",
+        "lat": -3.7452,
+        "lon": -38.538,
+        "desc": "Buraco negro alternativo. Entrou, sumiu."
+    },
+    {
+        "name": "Boteco do Peixe",
+        "cat": "Universitário",
+        "color": "#ff3b30",
+        "lat": -3.7388,
+        "lon": -38.5309,
+        "desc": "Cachaça e estudante liso."
+    },
+    {
+        "name": "Pitombeira Bar",
+        "cat": "Raiz",
+        "color": "#ff3b30",
+        "lat": -3.7425,
+        "lon": -38.5365,
+        "desc": "Mesa bamba e garçom amigo íntimo."
+    },
+    {
+        "name": "Covil Rock Bar",
+        "cat": "Metal",
+        "color": "#ff3b30",
+        "lat": -3.7431,
+        "lon": -38.5338,
+        "desc": "Trevas, preto e metal."
+    },
+    {
+        "name": "Bar Galola",
+        "cat": "Zueira",
+        "color": "#ff3b30",
+        "lat": -3.7445,
+        "lon": -38.539,
+        "desc": "Zueira sem limites e preços baixos."
+    },
+    {
+        "name": "Laje Head Shop",
+        "cat": "Fumaça",
+        "color": "#ff3b30",
+        "lat": -3.7435,
+        "lon": -38.5343,
+        "desc": "A fumaça sobe, o rock toca."
+    },
+    {
+        "name": "Mambembe",
+        "cat": "Cultural Caos",
+        "color": "#ff3b30",
+        "lat": -3.7197,
+        "lon": -38.5179,
+        "desc": "Festa na rua e liberdade total na PI."
+    },
+    {
+        "name": "Chopp do Bixiga",
+        "cat": "Clássico Dragão",
+        "color": "#ff3b30",
+        "lat": -3.7196,
+        "lon": -38.5168,
+        "desc": "Chopp de vinho famoso e perigoso."
+    },
+    {
+        "name": "Praça dos Leões",
+        "cat": "Rua",
+        "color": "#ff3b30",
+        "lat": -3.728,
+        "lon": -38.527,
+        "desc": "Underground real. Cerveja de isopor."
+    },
+    {
+        "name": "Raimundo dos Queijos",
+        "cat": "Patrimônio",
+        "color": "#ff3b30",
+        "lat": -3.7272,
+        "lon": -38.5282,
+        "desc": "Domingo de manhã é lei no Centro."
+    },
+    {
+        "name": "Leão do Sul",
+        "cat": "Azia Boa",
+        "color": "#ff3b30",
+        "lat": -3.7268,
+        "lon": -38.5272,
+        "desc": "Pastel com caldo de cana lendário."
+    },
+    {
+        "name": "Moto Libre",
+        "cat": "Balada Alt",
+        "color": "#ff3b30",
+        "lat": -3.7298,
+        "lon": -38.5085,
+        "desc": "Vibe motoqueira e alternativa."
+    },
+    {
+        "name": "Praça da Gentilândia",
+        "cat": "Benfica Soul",
+        "color": "#ff3b30",
+        "lat": -3.742,
+        "lon": -38.5352,
+        "desc": "Skate, litrão e debate político."
+    },
+    {
+        "name": "Serpentina",
+        "cat": "Cerveja Raiz",
+        "color": "#ff3b30",
+        "lat": -3.7248,
+        "lon": -38.5252,
+        "desc": "Artesanal no Centro, mesa na calçada."
+    },
+    {
+        "name": "Gandaia Club",
+        "cat": "LGBTQIA+",
+        "color": "#ff3b30",
+        "lat": -3.7198,
+        "lon": -38.5186,
+        "desc": "Templo do pop e do suor."
+    },
+    {
+        "name": "Haus",
+        "cat": "Eletrônico",
+        "color": "#ff3b30",
+        "lat": -3.7195,
+        "lon": -38.5172,
+        "desc": "Techno e óculos escuros às 3 da manhã."
+    },
+    {
+        "name": "Level",
+        "cat": "Balada Drag",
+        "color": "#ff3b30",
+        "lat": -3.7197,
+        "lon": -38.5164,
+        "desc": "Shows de Drag Queen e festa até amanhecer."
+    },
+    {
+        "name": "Centro Fashion",
+        "cat": "Moda & Caos",
+        "color": "#ff3b30",
+        "lat": -3.7152,
+        "lon": -38.5395,
+        "desc": "Onde a sacoleira guerreira faz a moda girar."
+    },
+    {
+        "name": "Mercado Central",
+        "cat": "Turista & Local",
+        "color": "#ff3b30",
+        "lat": -3.7285,
+        "lon": -38.5368,
+        "desc": "Labirinto de renda e castanha."
+    },
+    {
+        "name": "Mercado São Sebastião",
+        "cat": "Café Nordestino",
+        "color": "#ff3b30",
+        "lat": -3.7295,
+        "lon": -38.5352,
+        "desc": "Cuscuz, panelada e gritaria."
+    },
+    {
+        "name": "Beco da Poeira",
+        "cat": "Hardcore",
+        "color": "#ff3b30",
+        "lat": -3.7278,
+        "lon": -38.5298,
+        "desc": "Comércio popular extremo."
+    },
+    {
+        "name": "Praça do Ferreira",
+        "cat": "Marco Zero",
+        "color": "#ff3b30",
+        "lat": -3.7262,
+        "lon": -38.5262,
+        "desc": "O coração da cidade."
+    },
+    {
+        "name": "Cabaré da Baixa",
+        "cat": "Histórico",
+        "color": "#ff3b30",
+        "lat": -3.7198,
+        "lon": -38.5302,
+        "desc": "Boemia antiga da zona portuária."
+    },
+    {
+        "name": "Bar do Biel",
+        "cat": "Sinuca",
+        "color": "#ff3b30",
+        "lat": -3.723,
+        "lon": -38.5252,
+        "desc": "Sinuca e cerveja barata no Centro."
+    },
+    {
+        "name": "Assis da Picanha",
+        "cat": "Picanha Raiz",
+        "color": "#ff3b30",
+        "lat": -3.7318,
+        "lon": -38.5398,
+        "desc": "Picanha boa e barata."
+    },
+    {
+        "name": "Churrascaria O Osmar",
+        "cat": "Fartura",
+        "color": "#ff3b30",
+        "lat": -3.7505,
+        "lon": -38.5498,
+        "desc": "Ponto de taxistas. Comida muita e barata."
+    },
+    {
+        "name": "Moleskine / Moleska",
+        "cat": "Elite",
+        "color": "#007aff",
+        "lat": -3.7323,
+        "lon": -38.493,
+        "desc": "QG da Elite. Fecha contrato milionário."
+    },
+    {
+        "name": "Hoots Gastropub",
+        "cat": "Rock de Rico",
+        "color": "#007aff",
+        "lat": -3.7338,
+        "lon": -38.4952,
+        "desc": "Rock pra quem anda de blindado."
+    },
+    {
+        "name": "Austin Pub",
+        "cat": "Sertanejo Elite",
+        "color": "#007aff",
+        "lat": -3.7345,
+        "lon": -38.4902,
+        "desc": "Templo do Sapatênis e paquera."
+    },
+    {
+        "name": "Cervejaria Turatti",
+        "cat": "Família Rica",
+        "color": "#007aff",
+        "lat": -3.7352,
+        "lon": -38.4858,
+        "desc": "Disney de Bêbado Rico."
+    },
+    {
+        "name": "Bang's Sul",
+        "cat": "Faroeste Gourmet",
+        "color": "#007aff",
+        "lat": -3.7812,
+        "lon": -38.4812,
+        "desc": "Carne defumada cara na Zona Sul."
+    },
+    {
+        "name": "Floresta Complexo",
+        "cat": "Cover",
+        "color": "#007aff",
+        "lat": -3.7368,
+        "lon": -38.4992,
+        "desc": "Rock dos anos 80 pra tiozões."
+    },
+    {
+        "name": "Donkey Head",
+        "cat": "Cervejeiro",
+        "color": "#007aff",
+        "lat": -3.7375,
+        "lon": -38.5008,
+        "desc": "Cerveja boa na Aldeota."
+    },
+    {
+        "name": "Boteco do Ciço",
+        "cat": "Fake Raiz",
+        "color": "#007aff",
+        "lat": -3.7372,
+        "lon": -38.5025,
+        "desc": "Parece pobre, mas fica no m² mais caro."
+    },
+    {
+        "name": "Colosso Fortaleza",
+        "cat": "Super Elite",
+        "color": "#007aff",
+        "lat": -3.7555,
+        "lon": -38.4878,
+        "desc": "Wakeboard e combo de vodka caro no Edson Queiroz."
+    },
+    {
+        "name": "Zoi Restaurante",
+        "cat": "Jantar de Negócios",
+        "color": "#007aff",
+        "lat": -3.7558,
+        "lon": -38.4895,
+        "desc": "Mediterrâneo pra impressionar."
+    },
+    {
+        "name": "Iate Clube",
+        "cat": "Old Money",
+        "color": "#007aff",
+        "lat": -3.721,
+        "lon": -38.482,
+        "desc": "Donos da cidade estacionam seus barcos."
+    },
+    {
+        "name": "Coco Bambu (Frutos)",
+        "cat": "Embaixada",
+        "color": "#007aff",
+        "lat": -3.7305,
+        "lon": -38.4958,
+        "desc": "A catedral do camarão."
+    },
+    {
+        "name": "Santa Grelha",
+        "cat": "Carne de Ouro",
+        "color": "#007aff",
+        "lat": -3.7345,
+        "lon": -38.4985,
+        "desc": "Onde o empresário almoça."
+    },
+    {
+        "name": "Ryori Sushi",
+        "cat": "Japa de Rico",
+        "color": "#007aff",
+        "lat": -3.7355,
+        "lon": -38.4928,
+        "desc": "Sushi com trufa branca."
+    },
+    {
+        "name": "Ponza Frutos do Mar",
+        "cat": "Sofisticação",
+        "color": "#007aff",
+        "lat": -3.7332,
+        "lon": -38.4965,
+        "desc": "Ambiente azul e comida chique."
+    },
+    {
+        "name": "Vibe do Lago",
+        "cat": "Lago Jacarey",
+        "color": "#007aff",
+        "lat": -3.795,
+        "lon": -38.4845,
+        "desc": "O point da Zona Sul. Famílias ricas."
+    },
+    {
+        "name": "Cabaña del Primo",
+        "cat": "Argentino",
+        "color": "#007aff",
+        "lat": -3.7362,
+        "lon": -38.4912,
+        "desc": "Parrilla porteña no Jardins Open Mall."
+    },
+    {
+        "name": "Geppos Italiano",
+        "cat": "Jardins Open Mall",
+        "color": "#007aff",
+        "lat": -3.7358,
+        "lon": -38.4908,
+        "desc": "Massa e vinho. Fingir que tá na Europa."
+    },
+    {
+        "name": "Illa Mare",
+        "cat": "Beira Mar Elite",
+        "color": "#007aff",
+        "lat": -3.7235,
+        "lon": -38.4875,
+        "desc": "Restaurante flutuante com preço pra turista."
+    },
+    {
+        "name": "Vignoli",
+        "cat": "Pizza de Rico",
+        "color": "#007aff",
+        "lat": -3.7372,
+        "lon": -38.4948,
+        "desc": "Pizza fina. Coma com luvas."
+    },
+    {
+        "name": "Samba do Vila",
+        "cat": "Pagode de Elite",
+        "color": "#007aff",
+        "lat": -3.7382,
+        "lon": -38.4985,
+        "desc": "Pagode pra quem usa sapatênis."
+    },
+    {
+        "name": "Living",
+        "cat": "Balada Playba",
+        "color": "#007aff",
+        "lat": -3.7338,
+        "lon": -38.4942,
+        "desc": "Eletrônico e funk na Aldeota."
+    },
+    {
+        "name": "Soho",
+        "cat": "Asiático",
+        "color": "#007aff",
+        "lat": -3.7405,
+        "lon": -38.4715,
+        "desc": "Japa moderno no RioMar."
+    },
+    {
+        "name": "Medit",
+        "cat": "Alta Gastronomia",
+        "color": "#007aff",
+        "lat": -3.735,
+        "lon": -38.4902,
+        "desc": "Um dos melhores da cidade."
+    },
+    {
+        "name": "L'Ô Restaurante",
+        "cat": "Eventos",
+        "color": "#007aff",
+        "lat": -3.7248,
+        "lon": -38.5155,
+        "desc": "Oásis de riqueza no Dragão."
+    },
+    {
+        "name": "Ideal Clube",
+        "cat": "Tradicional",
+        "color": "#007aff",
+        "lat": -3.7278,
+        "lon": -38.5048,
+        "desc": "Clube da alta sociedade."
+    },
+    {
+        "name": "Misaki",
+        "cat": "Japa Fusion",
+        "color": "#007aff",
+        "lat": -3.7368,
+        "lon": -38.4918,
+        "desc": "Lagosta e ouro."
+    },
+    {
+        "name": "Picanha do Cowboy",
+        "cat": "Clássico",
+        "color": "#007aff",
+        "lat": -3.7352,
+        "lon": -38.5005,
+        "desc": "Picanha honesta em área nobre."
+    },
+    {
+        "name": "Divina Picanha",
+        "cat": "Família Tradicional",
+        "color": "#34c759",
+        "lat": -3.7705,
+        "lon": -38.4855,
+        "desc": "Almoço de domingo na Sul."
+    },
+    {
+        "name": "Paraíba Raiz",
+        "cat": "Butequeiro",
+        "color": "#34c759",
+        "lat": -3.7438,
+        "lon": -38.5355,
+        "desc": "Foco é beber litrão barato."
+    },
+    {
+        "name": "Bar do Railson",
+        "cat": "Bairro",
+        "color": "#34c759",
+        "lat": -3.7502,
+        "lon": -38.5405,
+        "desc": "Sinuca e emoção no Benfica."
+    },
+    {
+        "name": "Kosmika Club",
+        "cat": "Pop Glitter",
+        "color": "#34c759",
+        "lat": -3.7242,
+        "lon": -38.5198,
+        "desc": "Pop e glitter no Centro."
+    },
+    {
+        "name": "Sr. Petisco",
+        "cat": "Comida",
+        "color": "#34c759",
+        "lat": -3.755,
+        "lon": -38.5512,
+        "desc": "Comida de boteco honesta."
+    },
+    {
+        "name": "Bar do Seu Carlos",
+        "cat": "Lenda",
+        "color": "#34c759",
+        "lat": -3.7598,
+        "lon": -38.5598,
+        "desc": "Lenda do Montese."
+    },
+    {
+        "name": "Bar do Animaw",
+        "cat": "Bicho Solto",
+        "color": "#34c759",
+        "lat": -3.7585,
+        "lon": -38.555,
+        "desc": "Cerveja trincando e zero etiqueta."
+    },
+    {
+        "name": "Tony Do Orós",
+        "cat": "Carne de Sol",
+        "color": "#34c759",
+        "lat": -3.7658,
+        "lon": -38.571,
+        "desc": "Melhor carne de sol da galáxia."
+    },
+    {
+        "name": "Bar da Loura",
+        "cat": "Centro Raiz",
+        "color": "#34c759",
+        "lat": -3.7252,
+        "lon": -38.5282,
+        "desc": "Puro suco do Centro."
+    },
+    {
+        "name": "Carneiro do Ordones",
+        "cat": "Fartura",
+        "color": "#34c759",
+        "lat": -3.7355,
+        "lon": -38.5558,
+        "desc": "Catedral da carne na Parquelândia."
+    },
+    {
+        "name": "Bar do Mincharia",
+        "cat": "Praia Raiz",
+        "color": "#34c759",
+        "lat": -3.7202,
+        "lon": -38.5108,
+        "desc": "Pé na areia na PI."
+    },
+    {
+        "name": "Cantinho do Frango",
+        "cat": "Patrimônio",
+        "color": "#34c759",
+        "lat": -3.7362,
+        "lon": -38.5048,
+        "desc": "Frango desossado e vinil."
+    },
+    {
+        "name": "Kina do Feijão Verde",
+        "cat": "Regional",
+        "color": "#34c759",
+        "lat": -3.7305,
+        "lon": -38.5155,
+        "desc": "O melhor feijão verde."
+    },
+    {
+        "name": "Carneiro do Tércio",
+        "cat": "Zona Sul",
+        "color": "#34c759",
+        "lat": -3.7798,
+        "lon": -38.4902,
+        "desc": "Carneiro gigante na Sul."
+    },
+    {
+        "name": "Rei da Panelada",
+        "cat": "Cura Ressaca",
+        "color": "#34c759",
+        "lat": -3.7498,
+        "lon": -38.5205,
+        "desc": "A cura está aqui."
+    },
+    {
+        "name": "Colher de Pau",
+        "cat": "Turista Raiz",
+        "color": "#34c759",
+        "lat": -3.7358,
+        "lon": -38.4882,
+        "desc": "Baião de dois sério na Varjota."
+    },
+    {
+        "name": "Arre Égua",
+        "cat": "Forró Antigo",
+        "color": "#34c759",
+        "lat": -3.7368,
+        "lon": -38.4855,
+        "desc": "Vila sertaneja turística."
+    },
+    {
+        "name": "Kukukaya",
+        "cat": "Forró Raiz",
+        "color": "#34c759",
+        "lat": -3.7448,
+        "lon": -38.5252,
+        "desc": "Dançar agarradinho."
+    },
+    {
+        "name": "Pirata Bar",
+        "cat": "Segunda-feira",
+        "color": "#34c759",
+        "lat": -3.7191,
+        "lon": -38.5166,
+        "desc": "Segunda mais louca do mundo."
+    },
+    {
+        "name": "Lupus Bier",
+        "cat": "Humor",
+        "color": "#34c759",
+        "lat": -3.7212,
+        "lon": -38.5158,
+        "desc": "Show de humor e Rossicléa."
+    },
+    {
+        "name": "Chico do Caranguejo",
+        "cat": "Praia Futuro",
+        "color": "#34c759",
+        "lat": -3.7542,
+        "lon": -38.444,
+        "desc": "Caranguejo e show."
+    },
+    {
+        "name": "Crocobeach",
+        "cat": "Resort",
+        "color": "#34c759",
+        "lat": -3.7405,
+        "lon": -38.4308,
+        "desc": "Hotel na areia na Praia do Futuro."
+    },
+    {
+        "name": "Mercado dos Peixes",
+        "cat": "Pôr do Sol",
+        "color": "#34c759",
+        "lat": -3.7215,
+        "lon": -38.4798,
+        "desc": "Camarão fresco na hora."
+    },
+    {
+        "name": "Orbita Blue",
+        "cat": "Praia Hype",
+        "color": "#34c759",
+        "lat": -3.7315,
+        "lon": -38.465,
+        "desc": "Eletrônica e gente bonita na PF."
+    },
+    {
+        "name": "Santa Praia",
+        "cat": "Beach Tennis",
+        "color": "#34c759",
+        "lat": -3.7322,
+        "lon": -38.4632,
+        "desc": "Suar e beber."
+    },
+    {
+        "name": "Pastel na Hora",
+        "cat": "Lanche",
+        "color": "#34c759",
+        "lat": -3.7348,
+        "lon": -38.5052,
+        "desc": "Pastel gigante."
+    },
+    {
+        "name": "Beira Mar Grill",
+        "cat": "Churrasco",
+        "color": "#34c759",
+        "lat": -3.7252,
+        "lon": -38.4902,
+        "desc": "Rodízio na orla."
+    },
+    {
+        "name": "Coco Bambu Sul",
+        "cat": "Evento",
+        "color": "#34c759",
+        "lat": -3.785,
+        "lon": -38.48,
+        "desc": "Maior restaurante do Brasil."
+    },
+    {
+        "name": "Ordones Sandry",
+        "cat": "Variação",
+        "color": "#34c759",
+        "lat": -3.736,
+        "lon": -38.5545,
+        "desc": "Versão premium do Ordones."
+    },
+    {
+        "name": "Tatu Bola",
+        "cat": "Balada Sertaneja",
+        "color": "#34c759",
+        "lat": -3.7338,
+        "lon": -38.4935,
+        "desc": "Paquera na semana."
+    },
+    {
+        "name": "Boteco Praia",
+        "cat": "Vista",
+        "color": "#34c759",
+        "lat": -3.7222,
+        "lon": -38.4948,
+        "desc": "Prédio na orla com vista."
+    },
+    {
+        "name": "Alpendre",
+        "cat": "Cultural",
+        "color": "#34c759",
+        "lat": -3.7278,
+        "lon": -38.5128,
+        "desc": "Cerveja de garrafa na calçada."
+    },
+    {
+        "name": "Pasto & Pizza",
+        "cat": "Rodízio",
+        "color": "#34c759",
+        "lat": -3.7352,
+        "lon": -38.4948,
+        "desc": "Pizza infinita."
+    },
+    {
+        "name": "Náutico Clube",
+        "cat": "Clube",
+        "color": "#34c759",
+        "lat": -3.7232,
+        "lon": -38.4918,
+        "desc": "Clube da orla."
+    },
+    {
+        "name": "Círculo Militar",
+        "cat": "Clube",
+        "color": "#34c759",
+        "lat": -3.7252,
+        "lon": -38.4948,
+        "desc": "Eventos militares e vista."
+    },
+    {
+        "name": "AABB",
+        "cat": "Clube",
+        "color": "#34c759",
+        "lat": -3.7462,
+        "lon": -38.502,
+        "desc": "Churrasco de domingo."
+    },
+    {
+        "name": "BNB Clube",
+        "cat": "Clube",
+        "color": "#34c759",
+        "lat": -3.748,
+        "lon": -38.5012,
+        "desc": "Festas juninas épicas."
+    },
+    {
+        "name": "Parque do Cocó",
+        "cat": "Natureza",
+        "color": "#34c759",
+        "lat": -3.7468,
+        "lon": -38.4825,
+        "desc": "Piquenique e trilha."
+    },
+    {
+        "name": "Padaria Costa Mendes",
+        "cat": "Montese",
+        "color": "#34c759",
+        "lat": -3.7598,
+        "lon": -38.5402,
+        "desc": "Pão de coco lendário."
+    },
+    {
+        "name": "Empório Delitália",
+        "cat": "Padaria Rica",
+        "color": "#34c759",
+        "lat": -3.7362,
+        "lon": -38.4948,
+        "desc": "Presunto de Parma às 22h."
+    },
+    {
+        "name": "Boteco do Lee",
+        "cat": "Neutro",
+        "color": "#ffcc00",
+        "lat": -3.7305,
+        "lon": -38.521,
+        "desc": "O purgatório."
+    },
+    {
+        "name": "Bar da Tetê",
+        "cat": "Indefinido",
+        "color": "#ffcc00",
+        "lat": -3.7321,
+        "lon": -38.5225,
+        "desc": "Ninguém define o público."
+    },
+    {
+        "name": "Relativo Bar",
+        "cat": "Depende",
+        "color": "#ffcc00",
+        "lat": -3.7315,
+        "lon": -38.5218,
+        "desc": "Tudo é relativo."
+    },
+    {
+        "name": "Shopping Iguatemi",
+        "cat": "O Mall",
+        "color": "#ffcc00",
+        "lat": -3.7554,
+        "lon": -38.4873,
+        "desc": "Onde todo mundo se encontra."
+    },
+    {
+        "name": "Shopping RioMar",
+        "cat": "O Novo Rico",
+        "color": "#ffcc00",
+        "lat": -3.741,
+        "lon": -38.4718,
+        "desc": "Gigante e frio."
+    },
+    {
+        "name": "North Shopping",
+        "cat": "O do Povo",
+        "color": "#ffcc00",
+        "lat": -3.7112,
+        "lon": -38.5818,
+        "desc": "Formigueiro na Bezerra."
+    },
+    {
+        "name": "Shopping Benfica",
+        "cat": "Diversidade",
+        "color": "#ffcc00",
+        "lat": -3.742,
+        "lon": -38.5378,
+        "desc": "Otakus e vovós."
+    },
+    {
+        "name": "Shopping Del Paseo",
+        "cat": "Compacto",
+        "color": "#ffcc00",
+        "lat": -3.735,
+        "lon": -38.4982,
+        "desc": "Shopping de rico velho."
+    },
+    {
+        "name": "Via Sul Shopping",
+        "cat": "Zona Sul",
+        "color": "#ffcc00",
+        "lat": -3.8298,
+        "lon": -38.521,
+        "desc": "Shopping da Seis Bocas."
+    },
+    {
+        "name": "Grand Shopping",
+        "cat": "Messejana",
+        "color": "#ffcc00",
+        "lat": -3.8218,
+        "lon": -38.4902,
+        "desc": "Salvou Messejana."
+    },
+    {
+        "name": "Pão de Açúcar Náutico",
+        "cat": "Meeting Point",
+        "color": "#ffcc00",
+        "lat": -3.7238,
+        "lon": -38.4928,
+        "desc": "Ponto de encontro."
+    },
+    {
+        "name": "Feirinha da Beira Mar",
+        "cat": "Turismo",
+        "color": "#ffcc00",
+        "lat": -3.7255,
+        "lon": -38.4965,
+        "desc": "Artesanato e castanha."
+    },
+    {
+        "name": "Estátua de Iracema",
+        "cat": "Foto",
+        "color": "#ffcc00",
+        "lat": -3.7196,
+        "lon": -38.5148,
+        "desc": "A guardiã da praia."
+    }
+]
