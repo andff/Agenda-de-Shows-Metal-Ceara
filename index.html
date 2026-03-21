@@ -21,9 +21,9 @@
         body {
             height: 100%;
             margin: 0;
-            font-family: Arial;
+            font-family: Verdana;
             overflow: hidden;
-            font-size: 14px;
+
         }
 
         #sidebar {
@@ -50,11 +50,13 @@
         input,
         select {
             width: 100%;
+            box-sizing: border-box;
+            min-width: 0;
             margin-bottom: 10px;
-            padding: 8px;
+            padding: 10px 8px;
             border: none;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .item {
@@ -81,19 +83,55 @@
             opacity: .5;
         }
 
+        /* Categorias Botões */
+        .categorias-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .categoria-btn {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .categoria-btn input[type="checkbox"] {
+            display: none;
+        }
+
+        .categoria-btn span {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .categoria-btn input[type="checkbox"]:checked+span {
+            background: orange;
+            color: #111;
+            font-weight: bold;
+        }
+
         /* botão mobile */
         #menuBtn {
             display: none;
             position: absolute;
             top: 10px;
-            left: 10px;
+            right: 15px;
             z-index: 2000;
             background: #111;
             color: white;
-            border: none;
-            padding: 10px;
+            border: 2px solid #333;
+            padding: 10px 15px;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         /* MOBILE */
@@ -101,7 +139,9 @@
 
             #sidebar {
                 left: -100%;
-                width: 80%;
+                width: 85%;
+                max-width: 320px;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
             }
 
             #sidebar.ativo {
@@ -127,30 +167,45 @@
     <div id="sidebar">
 
         <div style="display:flex; align-items:center; gap:10px;">
-            <div><img src="images/logo_metal_ceara.png" width="50" /></div>
+            <div><img src="images/logo_metal_ceara.png" width="70" /></div>
             <div>
-                <h5>Agenda de Shows Metal Ceará</h5>
+                <h3>Agenda de Shows<br>Metal Ceará</h3>
             </div>
         </div>
 
         <hr>
 
-        <h3>Buscar</h3>
-        <input id="busca" placeholder="Nome do local">
+        <!--<h3>Buscar</h3>-->
+        <input id="busca" placeholder="Buscar">
 
-        <h3>Cidade</h3>
+        <!--<h3>Cidade</h3>-->
         <select id="cidadeFiltro">
-            <option value="todas">Todas</option>
+            <option value="todas">Cidades</option>
         </select>
 
-        <h3>Período</h3>
-        <input type="date" id="dataInicio">
-        <input type="date" id="dataFim">
+        <h5>Categorias</h5>
+        <div class="categorias-container">
+            <label class="categoria-btn">
+                <input type="checkbox" value="bar" checked>
+                <span>Bar</span>
+            </label>
+            <label class="categoria-btn">
+                <input type="checkbox" value="show" checked>
+                <span>Show</span>
+            </label>
+            <label class="categoria-btn">
+                <input type="checkbox" value="evento" checked>
+                <span>Evento</span>
+            </label>
+        </div>
 
-        <h3>Categorias</h3>
-        <label><input type="checkbox" value="bar" checked> Bar</label><br>
-        <label><input type="checkbox" value="show" checked> Show</label><br>
-        <label><input type="checkbox" value="evento" checked> Evento</label><br>
+        <h5>Filtre pelo período</h5>
+        <div style="display: flex; gap: 10px;">
+            <input type="date" id="dataInicio">
+            <input type="date" id="dataFim">
+        </div>
+
+
 
         <hr>
 
@@ -166,7 +221,10 @@
     <script>
 
         // menu mobile
-        menuBtn.onclick = () => sidebar.classList.toggle("ativo");
+        menuBtn.onclick = () => {
+            sidebar.classList.toggle("ativo");
+            menuBtn.innerHTML = sidebar.classList.contains("ativo") ? "✖" : "☰";
+        };
 
         // mapa
         var map = L.map('map').setView([-3.76, -38.53], 13);
@@ -175,6 +233,14 @@
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
+
+        // fechar menu ao clicar no mapa no mobile
+        map.on('click', () => {
+            if (window.innerWidth < 768 && sidebar.classList.contains("ativo")) {
+                sidebar.classList.remove("ativo");
+                menuBtn.innerHTML = "☰";
+            }
+        });
 
         // cluster
         var cluster = L.markerClusterGroup();
@@ -316,7 +382,10 @@ ${p.data ? `📅 ${p.data} ${badgeData(p.data)}<br>` : ""}
                 div.onclick = () => {
                     map.setView([p.lat, p.lng], 16);
                     m.openPopup();
-                    if (window.innerWidth < 768) sidebar.classList.remove("ativo");
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.remove("ativo");
+                        menuBtn.innerHTML = "☰";
+                    }
                 };
 
                 lista.appendChild(div);
