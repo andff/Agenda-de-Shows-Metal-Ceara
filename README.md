@@ -37,7 +37,7 @@ Este ecossistema foi projetado para ser **rápido, leve e de custo zero** para h
 
 ---
 
-## ⚙️ Como Executar o Projeto
+## ⚙️ Como Executar o Projeto 
 
 Qualquer um pode rodar este projeto e usufruir da arquitetura, ou criar sua própria versão de mapa para outras temáticas!
 
