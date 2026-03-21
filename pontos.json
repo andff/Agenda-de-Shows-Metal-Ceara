@@ -1,25 +1,27 @@
 [
   {
-    "nome": "World Tour 2026 - Guns e Raimundos",
-    "tipo": "show",
+    "nome": "World Tour 2026 - Guns e Raimundo",
     "cidade": "Fortaleza",
-    "lat": -3.8081869313406693,
+    "tipo": "show",
+    "lat": -3.808186931340669,
     "lng": -38.52370445671905,
-    "descricao": "Arena Castelão - World Tour 2026\n( Guns N' Roses / Raimundos )",
     "telefone": "(21)88888-1111",
     "instagram": "https://instagram.com/hotelB",
+    "foto": "https://c-cdnet.cdn.smule.com/rs-s26/arr/59/37/6ae2a5ce-fbab-4e4c-a30c-60bd7e3a1377.jpg",
     "data": "2026-04-18",
-    "foto": "https://c-cdnet.cdn.smule.com/rs-s26/arr/59/37/6ae2a5ce-fbab-4e4c-a30c-60bd7e3a1377.jpg"
+    "descricao": "Arena Castelão - World Tour 2026( Guns N' Roses / Raimundos )"
   },
   {
-    "nome": "CCBNB",
-    "tipo": "evento",
+    "nome": "CCBNB2",
     "cidade": "Fortaleza",
+    "tipo": "evento",
     "lat": -3.7255869313406693,
     "lng": -38.52570445671905,
-    "descricao": "Hotel 4 estrelas",
     "telefone": "(21)88888-1111",
-    "instagram": "https://instagram.com/hotelB"
+    "instagram": "https://instagram.com/hotelB",
+    "foto": "",
+    "data": "",
+    "descricao": "Hotel 4 estrelas"
   },
   {
     "nome": "Covil Rock Bar",
