@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/logo_metal_ceara.png" alt="Logo Metal Ceará" width="150" />
+  <img src="images/logo_metal_ceara.png" alt="Logo Metal Ceará" width="250" />
   
   # 🎸 Agenda de Shows Metal Ceará 🤘
   
