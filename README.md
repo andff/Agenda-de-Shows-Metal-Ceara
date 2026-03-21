@@ -1,2 +1,78 @@
-# Agenda-MetalCeara
-Agenda-MetalCeara
+<div align="center">
+  <img src="images/logo_metal_ceara.png" alt="Logo Metal Ceará" width="150" />
+  
+  # 🎸 Mapa & Agenda Metal Ceará 🤘
+  
+  **O guia definitivo de bares, shows e eventos da cena underground e heavy metal no estado do Ceará.** Construído com mapas interativos em tempo real para você nunca mais perder um bate-cabeça!
+  
+  ---
+</div>
+
+## 🤘 Sobre o Projeto
+
+O **Mapa Metal Ceará** é uma plataforma interativa de mapeamento focada exclusivamente na rota do rock e do metal cearense. Através de um mapa dinâmico provido pelo *Leaflet*, organizadores e o público em geral podem localizar bares temáticos, festivais e apresentações das bandas locais e internacionais que passam pelo estado.
+
+### 🌟 Funcionalidades Principais
+- 🗺️ **Mapa Interativo:** Navegue pelo Ceará para encontrar o role mais perto de você.
+- ⚡ **Filtros Ágeis:** Busque atrações pelo nome, cidade, tipo (Bar, Show ou Evento) ou intervalo de datas.
+- ⏳ **Status de Tempo Real:** Sistema progressivo que informa os dias restantes para o evento ou se o show acontece **HOJE**.
+- 📍 **Integração GPS:** Trace rotas diretamente para o local usando a integração via clique com o Google Maps.
+- 📱 **Mobile First:** Interface totalmente adaptada para uso nas mãos durante o trajeto pro bar!
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+Este ecossistema foi projetado para ser **rápido, leve e de custo zero** para hospedagem, utilizando uma arquitetura orientada a Front-End estático aliado a um CMS local.
+
+- **Interface do Usuário (UI):** `HTML5`, `CSS3`, `JavaScript Vanilla`
+- **Mapas & Clusters:** `Leaflet.js` e `Leaflet MarkerCluster`
+- **Banco de Dados Estático:** `JSON` (`pontos.json`)
+- **Gerenciador Administrativo Web:** Interface baseada no navegador (`admin.html`)
+- **Gerenciador Desktop Profissional:** Construído em `Python 3` utilizando `Tkinter` na interface gráfica e `Pillow` para processamento das thumbnails.
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+Qualquer um pode rodar este projeto e usufruir da arquitetura, ou criar sua própria versão de mapa para outras temáticas!
+
+### 1. Visualizando o Mapa (Usuário Padrão)
+Não é necessário instalar nenhuma linguagem local no seu computador ou iniciar contêineres malucos. 
+Basta abrir o arquivo **`index.html`** diretamente no seu navegador, ou hospedar o repositório no `GitHub Pages` / `Vercel`.
+
+### 2. Cadastrando e Gerenciando os Locais (Administrador)
+Você tem duas opções para modificar o sistema de pontos do mapa:
+
+**Opção A: Gerenciador Web**
+1. Abra o arquivo `admin.html` no navegador.
+2. Adicione, edite ou exclua pontos graficamente.
+3. Clique em "Baixar JSON", e substitua o arquivo original `pontos.json` da sua pasta pelo novo arquivo baixado.
+
+**Opção B: App Desktop (Recomendado)**
+1. Certifique-se de ter o Python 3 instalado no sistema.
+2. Instale a biblioteca de imagem: `pip install Pillow`
+3. Execute o programa administrativo:
+   ```bash
+   python gerenciador2.py
+   ```
+4. Essa versão atualiza o arquivo `pontos.json` automaticamente e já mostra um preview das imagens hospedadas na nuvem!
+
+---
+
+## 🤝 Como Contribuir
+
+Achou um bug? O show mudou de local e o mapa está desatualizado? Ou você é desenvolvedor e tem uma dica para deixar a plataforma ainda mais insana?
+
+1. Faça um Fork do projeto
+2. Crie uma branch para a sua modificação: `git checkout -b feature/MoshPitFeature`
+3. Faça o commit das suas alterações: `git commit -m 'Add: nova banda irada'`
+4. Faça o push para a branch: `git push origin feature/MoshPitFeature`
+5. Abra um **Pull Request** para avaliarmos!
+
+---
+
+<div align="center">
+  <i>"Up the Irons!"</i> 🎸🍻<br>
+  Desenvolvido com ódio, cerveja quente e muito código na veia por <b>Agenda-MetalCeara</b>.
+</div>
