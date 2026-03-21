@@ -10,7 +10,7 @@
 
 ## LINK DO MAPA
 
-http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/
+<a href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/" target="_blank">http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/</a>
 
 ## 🤘 Sobre o Projeto
 
