@@ -1,295 +1,301 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>Mapa Profissional</title>
+    <meta charset="utf-8">
+    <title>Mapa Profissional</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="leaflet.css"/>
+    <link rel="stylesheet" href="leaflet.css" />
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
 
-<link rel="apple-touch-icon" sizes="180x180" href="images/logo_metal_ceara.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/logo_metal_ceara.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/logo_metal_ceara.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo_metal_ceara.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo_metal_ceara.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo_metal_ceara.png">
 
-<style>
-html,body{
-height:100%;
-margin:0;
-font-family:Arial;
-overflow:hidden;
-}
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+            overflow: hidden;
+        }
 
-#sidebar{
-position:absolute;
-left:0;
-top:0;
-width:320px;
-height:100%;
-background:#111;
-color:white;
-z-index:1000;
-overflow:auto;
-padding:15px;
-box-sizing:border-box;
-transition:.3s;
-}
+        #sidebar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 100%;
+            background: #111;
+            color: white;
+            z-index: 1000;
+            overflow: auto;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: .3s;
+        }
 
-#map{
-margin-left:320px;
-height:100%;
-transition:.3s;
-}
+        #map {
+            margin-left: 320px;
+            height: 100%;
+            transition: .3s;
+        }
 
-input,select{
-width:100%;
-margin-bottom:10px;
-padding:8px;
-border:none;
-border-radius:6px;
-font-size:16px;
-}
+        input,
+        select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
 
-.item{
-padding:10px;
-margin-bottom:8px;
-background:#1c1c1c;
-border-radius:8px;
-cursor:pointer;
-}
+        .item {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #1c1c1c;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-.item:hover{
-background:#333;
-}
+        .item:hover {
+            background: #333;
+        }
 
-.proximo{
-border-left:4px solid orange;
-}
+        .proximo {
+            border-left: 4px solid orange;
+        }
 
-.hoje{
-border-left:4px solid lime;
-}
+        .hoje {
+            border-left: 4px solid lime;
+        }
 
-.passado{
-opacity:.5;
-}
+        .passado {
+            opacity: .5;
+        }
 
-/* botão mobile */
-#menuBtn{
-display:none;
-position:absolute;
-top:10px;
-left:10px;
-z-index:2000;
-background:#111;
-color:white;
-border:none;
-padding:10px;
-border-radius:8px;
-font-size:18px;
-}
+        /* botão mobile */
+        #menuBtn {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2000;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
 
-/* MOBILE */
-@media (max-width:768px){
+        /* MOBILE */
+        @media (max-width:768px) {
 
-#sidebar{
-left:-100%;
-width:80%;
-}
+            #sidebar {
+                left: -100%;
+                width: 80%;
+            }
 
-#sidebar.ativo{
-left:0;
-}
+            #sidebar.ativo {
+                left: 0;
+            }
 
-#map{
-margin-left:0;
-}
+            #map {
+                margin-left: 0;
+            }
 
-#menuBtn{
-display:block;
-}
+            #menuBtn {
+                display: block;
+            }
 
-}
-</style>
+        }
+    </style>
 </head>
+
 <body>
 
-<button id="menuBtn">☰</button>
+    <button id="menuBtn">☰</button>
 
-<div id="sidebar">
+    <div id="sidebar">
 
-<div style="display:flex; align-items:center; gap:10px;">
-<div><img src="images/logo_metal_ceara.png" width="50"/></div>
-<div><h3>Agenda Metal Ceará</h3></div>
-</div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div><img src="images/logo_metal_ceara.png" width="50" /></div>
+            <div>
+                <h3>Agenda Metal Ceará</h3>
+            </div>
+        </div>
 
-<hr>
+        <hr>
 
-<h3>Buscar</h3>
-<input id="busca" placeholder="Nome do local">
+        <h3>Buscar</h3>
+        <input id="busca" placeholder="Nome do local">
 
-<h3>Cidade</h3>
-<select id="cidadeFiltro">
-<option value="todas">Todas</option>
-</select>
+        <h3>Cidade</h3>
+        <select id="cidadeFiltro">
+            <option value="todas">Todas</option>
+        </select>
 
-<h3>Período</h3>
-<input type="date" id="dataInicio">
-<input type="date" id="dataFim">
+        <h3>Período</h3>
+        <input type="date" id="dataInicio">
+        <input type="date" id="dataFim">
 
-<h3>Categorias</h3>
-<label><input type="checkbox" value="bar" checked> Bar</label><br>
-<label><input type="checkbox" value="show" checked> Show</label><br>
-<label><input type="checkbox" value="evento" checked> Evento</label><br>
+        <h3>Categorias</h3>
+        <label><input type="checkbox" value="bar" checked> Bar</label><br>
+        <label><input type="checkbox" value="show" checked> Show</label><br>
+        <label><input type="checkbox" value="evento" checked> Evento</label><br>
 
-<hr>
+        <hr>
 
-<div id="lista"></div>
+        <div id="lista"></div>
 
-</div>
+    </div>
 
-<div id="map"></div>
+    <div id="map"></div>
 
-<script src="leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
-<script>
+    <script>
 
-// menu mobile
-menuBtn.onclick=()=> sidebar.classList.toggle("ativo");
+        // menu mobile
+        menuBtn.onclick = () => sidebar.classList.toggle("ativo");
 
-// mapa
-var map = L.map('map').setView([-3.76,-38.53],13);
+        // mapa
+        var map = L.map('map').setView([-3.76, -38.53], 13);
 
-// tiles
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-attribution:'© OpenStreetMap'
-}).addTo(map);
+        // tiles
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
 
-// cluster
-var cluster = L.markerClusterGroup();
-map.addLayer(cluster);
+        // cluster
+        var cluster = L.markerClusterGroup();
+        map.addLayer(cluster);
 
-// ícones
-var icones={
-bar:L.icon({iconUrl:"https://cdn-icons-png.flaticon.com/128/894/894918.png",iconSize:[32,32]}),
-show:L.icon({iconUrl:"https://cdn-icons-png.flaticon.com/128/1537/1537500.png",iconSize:[32,32]}),
-evento:L.icon({iconUrl:"https://cdn-icons-png.flaticon.com/128/12822/12822749.png",iconSize:[32,32]})
-};
+        // ícones
+        var icones = {
+            bar: L.icon({ iconUrl: "https://cdn-icons-png.flaticon.com/512/5817/5817087.png", iconSize: [32, 32] }),
+            show: L.icon({ iconUrl: "https://cdn-icons-png.flaticon.com/512/5140/5140396.png", iconSize: [32, 32] }),
+            evento: L.icon({ iconUrl: "https://static.vecteezy.com/system/resources/previews/023/652/060/non_2x/green-map-pointer-icon-on-a-transparent-background-free-png.png", iconSize: [32, 32] })
+        };
 
-var locais=[];
-
-
-// carregar JSON
-fetch("pontos.json")
-.then(r=>r.json())
-.then(data=>{
-locais=data;
-popularCidades();
-render();
-});
+        var locais = [];
 
 
-// cidades
-function popularCidades(){
-let cidades=[...new Set(locais.map(l=>l.cidade))];
-cidades.forEach(c=>{
-let o=document.createElement("option");
-o.value=c;
-o.textContent=c;
-cidadeFiltro.appendChild(o);
-});
-}
+        // carregar JSON
+        fetch("pontos.json")
+            .then(r => r.json())
+            .then(data => {
+                locais = data;
+                popularCidades();
+                render();
+            });
 
 
-// calcular dias
-function diasRestantes(data){
-let hoje=new Date();
-let evento=new Date(data);
-hoje.setHours(0,0,0,0);
-evento.setHours(0,0,0,0);
-return Math.ceil((evento-hoje)/86400000);
-}
+        // cidades
+        function popularCidades() {
+            let cidades = [...new Set(locais.map(l => l.cidade))];
+            cidades.forEach(c => {
+                let o = document.createElement("option");
+                o.value = c;
+                o.textContent = c;
+                cidadeFiltro.appendChild(o);
+            });
+        }
 
 
-// badge
-function badgeData(data){
-if(!data) return "";
-
-let dias=diasRestantes(data);
-
-if(dias===0) return `<span style="color:#0f0;font-weight:bold">HOJE</span>`;
-if(dias>0 && dias<=7) return `<span style="color:orange;font-weight:bold">EM ${dias} DIAS</span>`;
-if(dias<0) return `<span style="color:#777">ENCERRADO</span>`;
-
-return "";
-}
+        // calcular dias
+        function diasRestantes(data) {
+            let hoje = new Date();
+            let evento = new Date(data);
+            hoje.setHours(0, 0, 0, 0);
+            evento.setHours(0, 0, 0, 0);
+            return Math.ceil((evento - hoje) / 86400000);
+        }
 
 
-// filtros
-function filtros(){
+        // badge
+        function badgeData(data) {
+            if (!data) return "";
 
-let nome=busca.value.toLowerCase();
-let cidade=cidadeFiltro.value;
-let tipos=[...document.querySelectorAll("input[type=checkbox]:checked")].map(c=>c.value);
-let di=dataInicio.value;
-let df=dataFim.value;
+            let dias = diasRestantes(data);
 
-return locais.filter(l=>{
+            if (dias === 0) return `<span style="color:#0f0;font-weight:bold">HOJE</span>`;
+            if (dias > 0 && dias <= 7) return `<span style="color:orange;font-weight:bold">EM ${dias} DIAS</span>`;
+            if (dias < 0) return `<span style="color:#777">ENCERRADO</span>`;
 
-if(nome && !l.nome.toLowerCase().includes(nome)) return false;
-if(cidade!="todas" && l.cidade!=cidade) return false;
-if(!tipos.includes(l.tipo)) return false;
-
-if((di||df)&&l.data){
-if(di && l.data<di) return false;
-if(df && l.data>df) return false;
-}
-
-if((di||df)&&!l.data) return false;
-
-return true;
-
-});
-}
+            return "";
+        }
 
 
-// render
-function render(){
+        // filtros
+        function filtros() {
 
-cluster.clearLayers();
-lista.innerHTML="";
+            let nome = busca.value.toLowerCase();
+            let cidade = cidadeFiltro.value;
+            let tipos = [...document.querySelectorAll("input[type=checkbox]:checked")].map(c => c.value);
+            let di = dataInicio.value;
+            let df = dataFim.value;
 
-let filtrados=filtros();
+            return locais.filter(l => {
 
-// ordenar
-filtrados.sort((a,b)=>{
-if(!a.data && !b.data) return 0;
-if(!a.data) return 1;
-if(!b.data) return -1;
-return new Date(a.data)-new Date(b.data);
-});
+                if (nome && !l.nome.toLowerCase().includes(nome)) return false;
+                if (cidade != "todas" && l.cidade != cidade) return false;
+                if (!tipos.includes(l.tipo)) return false;
+
+                if ((di || df) && l.data) {
+                    if (di && l.data < di) return false;
+                    if (df && l.data > df) return false;
+                }
+
+                if ((di || df) && !l.data) return false;
+
+                return true;
+
+            });
+        }
 
 
-filtrados.forEach(p=>{
+        // render
+        function render() {
 
-let dias=p.data?diasRestantes(p.data):null;
+            cluster.clearLayers();
+            lista.innerHTML = "";
 
-let classe="";
-if(dias===0) classe="hoje";
-else if(dias>0 && dias<=7) classe="proximo";
-else if(dias<0) classe="passado";
+            let filtrados = filtros();
 
-let popup=`
+            // ordenar
+            filtrados.sort((a, b) => {
+                if (!a.data && !b.data) return 0;
+                if (!a.data) return 1;
+                if (!b.data) return -1;
+                return new Date(a.data) - new Date(b.data);
+            });
+
+
+            filtrados.forEach(p => {
+
+                let dias = p.data ? diasRestantes(p.data) : null;
+
+                let classe = "";
+                if (dias === 0) classe = "hoje";
+                else if (dias > 0 && dias <= 7) classe = "proximo";
+                else if (dias < 0) classe = "passado";
+
+                let popup = `
 <div style="width:200px">
-<img src="${p.foto||""}" style="width:100%;border-radius:8px;margin-bottom:6px">
+<img src="${p.foto || ""}" style="width:100%;border-radius:8px;margin-bottom:6px">
 <b>${p.nome}</b><br>
 ${p.descricao}<br><br>
 📍 ${p.cidade}<br>
-${p.data?`📅 ${p.data} ${badgeData(p.data)}<br>`:""}
+${p.data ? `📅 ${p.data} ${badgeData(p.data)}<br>` : ""}
 📞 ${p.telefone}<br>
 <a target="_blank" href="${p.instagram}">Instagram</a><br><br>
 <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}">
@@ -298,35 +304,36 @@ ${p.data?`📅 ${p.data} ${badgeData(p.data)}<br>`:""}
 </div>
 `;
 
-let m=L.marker([p.lat,p.lng],{icon:icones[p.tipo]}).bindPopup(popup);
-cluster.addLayer(m);
+                let m = L.marker([p.lat, p.lng], { icon: icones[p.tipo] }).bindPopup(popup);
+                cluster.addLayer(m);
 
-// lista lateral
-let div=document.createElement("div");
-div.className="item "+classe;
-div.innerHTML=`<b>${p.nome}</b><br>${p.cidade}<br>${p.data?badgeData(p.data):""}`;
+                // lista lateral
+                let div = document.createElement("div");
+                div.className = "item " + classe;
+                div.innerHTML = `<b>${p.nome}</b><br>${p.cidade}<br>${p.data ? badgeData(p.data) : ""}`;
 
-div.onclick=()=>{
-map.setView([p.lat,p.lng],16);
-m.openPopup();
-if(window.innerWidth<768) sidebar.classList.remove("ativo");
-};
+                div.onclick = () => {
+                    map.setView([p.lat, p.lng], 16);
+                    m.openPopup();
+                    if (window.innerWidth < 768) sidebar.classList.remove("ativo");
+                };
 
-lista.appendChild(div);
+                lista.appendChild(div);
 
-});
+            });
 
-}
+        }
 
 
-// eventos
-busca.oninput=render;
-cidadeFiltro.onchange=render;
-document.querySelectorAll("input[type=checkbox]").forEach(c=>c.onchange=render);
-dataInicio.onchange=render;
-dataFim.onchange=render;
+        // eventos
+        busca.oninput = render;
+        cidadeFiltro.onchange = render;
+        document.querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = render);
+        dataInicio.onchange = render;
+        dataFim.onchange = render;
 
-</script>
+    </script>
 
 </body>
+
 </html>

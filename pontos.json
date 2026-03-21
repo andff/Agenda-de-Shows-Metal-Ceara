@@ -1,57 +1,81 @@
 [
   {
-    "nome": "Show do Guns",
-    "lat": -3.8081,
-    "lng": -38.523,
-    "cidade": "Fortaleza",
+    "nome": "World Tour 2026 - Guns e Raimundos",
     "tipo": "show",
-    "descricao": "Arena Castelão",
+    "cidade": "Fortaleza",
+    "lat": -3.8081869313406693,
+    "lng": -38.52370445671905,
+    "descricao": "Arena Castelão - World Tour 2026\n( Guns N' Roses / Raimundos )",
     "telefone": "(21)88888-1111",
     "instagram": "https://instagram.com/hotelB",
-    "data": "2026-02-20",
+    "data": "2026-04-18",
     "foto": "https://c-cdnet.cdn.smule.com/rs-s26/arr/59/37/6ae2a5ce-fbab-4e4c-a30c-60bd7e3a1377.jpg"
   },
   {
     "nome": "CCBNB",
+    "tipo": "evento",
+    "cidade": "Fortaleza",
     "lat": -3.7255869313406693,
     "lng": -38.52570445671905,
-    "cidade": "Fortaleza",
-    "tipo": "bar",
     "descricao": "Hotel 4 estrelas",
     "telefone": "(21)88888-1111",
     "instagram": "https://instagram.com/hotelB"
   },
   {
-    "nome": "Show do Matanza",
-    "lat": -3.7803671767369553,
-    "lng": -38.56526295283446,
-    "cidade": "Fortaleza",
-    "tipo": "show",
-    "descricao": "Baladinha Club",
-    "telefone": "(21)88888-1111",
-    "instagram": "https://instagram.com/hotelB"
-  },
-  {
-    "nome": "Fortaleza Rock Fest",
-    "lat": -3.7213815159864625,
-    "lng": -38.51922126933725,
-    "cidade": "Fortaleza",
-    "tipo": "show",
-    "descricao": "Havana Iraceme - Festival com várias bandas",
-    "telefone": "(21)88888-1111",
-    "instagram": "https://instagram.com/hotelB",
-    "data": "2026-03-14",
-    "foto": "https://images.sympla.com.br/69760d3b7fb25.jpg"
-  },
-  {
     "nome": "Covil Rock Bar",
     "tipo": "bar",
     "cidade": "Fortaleza",
-    "lat": -3.7438,
-    "lng": -38.5385,
+    "lat": -3.743883848325932,
+    "lng": -38.53855786890982,
     "descricao": "Birita e porrada",
     "telefone": "(85)98808-7627",
     "instagram": "https://instagram.com/restauranteA",
     "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC2o96e7PctMYMp905Q6maFF9OYbkWuc__6Q&s"
+  },
+  {
+    "nome": "Valentina Clube",
+    "tipo": "bar",
+    "cidade": "Fortaleza",
+    "lat": -3.722183848325932,
+    "lng": -38.52035786890982,
+    "descricao": "Fortaleza Extreme Festival III\n(NILE / Devils Henchman / Miasthenia / Ereboros / Chaos Synopsis / Torment The Skies / Cranium Crushing / Necrofilosophy)",
+    "data": "2026-03-22",
+    "foto": "https://instagram.ffor50-1.fna.fbcdn.net/v/t51.82787-19/641094653_18565056697036655_5538466771797857175_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby44MzEuYzIifQ&_nc_ht=instagram.ffor50-1.fna.fbcdn.net&_nc_cat=111&_nc_oc=Q6cZ2gGRivrSq81DzzSl6xJKSvZWaSCwiUz3QzUpoj-jYR3f44f3Oo8PP9jzgeHmesmxAJ47-aszgcn0Kb2Elib7IgKx&_nc_ohc=g2_0BgGOah0Q7kNvwGk8DD9&_nc_gid=jPgFVQvTN0iysYbItPpwcw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfxbuB1rtrqie-21whzv83niCBZd0YztEA4Wt3w1_SEtnA&oe=69C460B3&_nc_sid=7a9f4b"
+  },
+  {
+    "nome": "Dragão Hall",
+    "tipo": "bar",
+    "cidade": "Fortaleza",
+    "lat": -3.7210398302461134,
+    "lng": -38.51920851900618,
+    "descricao": "Homenagem a André Matos\n( All Metal Stars BR / Tierramystica / Phornax )",
+    "data": "2026-04-28"
+  },
+  {
+    "nome": "Anarchy Moto Rock Pub",
+    "tipo": "bar",
+    "cidade": "Fortaleza",
+    "lat": -3.8753025034241095,
+    "lng": -38.62305872116225,
+    "descricao": "Anarchy Autoral\n( Oráculo / Crashkill / Lucifer Priest / Madame Kadillac )",
+    "data": "2026-03-29"
+  },
+  {
+    "nome": "Esconderijo Rock Pub",
+    "tipo": "bar",
+    "cidade": "Fortaleza",
+    "lat": -3.7526113275665756,
+    "lng": -38.54988550243231,
+    "descricao": "O Prenúncio do Caos\n( Jacau / Thrunda / O Ciclo / Last Blood / Colossais )",
+    "data": "2026-04-30"
+  },
+  {
+    "nome": "Grêmio de Caucaia",
+    "tipo": "evento",
+    "cidade": "Caucaia",
+    "lat": -3.736444682368854,
+    "lng": -38.65555234038645,
+    "descricao": "Caucaia Devastation Rockfest\n( Lúcifer Priest / Réu Podre / Wild Hunter / Fudendo o Sistema / Ossuário / Bull Control)",
+    "data": "2026-05-09"
   }
 ]
