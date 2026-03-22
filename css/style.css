@@ -238,3 +238,11 @@ select {
 .menu-content a:hover {
     text-decoration: underline;
 }
+
+.rodape {
+    text-align: center;
+    font-size: 10px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+}
