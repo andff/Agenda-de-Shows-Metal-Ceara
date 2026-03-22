@@ -12,21 +12,17 @@
 
 <a href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/" target="_blank">http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/</a>
 
-O <b>Agenda de Shows Metal Ceará</b> é um projeto colaborativo que visa centralizar informações sobre a
-                cena underground no estado. Feito por fãs para fãs.
-                <br>
-                <img src="img/instagram_logo.png" width="15" />
-                Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
-                <br>
-                <img src="img/whatsapp_logo.png" width="15" />
-                <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Grupo no Whatsapp</a>
+<img src="img/instagram_logo.png" width="15" />
+Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
+<br>
+<img src="img/whatsapp_logo.png" width="15" />
+<a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Grupo no Whatsapp</a>
 
-                <br><br>
-
-                💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
-                <br>
-                📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a> no
-                Github (público)
+<br><br>
+💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
+<br>
+📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a> no
+Github (público)
 
 
 
