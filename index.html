@@ -11,7 +11,7 @@
     <meta name="description"
         content="O guia definitivo de bares, shows e eventos da cena underground e heavy metal no estado do Ceará com mapa interativo.">
     <meta name="keywords" content="metal, ceará, agenda, shows, rock, underground, fortaleza, mapa, bares, eventos">
-    <meta name="author" content="Metal Ceará Project">
+    <meta name="author" content="Github andff">
     <link rel="canonical" href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
 
     <!-- Open Graph / Facebook -->
@@ -54,9 +54,6 @@
 
 <body>
 
-
-
-
     <button id="menuBtn">☰</button>
 
     <div id="sidebar">
@@ -76,7 +73,7 @@
             </div>
         </div>
 
-        <div class="sidebar-menu">
+        <div class="sidebar-menu animate__animated animate__bounceInLeft">
             <div class="menu-names">
                 <button class="menu-btn" onclick="toggleMenu('ajuda', this)">Ajuda</button>
                 <button class="menu-btn" onclick="toggleMenu('sobre', this)">Sobre</button>
@@ -118,7 +115,7 @@
         <hr>
 
         <!--<h5>Categorias</h5>-->
-        <div class="categorias-container">
+        <div class="categorias-container animate__animated animate__bounceInLeft">
             <label class="categoria-btn">
                 <input type="checkbox" value="bar" checked>
                 <span>Bares</span>
@@ -134,22 +131,22 @@
         </div>
 
         <!--<h3>Buscar</h3>-->
-        <input id="busca" placeholder="Busca: digite aqui">
+        <input id="busca" placeholder="Busca: digite aqui" class="animate__animated animate__bounceInLeft">
 
         <!--<h3>Cidade</h3>-->
-        <select id="cidadeFiltro">
+        <select id="cidadeFiltro" class="animate__animated animate__bounceInLeft">
             <option value="todas">Escolha a cidades</option>
         </select>
 
 
 
         <!--<h5>Filtre pelo período</h5>-->
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 10px;" class="animate__animated animate__bounceInLeft">
             <input type="date" id="dataInicio">
             <input type="date" id="dataFim">
         </div>
         <hr>
-        <div id="lista"></div>
+        <div id="lista" class="animate__animated animate__backInUp"></div>
 
         <div class="rodape">
             &copy; Copyright é o caralho, viva o opensource 🤘
