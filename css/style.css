@@ -259,3 +259,32 @@ select {
     font-size: 20px;
 
 }
+
+
+#btnLocalizacao {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    z-index: 1000;
+    background: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    transition: background 0.2s;
+}
+
+#btnLocalizacao:hover {
+    background: #f4f4f4;
+}
+
+#btnLocalizacao.ativo {
+    background: #e8f4fd;
+    border-color: #3498db;
+}
