@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="O guia definitivo de bares, shows e eventos da cena underground e heavy metal no estado do Ceará com mapa interativo.">
+    <meta name="description"
+        content="O guia definitivo de bares, shows e eventos da cena underground e heavy metal no estado do Ceará com mapa interativo.">
     <meta name="keywords" content="metal, ceará, agenda, shows, rock, underground, fortaleza, mapa, bares, eventos">
     <meta name="author" content="Metal Ceará Project">
     <link rel="canonical" href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
@@ -17,15 +18,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
     <meta property="og:title" content="Agenda de Shows Metal Ceará 🤘">
-    <meta property="og:description" content="Encontre bares, shows e eventos de Metal no Ceará em um mapa interativo e em tempo real.">
+    <meta property="og:description"
+        content="Encontre bares, shows e eventos de Metal no Ceará em um mapa interativo e em tempo real.">
     <meta property="og:image" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/img/logo_metal_ceara.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
     <meta property="twitter:title" content="Agenda de Shows Metal Ceará 🤘">
-    <meta property="twitter:description" content="O guia definitivo de bares, shows e eventos de Heavy Metal no Ceará com mapa interativo.">
-    <meta property="twitter:image" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/img/logo_metal_ceara.png">
+    <meta property="twitter:description"
+        content="O guia definitivo de bares, shows e eventos de Heavy Metal no Ceará com mapa interativo.">
+    <meta property="twitter:image"
+        content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/img/logo_metal_ceara.png">
 
 
     <link rel="stylesheet" href="css/leaflet.css" />
@@ -62,15 +66,7 @@
 
         <hr>
 
-        <!--<h3>Buscar</h3>-->
-        <input id="busca" placeholder="Buscar">
-
-        <!--<h3>Cidade</h3>-->
-        <select id="cidadeFiltro">
-            <option value="todas">Cidades</option>
-        </select>
-
-        <h5>Categorias</h5>
+        <!--<h5>Categorias</h5>-->
         <div class="categorias-container">
             <label class="categoria-btn">
                 <input type="checkbox" value="bar" checked>
@@ -86,7 +82,17 @@
             </label>
         </div>
 
-        <h5>Filtre pelo período</h5>
+        <!--<h3>Buscar</h3>-->
+        <input id="busca" placeholder="Buscar">
+
+        <!--<h3>Cidade</h3>-->
+        <select id="cidadeFiltro">
+            <option value="todas">Cidades</option>
+        </select>
+
+
+
+        <!--<h5>Filtre pelo período</h5>-->
         <div style="display: flex; gap: 10px;">
             <input type="date" id="dataInicio">
             <input type="date" id="dataFim">
@@ -95,7 +101,7 @@
 
 
         <hr>
-
+        <h5>Próximas atrações</h5>
         <div id="lista"></div>
 
     </div>

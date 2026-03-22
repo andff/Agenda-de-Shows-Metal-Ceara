@@ -32,31 +32,14 @@ Este ecossistema foi projetado para ser **rápido, leve e de custo zero** para h
 - **Interface do Usuário (UI):** `HTML5`, `CSS3`, `JavaScript Vanilla`
 - **Mapas & Clusters:** `Leaflet.js` e `Leaflet MarkerCluster`
 - **Banco de Dados Estático:** `JSON` (`database.json`)
-- **Gerenciador Administrativo Web:** Interface baseada no navegador (`admin.html`)
 - **Gerenciador Desktop Profissional:** Construído em `Python 3` utilizando `Tkinter` na interface gráfica e `Pillow` para processamento das thumbnails.
 
----
 
-## ⚙️ Como Executar o Projeto 
-
-Qualquer um pode rodar este projeto e usufruir da arquitetura, ou criar sua própria versão de mapa para outras temáticas!
-
-### 1. Visualizando o Mapa (Usuário Padrão)
-Não é necessário instalar nenhuma linguagem local no seu computador ou iniciar contêineres malucos. 
-Basta abrir o arquivo **`index.html`** diretamente no seu navegador, ou hospedar o repositório no `GitHub Pages` / `Vercel`.
-
-### 2. Cadastrando e Gerenciando os Locais (Administrador)
-Você tem duas opções para modificar o sistema de pontos do mapa:
-
-
+<!--
 ---
 
 ## 🤝 Como Contribuir
 
 Achou um bug? O show mudou de local e o mapa está desatualizado? Ou você é desenvolvedor e tem uma dica para deixar a plataforma ainda mais insana?
 
-1. Faça um Fork do projeto
-2. Crie uma branch para a sua modificação: `git checkout -b feature/MoshPitFeature`
-3. Faça o commit das suas alterações: `git commit -m 'Add: nova banda irada'`
-4. Faça o push para a branch: `git push origin feature/MoshPitFeature`
-5. Abra um **Pull Request** para avaliarmos!
+-->
