@@ -9,7 +9,7 @@
 </div>
 
 
-LINK DO MAPA ---> <a href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/" target="_blank">CLIQUE AQUI</a>
+LINK DO MAPA ---> <a href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/" target="_blank">http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/</a>
 
 
 
