@@ -18,18 +18,18 @@
     <meta property="og:url" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
     <meta property="og:title" content="Agenda de Shows Metal Ceará 🤘">
     <meta property="og:description" content="Encontre bares, shows e eventos de Metal no Ceará em um mapa interativo e em tempo real.">
-    <meta property="og:image" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/images/logo_metal_ceara.png">
+    <meta property="og:image" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/img/logo_metal_ceara.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
     <meta property="twitter:title" content="Agenda de Shows Metal Ceará 🤘">
     <meta property="twitter:description" content="O guia definitivo de bares, shows e eventos de Heavy Metal no Ceará com mapa interativo.">
-    <meta property="twitter:image" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/images/logo_metal_ceara.png">
+    <meta property="twitter:image" content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/img/logo_metal_ceara.png">
 
 
     <link rel="stylesheet" href="css/leaflet.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=1.1" />
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
@@ -40,9 +40,9 @@
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="images/logo_metal_ceara.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/logo_metal_ceara.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/logo_metal_ceara.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/logo_metal_ceara.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo_metal_ceara.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/logo_metal_ceara.png">
 
 
 </head>
@@ -54,7 +54,7 @@
     <div id="sidebar">
 
         <div style="display:flex; align-items:center; gap:10px;">
-            <div><img src="images/logo_metal_ceara.png" width="70" /></div>
+            <div><img src="img/logo_metal_ceara.png" width="70" /></div>
             <div>
                 <h3>Agenda de Shows<br>Metal Ceará</h3>
             </div>
@@ -118,6 +118,8 @@
             zoomControl: false
         }).setView([-3.76, -38.53], 13);
 
+        L.Icon.Default.imagePath = 'img/';
+
         L.control.zoom({
             position: 'topright'
         }).addTo(map);
@@ -141,9 +143,9 @@
 
         // ícones
         var icones = {
-            bar: L.icon({ iconUrl: "https://cdn-icons-png.flaticon.com/512/5817/5817087.png", iconSize: [32, 32] }),
-            show: L.icon({ iconUrl: "https://cdn-icons-png.flaticon.com/512/5140/5140396.png", iconSize: [32, 32] }),
-            evento: L.icon({ iconUrl: "https://static.vecteezy.com/system/resources/previews/023/652/060/non_2x/green-map-pointer-icon-on-a-transparent-background-free-png.png", iconSize: [32, 32] })
+            bar: L.icon({ iconUrl: "img/vermelho.png", iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+            show: L.icon({ iconUrl: "img/amarelo.png", iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] }),
+            evento: L.icon({ iconUrl: "img/azul.png", iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -32] })
         };
 
         var locais = [];

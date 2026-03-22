@@ -92,9 +92,20 @@ select {
 }
 
 .categoria-btn input[type="checkbox"]:checked+span {
-    background: orange;
     color: #111;
     font-weight: bold;
+}
+
+.categoria-btn input[value="bar"]:checked+span {
+    background: #e74c3c; /* Vermelho */
+}
+
+.categoria-btn input[value="show"]:checked+span {
+    background: #f1c40f; /* Amarelo */
+}
+
+.categoria-btn input[value="evento"]:checked+span {
+    background: #3498db; /* Azul */
 }
 
 /* botão mobile */

@@ -12181,7 +12181,7 @@
 
   		// The alt attribute is set to the empty string,
   		// allowing screen readers to ignore the decorative image tiles.
-  		// https://www.w3.org/WAI/tutorials/images/decorative/
+  		// https://www.w3.org/WAI/tutorials/img/decorative/
   		// https://www.w3.org/TR/html-aria/#el-img-empty-alt
   		tile.alt = '';
 
