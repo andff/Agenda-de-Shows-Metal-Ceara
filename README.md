@@ -16,7 +16,7 @@ LINK DO MAPA ---> <a href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/"
 ## Outros links
 <img src="img/instagram_logo.png" width="15" />Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
 
-<img src="img/whatsapp_logo.png" width="15" /><a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Grupo no Whatsapp</a>
+<img src="img/whatsapp_logo.png" width="15" />Whatsapp: <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Link do Grupo</a>
 
 💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
 

@@ -247,3 +247,15 @@ select {
     color: rgb(255, 255, 255);
     margin-top: 10px;
 }
+
+.btn_formulario button {
+    background-color: #ef9953;
+    border-radius: 10px;
+    border: 0px;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+
+}
