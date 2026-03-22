@@ -3,7 +3,7 @@
   
   # 🎸 Agenda de Shows Metal Ceará 🤘
   
-  **O guia definitivo de bares, shows e eventos da cena underground e heavy metal no estado do Ceará.** Construído com mapas interativos em tempo real para você nunca mais perder um bate-cabeça!
+  **O guia definitivo de bares, shows e eventos da cena underground e heavy metal no estado do Ceará.** Construído com mapas interativos em tempo real para você não perder nenhum role !
   
   ---
 </div>

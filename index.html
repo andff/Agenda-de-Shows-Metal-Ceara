@@ -48,17 +48,29 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/logo_metal_ceara.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/logo_metal_ceara.png">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
 
 <body>
 
+
+
+
     <button id="menuBtn">☰</button>
 
     <div id="sidebar">
 
-        <div style="display:flex; align-items:center; gap:10px;">
-            <div><img src="img/logo_metal_ceara.png" width="70" /></div>
+        <!-- RETIRAR DEPOIS DO LANÇAMENTO -->
+        <div style="text-align: center; color: #f2ff00; font-weight: bold; font-size: 10px;">EM FASE DE TESTE</div>
+        <br>
+        <!-- FIM RETIRAR DEPOIS DO LANÇAMENTO -->
+
+        <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__tada">
+            <div>
+                <img src="img/logo_metal_ceara.png" width="70"
+                    style="border-radius: 10px; box-shadow: 0px 0px 10px #ffffff;" />
+            </div>
             <div>
                 <h3>Agenda de Shows<br>Metal Ceará</h3>
             </div>
@@ -83,7 +95,7 @@
 
             <div id="sobre" class="menu-content">
                 O <b>Agenda de Shows Metal Ceará</b> é um projeto colaborativo que visa centralizar informações sobre a
-                cena underground no estado. Feito por fãs para fãs.
+                cena underground no estado do Ceará.
                 <br>
                 <img src="img/instagram_logo.png" width="15" />
                 Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
@@ -109,15 +121,15 @@
         <div class="categorias-container">
             <label class="categoria-btn">
                 <input type="checkbox" value="bar" checked>
-                <span>Bar</span>
+                <span>Bares</span>
             </label>
             <label class="categoria-btn">
                 <input type="checkbox" value="show" checked>
-                <span>Show</span>
+                <span>Shows</span>
             </label>
             <label class="categoria-btn">
                 <input type="checkbox" value="evento" checked>
-                <span>Evento</span>
+                <span>Eventos</span>
             </label>
         </div>
 
@@ -126,7 +138,7 @@
 
         <!--<h3>Cidade</h3>-->
         <select id="cidadeFiltro">
-            <option value="todas">Cidades</option>
+            <option value="todas">Escolha a cidades</option>
         </select>
 
 
@@ -136,7 +148,7 @@
             <input type="date" id="dataInicio">
             <input type="date" id="dataFim">
         </div>
-
+        <hr>
         <div id="lista"></div>
 
     </div>
@@ -212,7 +224,7 @@
                 locais = data;
                 popularCidades();
                 render();
-                
+
                 // ajustar zoom inicial para mostrar todos os pontos
                 if (markerLayer.getLayers().length > 0) {
                     map.fitBounds(markerLayer.getBounds().pad(0.1));
@@ -359,6 +371,8 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
         dataFim.onchange = render;
 
     </script>
+
+
 
 </body>
 

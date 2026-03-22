@@ -6,6 +6,11 @@ body {
     overflow: hidden;
 }
 
+hr {
+    border: 2px solid #3b3b3b;
+    margin: 10px 0;
+}
+
 #sidebar {
     position: absolute;
     left: 0;
@@ -33,10 +38,11 @@ select {
     box-sizing: border-box;
     min-width: 0;
     margin-bottom: 10px;
-    padding: 10px 8px;
+    padding: 5px 5px;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .item {
