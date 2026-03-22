@@ -97,15 +97,18 @@ select {
 }
 
 .categoria-btn input[value="bar"]:checked+span {
-    background: #e74c3c; /* Vermelho */
+    background: #e74c3c;
+    /* Vermelho */
 }
 
 .categoria-btn input[value="show"]:checked+span {
-    background: #f1c40f; /* Amarelo */
+    background: #f1c40f;
+    /* Amarelo */
 }
 
 .categoria-btn input[value="evento"]:checked+span {
-    background: #3498db; /* Azul */
+    background: #3498db;
+    /* Azul */
 }
 
 /* botão mobile */
@@ -153,4 +156,79 @@ select {
         right: 5px !important;
     }
 
+}
+
+/* Menu Sidebar (Ajuda, Sobre, Colabore) - Estilo Minimalista */
+.sidebar-menu {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.menu-names {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.menu-item {
+    margin-bottom: 0;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    padding: 5px 0;
+    color: #545454;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-btn:hover,
+.menu-btn.active {
+    color: white;
+}
+
+.menu-btn::after {
+    display: none;
+    /* Remove a seta */
+}
+
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    background: #1a1a1a;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #ccc;
+    opacity: 0;
+    position: absolute;
+    /* Para aparecer "embaixo" sem empurrar tudo se possível, ou relativo? */
+    width: calc(100% - 30px);
+    z-index: 10;
+}
+
+/* Ajuste para o conteúdo aparecer abaixo da linha de nomes */
+.menu-content.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 15px;
+    border: 1px solid #444;
+    margin-top: 10px;
+    position: static;
+    /* Volta para o fluxo normal para empurrar conteúdo se necessário, ou mantém absoluto? */
+}
+
+.menu-content a {
+    color: orange;
+    text-decoration: none;
+}
+
+.menu-content a:hover {
+    text-decoration: underline;
 }

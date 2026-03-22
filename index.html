@@ -64,6 +64,45 @@
             </div>
         </div>
 
+        <div class="sidebar-menu">
+            <div class="menu-names">
+                <button class="menu-btn" onclick="toggleMenu('ajuda', this)">Ajuda</button>
+                <button class="menu-btn" onclick="toggleMenu('sobre', this)">Sobre</button>
+                <button class="menu-btn" onclick="toggleMenu('colabore', this)">Colabore</button>
+            </div>
+
+            <div id="ajuda" class="menu-content">
+                Para usar o mapa, clique nos ícones coloridos:
+                <ul style="margin: 5px 0; padding-left: 20px;">
+                    <li><b style="color:#e74c3c">Vermelho:</b> Bares</li>
+                    <li><b style="color:#f1c40f">Amarelo:</b> Shows</li>
+                    <li><b style="color:#3498db">Azul:</b> Eventos</li>
+                </ul>
+                Use a busca ou os filtros para encontrar o que procura.
+            </div>
+
+            <div id="sobre" class="menu-content">
+                O <b>Agenda de Shows Metal Ceará</b> é um projeto colaborativo que visa centralizar informações sobre a
+                cena underground no estado. Feito por fãs para fãs.
+                <br>
+                <img src="img/instagram_logo.png" width="15" />
+                <a href="https://www.instagram.com/metal_ceara/" target="_blank">Instagram</a>
+                <br>
+                <img src="img/whatsapp_logo.png" width="15" />
+                <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Grupo no Whatsapp</a>
+
+                <br><br>
+
+                💻 <a href="https://github.com/andff" target="_blank">Dev: André F.</a>
+                <br>
+                📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório no
+                    Github</a>
+            </div>
+
+            <div id="colabore" class="menu-content">
+                Em breve..
+            </div>
+        </div>
         <hr>
 
         <!--<h5>Categorias</h5>-->
@@ -98,10 +137,6 @@
             <input type="date" id="dataFim">
         </div>
 
-
-
-        <hr>
-        <h5>Próximas atrações</h5>
         <div id="lista"></div>
 
     </div>
@@ -118,6 +153,21 @@
             sidebar.classList.toggle("ativo");
             menuBtn.innerHTML = sidebar.classList.contains("ativo") ? "✖" : "☰";
         };
+
+        // toggle menu lateral
+        function toggleMenu(id, btn) {
+            const content = document.getElementById(id);
+            const isActive = content.classList.contains('active');
+
+            // Opcional: fechar outros abertos
+            document.querySelectorAll('.menu-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(el => el.classList.remove('active'));
+
+            if (!isActive) {
+                content.classList.add('active');
+                btn.classList.add('active');
+            }
+        }
 
         // mapa
         var map = L.map('map', {
