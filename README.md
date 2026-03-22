@@ -12,22 +12,39 @@
 
 <a href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/" target="_blank">http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/</a>
 
-## 🤘 Sobre o Projeto
+O <b>Agenda de Shows Metal Ceará</b> é um projeto colaborativo que visa centralizar informações sobre a
+                cena underground no estado. Feito por fãs para fãs.
+                <br>
+                <img src="img/instagram_logo.png" width="15" />
+                Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
+                <br>
+                <img src="img/whatsapp_logo.png" width="15" />
+                <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Grupo no Whatsapp</a>
 
-O **Agenda de Shows Metal Ceará** é uma plataforma interativa de mapeamento focada exclusivamente na rota do rock e do metal cearense. Através de um mapa dinâmico provido pelo *Leaflet*, organizadores e o público em geral podem localizar bares temáticos, festivais e apresentações das bandas locais e internacionais que passam pelo estado.
+                <br><br>
+
+                💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
+                <br>
+                📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a> no
+                Github (público)
+
+
+
+## Sobre
+
+O **Agenda de Shows Metal Ceará** é uma plataforma interativa de mapeamento focada exclusivamente na rota do rock e do metal cearense. Através de um mapa dinâmico provido pelo *Leaflet*, organizadores e o público em geral podem localizar bares temáticos, festivais e apresentações das bandas locais e internacionais que passam pelo estado do Ceará.
 
 ### 🌟 Funcionalidades Principais
 - 🗺️ **Mapa Interativo:** Navegue pelo Ceará para encontrar o role mais perto de você.
 - ⚡ **Filtros Ágeis:** Busque atrações pelo nome, cidade, tipo (Bar, Show ou Evento) ou intervalo de datas.
 - ⏳ **Status de Tempo Real:** Sistema progressivo que informa os dias restantes para o evento ou se o show acontece **HOJE**.
 - 📍 **Integração GPS:** Trace rotas diretamente para o local usando a integração via clique com o Google Maps.
-- 📱 **Mobile First:** Interface totalmente adaptada para uso nas mãos durante o trajeto pro bar!
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-Este ecossistema foi projetado para ser **rápido, leve e de custo zero** para hospedagem, utilizando uma arquitetura orientada a Front-End estático aliado a um CMS local.
+Sistema foi projetado para ser **rápido, leve e de custo zero** para hospedagem, utilizando uma arquitetura orientada a Front-End estático aliado a um CMS local.
 
 - **Interface do Usuário (UI):** `HTML5`, `CSS3`, `JavaScript Vanilla`
 - **Mapas & Clusters:** `Leaflet.js` e `Leaflet MarkerCluster`
@@ -35,11 +52,8 @@ Este ecossistema foi projetado para ser **rápido, leve e de custo zero** para h
 - **Gerenciador Desktop Profissional:** Construído em `Python 3` utilizando `Tkinter` na interface gráfica e `Pillow` para processamento das thumbnails.
 
 
-<!--
----
+## Como Contribuir
 
-## 🤝 Como Contribuir
+Achou um bug? O show mudou de local e o mapa está desatualizado? Ou você é desenvolvedor e tem uma dica para deixar a plataforma melhor?
 
-Achou um bug? O show mudou de local e o mapa está desatualizado? Ou você é desenvolvedor e tem uma dica para deixar a plataforma ainda mais insana?
-
--->
+EM BREVE 🤘
