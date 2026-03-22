@@ -111,6 +111,8 @@
             <input id="instagram" placeholder="Instagram URL">
             <input id="foto" placeholder="URL da foto">
             <input id="data" type="date">
+            <input id="horario" placeholder="Horário (ex: 20:00)">
+            <input id="linkingresso" placeholder="Link para Ingressos">
 
             <input id="descricao" placeholder="Descrição">
 
@@ -171,6 +173,8 @@ ${l.data || ""}<br>
             instagram.value = l.instagram;
             foto.value = l.foto || "";
             data.value = l.data || "";
+            horario.value = l.horario || "";
+            linkingresso.value = l.linkingresso || "";
             descricao.value = l.descricao;
 
             editIndex = i;
@@ -199,6 +203,8 @@ ${l.data || ""}<br>
                 instagram: instagram.value,
                 foto: foto.value,
                 data: data.value,
+                horario: horario.value,
+                linkingresso: linkingresso.value,
                 descricao: descricao.value
             };
 

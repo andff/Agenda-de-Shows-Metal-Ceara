@@ -255,9 +255,11 @@
 <b>${p.nome}</b><br>
 ${p.descricao}<br><br>
 📍 ${p.cidade}<br>
-${p.data ? `📅 ${p.data} ${badgeData(p.data)}<br>` : ""}
+${p.data ? `📅 ${p.data} ${p.horario ? ` às ${p.horario}` : ""} ${badgeData(p.data)}<br>` : ""}
 📞 ${p.telefone}<br>
-<a target="_blank" href="${p.instagram}">Instagram</a><br><br>
+<a target="_blank" href="${p.instagram}">Instagram</a><br>
+${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:inline-block;background:orange;color:#fff;padding:5px 10px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">🎫 Comprar Ingresso</a><br>` : ""}
+<br>
 <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}">
 📍 Rota no Google Maps
 </a>

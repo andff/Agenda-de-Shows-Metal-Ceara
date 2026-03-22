@@ -59,7 +59,7 @@ tabela.pack(fill="both", expand=True)
 form = tk.Frame(root)
 form.pack(fill="x", pady=5)
 
-campos_nomes = ["nome","tipo","cidade","lat","lng","descricao","telefone","instagram","data","foto"]
+campos_nomes = ["nome","tipo","cidade","lat","lng","descricao","telefone","instagram","data","horario","linkingresso","foto"]
 campos = {}
 
 for i,n in enumerate(campos_nomes):
