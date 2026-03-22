@@ -66,7 +66,7 @@
             right: 10px;
             z-index: 1000;
             background: #fff;
-            border: 2px solid rgba(0,0,0,0.2);
+            border: 2px solid rgba(0, 0, 0, 0.2);
             border-radius: 4px;
             width: 34px;
             height: 34px;
@@ -75,11 +75,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
             transition: background 0.2s;
         }
-        #btnLocalizacao:hover { background: #f4f4f4; }
-        #btnLocalizacao.ativo { background: #e8f4fd; border-color: #3498db; }
+
+        #btnLocalizacao:hover {
+            background: #f4f4f4;
+        }
+
+        #btnLocalizacao.ativo {
+            background: #e8f4fd;
+            border-color: #3498db;
+        }
 
         /* ── Botão de tipo de mapa ── */
         #btnMapa {
@@ -88,7 +95,7 @@
             right: 10px;
             z-index: 1000;
             background: #fff;
-            border: 2px solid rgba(0,0,0,0.2);
+            border: 2px solid rgba(0, 0, 0, 0.2);
             border-radius: 4px;
             width: 34px;
             height: 34px;
@@ -97,11 +104,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
             transition: background 0.2s;
         }
-        #btnMapa:hover { background: #f4f4f4; }
-        #btnMapa.ativo { background: #e8f4fd; border-color: #3498db; }
+
+        #btnMapa:hover {
+            background: #f4f4f4;
+        }
+
+        #btnMapa.ativo {
+            background: #e8f4fd;
+            border-color: #3498db;
+        }
 
         /* ── Menu de tipos de mapa ── */
         #menuMapa {
@@ -110,20 +124,23 @@
             right: 10px;
             z-index: 1000;
             background: #fff;
-            border: 1px solid rgba(0,0,0,0.2);
+            border: 1px solid rgba(0, 0, 0, 0.2);
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             display: none;
             flex-direction: column;
             overflow: hidden;
             min-width: 200px;
         }
-        #menuMapa.aberto { display: flex; }
+
+        #menuMapa.aberto {
+            display: flex;
+        }
 
         #menuMapa button {
             background: none;
             border: none;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 10px 14px;
             text-align: left;
             cursor: pointer;
@@ -134,8 +151,15 @@
             align-items: center;
             gap: 8px;
         }
-        #menuMapa button:last-child { border-bottom: none; }
-        #menuMapa button:hover { background: #f0f0f0; }
+
+        #menuMapa button:last-child {
+            border-bottom: none;
+        }
+
+        #menuMapa button:hover {
+            background: #f0f0f0;
+        }
+
         #menuMapa button.selecionado {
             background: #e8f4fd;
             font-weight: bold;
@@ -256,10 +280,10 @@
 
     <!-- Menu de tipos de mapa -->
     <div id="menuMapa">
-        <button onclick="trocarMapa('dark')"       class="selecionado" data-tile="dark">🌑 Dark (padrão)</button>
-        <button onclick="trocarMapa('positron')"   data-tile="positron">🎨 Positron</button>
-        <button onclick="trocarMapa('voyager')"    data-tile="voyager">🌆 Voyager</button>
-        <button onclick="trocarMapa('topo')"       data-tile="topo">🌿 Topográfico</button>
+        <button onclick="trocarMapa('dark')" class="selecionado" data-tile="dark">🌑 Dark (padrão)</button>
+        <button onclick="trocarMapa('positron')" data-tile="positron">🎨 Positron</button>
+        <button onclick="trocarMapa('voyager')" data-tile="voyager">🌆 Voyager</button>
+        <button onclick="trocarMapa('topo')" data-tile="topo">🌿 Topográfico</button>
 
     </div>
 
@@ -306,10 +330,10 @@
 
         // ── Tiles disponíveis ──
         var tiles = {
-            dark:       'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-            positron:   'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-            voyager:    'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-            topo:       'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+            dark: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+            positron: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+            voyager: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+            topo: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
 
         };
 
