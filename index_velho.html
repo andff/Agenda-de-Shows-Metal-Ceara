@@ -12,7 +12,7 @@
         content="O guia definitivo de bares, shows e eventos da cena underground e heavy metal no estado do Ceará com mapa interativo.">
     <meta name="keywords" content="metal, ceará, agenda, shows, rock, underground, fortaleza, mapa, bares, eventos">
     <meta name="author" content="Github andff">
-    <link rel="canonical" href="https://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
+    <link rel="canonical" href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -51,10 +51,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
-    <!-- =========================
-🧠 SCRIPT PRINCIPAL / LÓGICA
-========================= -->
-<script>
+    <script>
         if (location.protocol === 'http:' && location.hostname !== 'localhost') {
             location.replace(location.href.replace('http:', 'https:'));
         }
@@ -170,7 +167,6 @@
         }
     </style>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -245,10 +241,7 @@
             <div id="estatisticas" class="menu-content">
                 <div id="conteudo-estatisticas"></div>
                 <script>
-                    // =========================
-// 📊 ESTATÍSTICAS + GRÁFICO
-// =========================
-function renderEstatisticas() {
+                    function renderEstatisticas() {
                         const porCidade = {};
                         const porMes = {};
 
@@ -282,57 +275,12 @@ function renderEstatisticas() {
                         document.getElementById("conteudo-estatisticas").innerHTML = `
         <b>📍 Por Cidade</b>
         <ul style="margin:5px 0; padding-left:20px">${cidadesHTML}</ul>
-        <canvas id="graficoCidades" style="margin-top:10px; max-height:150px;"></canvas>
         <br>
         <b>📅 Por Mês</b>
         <ul style="margin:5px 0; padding-left:20px">${mesesHTML}</ul>
         <br>
         <small style="color:#888">Total: ${locais.length} registros</small>
     `;
-
-    setTimeout(() => {
-        const canvas = document.getElementById('graficoCidades');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        const labels = Object.keys(porCidade);
-        const dados = Object.values(porCidade);
-
-        const cores = labels.map((_, i) => {
-            const palette = [
-                '#e74c3c', '#3498db', '#f1c40f', '#2ecc71',
-                '#9b59b6', '#e67e22', '#1abc9c', '#ff6b6b'
-            ];
-            return palette[i % palette.length];
-        });
-
-        if (window.graficoCidades && typeof window.graficoCidades.destroy === 'function') {
-            window.graficoCidades.destroy();
-        }
-
-        window.graficoCidades = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    data: dados,
-                    backgroundColor: cores,
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    x: { ticks: { color: '#ccc', font: { size: 10 } } },
-                    y: { beginAtZero: true, ticks: { color: '#ccc', font: { size: 10 } } }
-                }
-            }
-        });
-    }, 50);
-
                     }
                 </script>
             </div>
@@ -408,10 +356,7 @@ function renderEstatisticas() {
     <!-- Botão de localização -->
     <button id="btnLocalizacao" title="Minha localização"><img src='img/location.svg' width='30' height='30'></button>
 
-    <!-- =========================
-📦 BIBLIOTECA LEAFLET (MAPA)
-========================= -->
-<script src="js/leaflet.js"></script>
+    <script src="js/leaflet.js"></script>
 
     <script>
 
@@ -638,10 +583,7 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
 
     </script>
 
-    <!-- =========================
-📍 GEOLOCALIZAÇÃO DO USUÁRIO
-========================= -->
-<!-- SCRIPT PARA O BOTÃO DE LOCALIZAÇÃO DO DISPOSITIVO -->
+    <!-- SCRIPT PARA O BOTÃO DE LOCALIZAÇÃO DO DISPOSITIVO -->
     <script>
         var marcadorUsuario = null;
         var circuloUsuario = null;
