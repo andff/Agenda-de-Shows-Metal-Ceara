@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
-import json, os, webbrowser, base64
+import json, os, webbrowser
 from urllib.request import urlopen
 from PIL import Image, ImageTk
 import io
@@ -10,7 +10,8 @@ from tkcalendar import DateEntry
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARQUIVO = os.path.join(BASE_DIR, "database.json")
 
-# ---------- JSON ----------
+PASTA_IMAGENS = os.path.join(BASE_DIR, "imagens")
+os.makedirs(PASTA_IMAGENS, exist_ok=True)
 
 def carregar():
     if not os.path.exists(ARQUIVO):
@@ -24,10 +25,8 @@ def salvar():
 
 dados = carregar()
 
-# ---------- GUI ----------
-
 root = tk.Tk()
-root.title("Gerenciador PRO de Pontos")
+root.title("Gerenciador de Pontos no Mapa")
 root.geometry("1400x700")
 root.configure(bg="#1e1e1e")
 
@@ -37,78 +36,103 @@ style.theme_use("default")
 style.configure("Treeview",
     background="#2b2b2b",
     foreground="white",
-    rowheight=25,
     fieldbackground="#2b2b2b"
 )
-
 style.map('Treeview', background=[('selected', '#347083')])
 
+# ---------- LAYOUT ----------
+top_frame = tk.Frame(root, bg="#1e1e1e")
+top_frame.pack(fill="x")
+
+center_frame = tk.Frame(root)
+center_frame.pack(fill="both", expand=True)
+
+bottom_frame = tk.Frame(root, bg="#1e1e1e")
+bottom_frame.pack(fill="x")
+
 # ---------- TOPO ----------
-
-top = tk.Frame(root, bg="#1e1e1e")
-top.pack(fill="x")
-
-tk.Label(top, text="Buscar:", fg="white", bg="#1e1e1e").pack(side="left")
-busca = tk.Entry(top)
+tk.Label(top_frame, text="Buscar:", fg="white", bg="#1e1e1e").pack(side="left")
+busca = tk.Entry(top_frame)
 busca.pack(side="left", padx=5)
 
-tk.Label(top, text="Tipo:", fg="white", bg="#1e1e1e").pack(side="left")
-filtro_tipo = ttk.Combobox(top, values=["Todos","bar","show","evento"])
+tk.Label(top_frame, text="Tipo:", fg="white", bg="#1e1e1e").pack(side="left")
+filtro_tipo = ttk.Combobox(top_frame, values=["Todos","bar","show","evento"])
 filtro_tipo.set("Todos")
 filtro_tipo.pack(side="left", padx=5)
 
-stats_label = tk.Label(top, fg="white", bg="#1e1e1e")
+stats_label = tk.Label(top_frame, fg="white", bg="#1e1e1e")
 stats_label.pack(side="right", padx=10)
 
-# ---------- TABELA (AGORA COM TODOS OS CAMPOS)
-
+# ---------- TABELA ----------
 cols = ["nome","tipo","cidade","lat","lng","descricao","telefone","instagram","data","horario","linkingresso","foto"]
 
-tabela = ttk.Treeview(root, columns=cols, show="headings")
+frame_tabela = tk.Frame(center_frame)
+frame_tabela.pack(fill="both", expand=True)
 
-for c in cols:
-    tabela.heading(c, text=c.upper())
-    tabela.column(c, width=120)
+scroll_y = tk.Scrollbar(frame_tabela, orient="vertical")
+scroll_x = tk.Scrollbar(frame_tabela, orient="horizontal")
 
-tabela.tag_configure("vencido", background="#5c1e1e")
-tabela.tag_configure("hoje", background="#5c5c1e")
+tabela = ttk.Treeview(
+    frame_tabela,
+    columns=cols,
+    show="headings",
+    yscrollcommand=scroll_y.set,
+    xscrollcommand=scroll_x.set
+)
 
+scroll_y.config(command=tabela.yview)
+scroll_x.config(command=tabela.xview)
+
+scroll_y.pack(side="right", fill="y")
+scroll_x.pack(side="bottom", fill="x")
 tabela.pack(fill="both", expand=True)
 
-# ---------- FORM ----------
+def ordenar_coluna(col, reverse):
+    lista = [(tabela.set(k, col), k) for k in tabela.get_children('')]
+    try:
+        lista.sort(key=lambda x: float(x[0]), reverse=reverse)
+    except:
+        lista.sort(reverse=reverse)
+    for index, (val, k) in enumerate(lista):
+        tabela.move(k, '', index)
+    tabela.heading(col, command=lambda: ordenar_coluna(col, not reverse))
 
-form = tk.Frame(root, bg="#1e1e1e")
-form.pack(fill="x", pady=5)
+for c in cols:
+    tabela.heading(c, text=c.upper(), command=lambda _c=c: ordenar_coluna(_c, False))
+    tabela.column(c, width=120)
+
+# ---------- FORM ----------
+frame_form = tk.Frame(bottom_frame, height=180, bg="#1e1e1e")
+frame_form.pack(fill="x")
+frame_form.pack_propagate(False)
 
 campos = {}
 
 for i,n in enumerate(cols):
-    tk.Label(form,text=n, fg="white", bg="#1e1e1e").grid(row=i//6*2,column=i%6)
+    tk.Label(frame_form,text=n, fg="white", bg="#1e1e1e").grid(row=i//6*2,column=i%6)
     
     if n == "data":
-        e = DateEntry(form, date_pattern='yyyy-mm-dd')
+        e = DateEntry(frame_form, date_pattern='yyyy-mm-dd')
     else:
-        e = tk.Entry(form,width=20)
+        e = tk.Entry(frame_form,width=20)
 
     e.grid(row=i//6*2+1,column=i%6,padx=2)
     campos[n]=e
 
-# ---------- PREVIEW ----------
-
-img_label = tk.Label(root, bg="#1e1e1e")
+# ---------- IMAGEM ----------
+img_label = tk.Label(bottom_frame, bg="#1e1e1e")
 img_label.pack()
 
 def mostrar_imagem(url):
     if not url: return
     try:
-        if url.startswith("data:image"):
-            base64_data = url.split(",")[1]
-            raw = base64.b64decode(base64_data)
+        if os.path.exists(url):
+            raw = open(url, "rb").read()
         else:
             raw = urlopen(url).read()
 
         im = Image.open(io.BytesIO(raw))
-        im.thumbnail((250,250))
+        im = im.resize((100,100))
         foto = ImageTk.PhotoImage(im)
 
         img_label.config(image=foto)
@@ -116,16 +140,25 @@ def mostrar_imagem(url):
     except:
         img_label.config(image="")
 
-# ---------- FUNÇÕES ----------
+def abrir_imagem_grande(event):
+    if not hasattr(img_label, "image"):
+        return
+    top = tk.Toplevel()
+    top.title("Imagem")
+    lbl = tk.Label(top)
+    lbl.pack()
+    lbl.config(image=img_label.image)
+    lbl.image = img_label.image
 
+img_label.bind("<Button-1>", abrir_imagem_grande)
+
+# ---------- FUNÇÕES ----------
 def atualizar():
     tabela.delete(*tabela.get_children())
 
     termo = busca.get().lower()
     tipo = filtro_tipo.get()
-    hoje = datetime.now().date()
 
-    total = len(dados)
     tipos = {}
 
     for i,item in enumerate(dados):
@@ -136,27 +169,12 @@ def atualizar():
             continue
 
         valores = [item.get(c,"") for c in cols]
-
-        tag = ""
-
-        data_str = item.get("data")
-        if data_str:
-            try:
-                data_evento = datetime.strptime(data_str, "%Y-%m-%d").date()
-
-                if data_evento < hoje:
-                    tag = "vencido"
-                elif data_evento == hoje:
-                    tag = "hoje"
-            except:
-                pass
-
-        tabela.insert("", "end", iid=i, values=valores, tags=(tag,))
+        tabela.insert("", "end", iid=i, values=valores)
 
         t = item.get("tipo","outro")
         tipos[t] = tipos.get(t,0)+1
 
-    stats = f"Total: {total} | " + " | ".join([f"{k}:{v}" for k,v in tipos.items()])
+    stats = f"Total: {len(dados)} | " + " | ".join([f"{k}:{v}" for k,v in tipos.items()])
     stats_label.config(text=stats)
 
 def selecionar(e):
@@ -216,32 +234,33 @@ def upload_imagem():
     file = filedialog.askopenfilename(filetypes=[("Imagens","*.png *.jpg *.jpeg")])
     if not file: return
 
+    nome = os.path.basename(file)
+    destino = os.path.join(PASTA_IMAGENS, nome)
+
     with open(file, "rb") as f:
-        b64 = base64.b64encode(f.read()).decode()
+        with open(destino, "wb") as d:
+            d.write(f.read())
 
     campos["foto"].delete(0,"end")
-    campos["foto"].insert(0, f"data:image/jpeg;base64,{b64}")
+    campos["foto"].insert(0, destino)
 
-    mostrar_imagem(campos["foto"].get())
+    mostrar_imagem(destino)
 
 # ---------- BOTÕES ----------
+frame_botoes = tk.Frame(bottom_frame, bg="#1e1e1e")
+frame_botoes.pack()
 
-botoes = tk.Frame(root, bg="#1e1e1e")
-botoes.pack(pady=5)
-
-tk.Button(botoes,text="Novo",width=15,command=novo).grid(row=0,column=0,padx=5)
-tk.Button(botoes,text="Salvar",width=15,command=salvar_reg).grid(row=0,column=1,padx=5)
-tk.Button(botoes,text="Excluir",width=15,command=excluir).grid(row=0,column=2,padx=5)
-tk.Button(botoes,text="Abrir no Maps",width=15,command=abrir_maps).grid(row=0,column=3,padx=5)
-tk.Button(botoes,text="Upload Imagem",width=15,command=upload_imagem).grid(row=0,column=4,padx=5)
+tk.Button(frame_botoes,text="Novo",width=15,command=novo).pack(side="left", padx=5)
+tk.Button(frame_botoes,text="Salvar",width=15,command=salvar_reg).pack(side="left", padx=5)
+tk.Button(frame_botoes,text="Excluir",width=15,command=excluir).pack(side="left", padx=5)
+tk.Button(frame_botoes,text="Abrir no Maps",width=15,command=abrir_maps).pack(side="left", padx=5)
+tk.Button(frame_botoes,text="Upload Imagem",width=15,command=upload_imagem).pack(side="left", padx=5)
 
 # ---------- EVENTOS ----------
-
 tabela.bind("<<TreeviewSelect>>", selecionar)
 busca.bind("<KeyRelease>", lambda e: atualizar())
 filtro_tipo.bind("<<ComboboxSelected>>", lambda e: atualizar())
 
 # ---------- START ----------
-
 atualizar()
 root.mainloop()
