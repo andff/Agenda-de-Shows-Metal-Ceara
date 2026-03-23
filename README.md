@@ -18,13 +18,6 @@ LINK DO MAPA ---> <a href="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/"
 
 <img src="img/whatsapp_logo.png" width="15" />Whatsapp: <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Link do Grupo</a>
 
-💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
-
-📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a> no
-Github (público)
-
-
-
 ## Sobre
 
 O **Agenda de Shows Metal Ceará** é uma plataforma interativa de mapeamento focada exclusivamente na rota do rock e do metal cearense. Através de um mapa dinâmico provido pelo *Leaflet*, organizadores e o público em geral podem localizar bares temáticos, festivais e apresentações das bandas locais e internacionais que passam pelo estado do Ceará.
