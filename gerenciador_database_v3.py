@@ -1,9 +1,11 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
-import json, os, webbrowser
+from tkinter import ttk, messagebox, filedialog
+import json, os, webbrowser, base64
 from urllib.request import urlopen
 from PIL import Image, ImageTk
 import io
+from datetime import datetime
+from tkcalendar import DateEntry
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARQUIVO = os.path.join(BASE_DIR, "database.json")
@@ -20,66 +22,95 @@ def salvar():
     with open(ARQUIVO, "w", encoding="utf-8") as f:
         json.dump(dados, f, indent=2, ensure_ascii=False)
 
-# ---------- DADOS ----------
-
 dados = carregar()
 
 # ---------- GUI ----------
 
 root = tk.Tk()
 root.title("Gerenciador PRO de Pontos")
-root.geometry("1100x600")
+root.geometry("1400x700")
+root.configure(bg="#1e1e1e")
+
+style = ttk.Style()
+style.theme_use("default")
+
+style.configure("Treeview",
+    background="#2b2b2b",
+    foreground="white",
+    rowheight=25,
+    fieldbackground="#2b2b2b"
+)
+
+style.map('Treeview', background=[('selected', '#347083')])
 
 # ---------- TOPO ----------
 
-top = tk.Frame(root)
+top = tk.Frame(root, bg="#1e1e1e")
 top.pack(fill="x")
 
-tk.Label(top, text="Buscar:").pack(side="left")
+tk.Label(top, text="Buscar:", fg="white", bg="#1e1e1e").pack(side="left")
 busca = tk.Entry(top)
 busca.pack(side="left", padx=5)
 
-tk.Label(top, text="Tipo:").pack(side="left")
-filtro_tipo = ttk.Combobox(top, values=["Todos","bar","show"])
+tk.Label(top, text="Tipo:", fg="white", bg="#1e1e1e").pack(side="left")
+filtro_tipo = ttk.Combobox(top, values=["Todos","bar","show","evento"])
 filtro_tipo.set("Todos")
 filtro_tipo.pack(side="left", padx=5)
 
-# ---------- TABELA ----------
+stats_label = tk.Label(top, fg="white", bg="#1e1e1e")
+stats_label.pack(side="right", padx=10)
 
-cols = ("nome","tipo","cidade","lat","lng")
+# ---------- TABELA (AGORA COM TODOS OS CAMPOS)
+
+cols = ["nome","tipo","cidade","lat","lng","descricao","telefone","instagram","data","horario","linkingresso","foto"]
+
 tabela = ttk.Treeview(root, columns=cols, show="headings")
+
 for c in cols:
     tabela.heading(c, text=c.upper())
     tabela.column(c, width=120)
+
+tabela.tag_configure("vencido", background="#5c1e1e")
+tabela.tag_configure("hoje", background="#5c5c1e")
 
 tabela.pack(fill="both", expand=True)
 
 # ---------- FORM ----------
 
-form = tk.Frame(root)
+form = tk.Frame(root, bg="#1e1e1e")
 form.pack(fill="x", pady=5)
 
-campos_nomes = ["nome","tipo","cidade","lat","lng","descricao","telefone","instagram","data","horario","linkingresso","foto"]
 campos = {}
 
-for i,n in enumerate(campos_nomes):
-    tk.Label(form,text=n).grid(row=i//5*2,column=i%5)
-    e = tk.Entry(form,width=22)
-    e.grid(row=i//5*2+1,column=i%5,padx=2)
+for i,n in enumerate(cols):
+    tk.Label(form,text=n, fg="white", bg="#1e1e1e").grid(row=i//6*2,column=i%6)
+    
+    if n == "data":
+        e = DateEntry(form, date_pattern='yyyy-mm-dd')
+    else:
+        e = tk.Entry(form,width=20)
+
+    e.grid(row=i//6*2+1,column=i%6,padx=2)
     campos[n]=e
 
-# ---------- PREVIEW IMAGEM ----------
+# ---------- PREVIEW ----------
 
-img_label = tk.Label(root)
+img_label = tk.Label(root, bg="#1e1e1e")
 img_label.pack()
 
 def mostrar_imagem(url):
     if not url: return
     try:
-        raw = urlopen(url).read()
+        if url.startswith("data:image"):
+            base64_data = url.split(",")[1]
+            raw = base64.b64decode(base64_data)
+        else:
+            raw = urlopen(url).read()
+
         im = Image.open(io.BytesIO(raw))
         im.thumbnail((250,250))
         foto = ImageTk.PhotoImage(im)
+
         img_label.config(image=foto)
         img_label.image=foto
     except:
@@ -92,6 +123,10 @@ def atualizar():
 
     termo = busca.get().lower()
     tipo = filtro_tipo.get()
+    hoje = datetime.now().date()
+
+    total = len(dados)
+    tipos = {}
 
     for i,item in enumerate(dados):
 
@@ -100,13 +135,29 @@ def atualizar():
         if tipo!="Todos" and item.get("tipo")!=tipo:
             continue
 
-        tabela.insert("", "end", iid=i, values=(
-            item.get("nome"),
-            item.get("tipo"),
-            item.get("cidade"),
-            item.get("lat"),
-            item.get("lng")
-        ))
+        valores = [item.get(c,"") for c in cols]
+
+        tag = ""
+
+        data_str = item.get("data")
+        if data_str:
+            try:
+                data_evento = datetime.strptime(data_str, "%Y-%m-%d").date()
+
+                if data_evento < hoje:
+                    tag = "vencido"
+                elif data_evento == hoje:
+                    tag = "hoje"
+            except:
+                pass
+
+        tabela.insert("", "end", iid=i, values=valores, tags=(tag,))
+
+        t = item.get("tipo","outro")
+        tipos[t] = tipos.get(t,0)+1
+
+    stats = f"Total: {total} | " + " | ".join([f"{k}:{v}" for k,v in tipos.items()])
+    stats_label.config(text=stats)
 
 def selecionar(e):
     if not tabela.selection(): return
@@ -161,15 +212,28 @@ def abrir_maps():
         url=f"https://www.google.com/maps?q={item['lat']},{item['lng']}"
         webbrowser.open(url)
 
+def upload_imagem():
+    file = filedialog.askopenfilename(filetypes=[("Imagens","*.png *.jpg *.jpeg")])
+    if not file: return
+
+    with open(file, "rb") as f:
+        b64 = base64.b64encode(f.read()).decode()
+
+    campos["foto"].delete(0,"end")
+    campos["foto"].insert(0, f"data:image/jpeg;base64,{b64}")
+
+    mostrar_imagem(campos["foto"].get())
+
 # ---------- BOTÕES ----------
 
-botoes = tk.Frame(root)
+botoes = tk.Frame(root, bg="#1e1e1e")
 botoes.pack(pady=5)
 
 tk.Button(botoes,text="Novo",width=15,command=novo).grid(row=0,column=0,padx=5)
 tk.Button(botoes,text="Salvar",width=15,command=salvar_reg).grid(row=0,column=1,padx=5)
 tk.Button(botoes,text="Excluir",width=15,command=excluir).grid(row=0,column=2,padx=5)
 tk.Button(botoes,text="Abrir no Maps",width=15,command=abrir_maps).grid(row=0,column=3,padx=5)
+tk.Button(botoes,text="Upload Imagem",width=15,command=upload_imagem).grid(row=0,column=4,padx=5)
 
 # ---------- EVENTOS ----------
 

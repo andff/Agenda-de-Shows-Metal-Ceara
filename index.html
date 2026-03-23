@@ -530,9 +530,14 @@
         // calcular dias
         function diasRestantes(data) {
             let hoje = new Date();
-            let evento = new Date(data);
+
+            // 🔥 cria data LOCAL (corrige bug)
+            let partes = data.split("-");
+            let evento = new Date(partes[0], partes[1] - 1, partes[2]);
+
             hoje.setHours(0, 0, 0, 0);
             evento.setHours(0, 0, 0, 0);
+
             return Math.ceil((evento - hoje) / 86400000);
         }
 
