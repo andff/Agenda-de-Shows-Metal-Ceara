@@ -240,12 +240,12 @@ select {
     text-decoration: underline;
 }
 
-.rodape {
+footer {
     text-align: center;
     font-size: 10px;
     font-weight: normal;
     color: rgb(255, 255, 255);
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .btn_formulario button {

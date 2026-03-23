@@ -50,13 +50,13 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <!-- SCRIPT PARA FORÇAR O USO DE HTTPS  - PRECISA ATIVAR O  HTTPS NA HOSPEDAGEM
+
     <script>
         if (location.protocol === 'http:' && location.hostname !== 'localhost') {
             location.replace(location.href.replace('http:', 'https:'));
         }
     </script>
-    -->
+
 
     <style>
         /* ── Botão de localização ── */
@@ -175,7 +175,13 @@
 
     <div id="sidebar">
 
-        <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__tada">
+        <!-- RETIRAR DEPOIS DO LANÇAMENTO -->
+        <div style="text-align: center; color: #f2ff00; font-weight: bold; font-size: 15px;">
+            🚧 EM CONSTRUÇÃO 🚧</div>
+        <br>
+        <!-- FIM RETIRAR DEPOIS DO LANÇAMENTO -->
+
+        <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__backInUp">
             <div>
                 <img src="img/logo_metal_ceara.png" width="70"
                     style="border-radius: 10px; box-shadow: 0px 0px 10px #ffffff;" />
@@ -185,18 +191,14 @@
             </div>
         </div>
 
-        <!-- RETIRAR DEPOIS DO LANÇAMENTO -->
-        <div
-            style="padding: 50px; text-align: center; color: #f2ff00; font-weight: bold; font-size: 15px; background-image: url('https://media.tenor.com/Juxz_NEihFkAAAAM/metal-construction.gif');">
-            EM CONSTRUÇÃO</div>
-        <br>
-        <!-- FIM RETIRAR DEPOIS DO LANÇAMENTO -->
 
-        <div class="sidebar-menu animate__animated animate__bounceInLeft">
+
+        <div class="sidebar-menu animate__animated animate__bounceInLeft animate__delay-1s">
             <div class="menu-names">
                 <button class="menu-btn" onclick="toggleMenu('ajuda', this)">Ajuda</button>
                 <button class="menu-btn" onclick="toggleMenu('sobre', this)">Sobre</button>
                 <button class="menu-btn" onclick="toggleMenu('colabore', this)">Colabore</button>
+                <button class="menu-btn" onclick="toggleMenu('estatisticas', this)">Stats</button>
             </div>
 
             <div id="ajuda" class="menu-content">
@@ -223,23 +225,70 @@
 
                 💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
                 <br>
-                📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a> no
-                Github (público)
+                📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a>
+                público no Github
             </div>
 
             <div id="colabore" class="menu-content">
-                Clique no botão abaixo e preencha o formulário:
+                <!--Clique no botão abaixo e preencha o formulário:
                 <br><br>
                 <a href="https://forms.gle/mSi6x5Lpfr6FpT1o8" target="_blank" class="btn_formulario">
                     <button>Ir para o formulário</button>
                 </a>
-                <br>
+                <br>--> EM BREVE...
+            </div>
+
+            <div id="estatisticas" class="menu-content">
+                <div id="conteudo-estatisticas"></div>
+                <script>
+                    function renderEstatisticas() {
+                        const porCidade = {};
+                        const porMes = {};
+
+                        locais.forEach(l => {
+                            // Por cidade
+                            porCidade[l.cidade] = (porCidade[l.cidade] || 0) + 1;
+
+                            // Por mês
+                            if (l.data) {
+                                const [ano, mes] = l.data.split("-");
+                                const chave = `${ano}-${mes}`;
+                                porMes[chave] = (porMes[chave] || 0) + 1;
+                            }
+                        });
+
+                        const nomeMes = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+
+                        const cidadesHTML = Object.entries(porCidade)
+                            .sort((a, b) => b[1] - a[1])
+                            .map(([cidade, total]) => `<li>${cidade}: <b>${total}</b></li>`)
+                            .join("");
+
+                        const mesesHTML = Object.entries(porMes)
+                            .sort()
+                            .map(([chave, total]) => {
+                                const [ano, mes] = chave.split("-");
+                                return `<li>${nomeMes[+mes - 1]}/${ano}: <b>${total}</b></li>`;
+                            })
+                            .join("");
+
+                        document.getElementById("conteudo-estatisticas").innerHTML = `
+        <b>📍 Por Cidade</b>
+        <ul style="margin:5px 0; padding-left:20px">${cidadesHTML}</ul>
+        <br>
+        <b>📅 Por Mês</b>
+        <ul style="margin:5px 0; padding-left:20px">${mesesHTML}</ul>
+        <br>
+        <small style="color:#888">Total: ${locais.length} registros</small>
+    `;
+                    }
+                </script>
             </div>
         </div>
-        <hr>
+        <hr class="animate__animated animate__bounceInLeft animate__delay-1s">
 
         <!--<h5>Categorias</h5>-->
-        <div class="categorias-container animate__animated animate__bounceInLeft">
+        <div class="categorias-container animate__animated animate__bounceInLeft animate__delay-1s">
             <label class="categoria-btn">
                 <input type="checkbox" value="bar" checked>
                 <span>Bares</span>
@@ -255,43 +304,57 @@
         </div>
 
         <!--<h3>Buscar</h3>-->
-        <input id="busca" placeholder="Buscar" class="animate__animated animate__bounceInLeft">
+        <input id="busca" placeholder="Buscar" class="animate__animated animate__bounceInLeft animate__delay-1s">
 
         <!--<h3>Cidade</h3>-->
-        <select id="cidadeFiltro" class="animate__animated animate__bounceInLeft">
+        <select id="cidadeFiltro" class="animate__animated animate__bounceInLeft animate__delay-1s">
             <option value="todas">Escolha a cidade</option>
         </select>
 
         <!--<h5>Filtre pelo período</h5>-->
-        <div style="display: flex; gap: 10px;" class="animate__animated animate__bounceInLeft">
+        <div style="display: flex; gap: 10px;" class="animate__animated animate__bounceInLeft animate__delay-1s">
             <input type="date" id="dataInicio">
             <input type="date" id="dataFim">
         </div>
-        <hr>
-        <div id="lista" class="animate__animated animate__backInUp"></div>
+        <hr class="animate__animated animate__bounceInLeft animate__delay-1s">
 
-        <div class="rodape">
-            &copy; Copyright é o caralho, viva o opensource 🤘
-        </div>
+        <!-- LISTA DE EVENTOS -->
+        <div id="lista" class="animate__animated animate__backInUp animate__delay-2s"></div>
 
-    </div>
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; <span id="ano"></span> Copyright é o caralho, viva o opensource 🤘<br><br>
+                <img src="img/skull.svg" width="10" /> METAL CEARÁ
+            </p>
+            <script> document.getElementById("ano").textContent = new Date().getFullYear(); </script>
+        </footer>
 
+    </div> <!-- FIM SIDEBAR -->
+
+    <!-- MAPA INTERATIVO -->
     <div id="map"></div>
 
     <!-- Menu de tipos de mapa -->
     <div id="menuMapa">
-        <button onclick="trocarMapa('dark')" class="selecionado" data-tile="dark">🌑 Dark (padrão)</button>
-        <button onclick="trocarMapa('positron')" data-tile="positron">🎨 Positron</button>
-        <button onclick="trocarMapa('voyager')" data-tile="voyager">🌆 Voyager</button>
-        <button onclick="trocarMapa('topo')" data-tile="topo">🌿 Topográfico</button>
+        <button onclick="trocarMapa('dark')" class="selecionado" data-tile="dark">
+            <img src="img/mapa_escuro.svg" width="24" /> Escuro (padrão)</button>
+
+        <button onclick="trocarMapa('positron')" data-tile="positron">
+            <img src="img/mapa_claro.svg" width="24" /> Claro</button>
+
+        <button onclick="trocarMapa('voyager')" data-tile="voyager">
+            <img src="img/mapa_colorido.svg" width="24" /> Colorido</button>
+
+        <button onclick="trocarMapa('topo')" data-tile="topo">
+            <img src="img/mapa_topografia.svg" width="24" /> Topográfico</button>
 
     </div>
 
     <!-- Botão de tipo de mapa -->
-    <button id="btnMapa" title="Tipo de mapa">🗺️</button>
+    <button id="btnMapa" title="Tipo de mapa"><img src='img/mapa_icone.svg' width='20' height='20'></button>
 
     <!-- Botão de localização -->
-    <button id="btnLocalizacao" title="Minha localização">📍</button>
+    <button id="btnLocalizacao" title="Minha localização"><img src='img/location.svg' width='30' height='30'></button>
 
     <script src="js/leaflet.js"></script>
 
@@ -314,6 +377,7 @@
             if (!isActive) {
                 content.classList.add('active');
                 btn.classList.add('active');
+                if (id === 'estatisticas') renderEstatisticas(); // <-- linha nova
             }
         }
 
@@ -568,7 +632,7 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
                     map.setView([lat, lng], 14);
                     marcadorUsuario.openPopup();
 
-                    btn.innerHTML = "📍";
+                    btn.innerHTML = "<img src='img/location.svg' width='34' height='34'>";
                     btn.disabled = false;
                     btn.classList.add("ativo");
                 },
@@ -579,7 +643,7 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
                         3: "Tempo esgotado ao obter localização."
                     };
                     alert(msgs[err.code] || "Erro ao obter localização.");
-                    btn.innerHTML = "📍";
+                    btn.innerHTML = "<img src='img/location.svg' width='34' height='34'>";
                     btn.disabled = false;
                 },
                 { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
@@ -587,6 +651,16 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
         };
     </script>
 
+    <!-- Google tag (gtag.js) 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ6P7P1CQM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HZ6P7P1CQM');
+    </script>
+-->
 </body>
 
 </html>
