@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
+from tkinter import ttk, messagebox
 import json, os, webbrowser
 from urllib.request import urlopen
 from PIL import Image, ImageTk
@@ -9,9 +9,6 @@ from tkcalendar import DateEntry
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARQUIVO = os.path.join(BASE_DIR, "database.json")
-
-PASTA_IMAGENS = os.path.join(BASE_DIR, "imagens")
-os.makedirs(PASTA_IMAGENS, exist_ok=True)
 
 def carregar():
     if not os.path.exists(ARQUIVO):
@@ -26,7 +23,7 @@ def salvar():
 dados = carregar()
 
 root = tk.Tk()
-root.title("Gerenciador de Pontos no Mapa")
+root.title("Gerenciador PRO de Pontos")
 root.geometry("1400x700")
 root.configure(bg="#1e1e1e")
 
@@ -126,11 +123,7 @@ img_label.pack()
 def mostrar_imagem(url):
     if not url: return
     try:
-        if os.path.exists(url):
-            raw = open(url, "rb").read()
-        else:
-            raw = urlopen(url).read()
-
+        raw = urlopen(url).read()
         im = Image.open(io.BytesIO(raw))
         im = im.resize((100,100))
         foto = ImageTk.PhotoImage(im)
@@ -230,22 +223,6 @@ def abrir_maps():
         url=f"https://www.google.com/maps?q={item['lat']},{item['lng']}"
         webbrowser.open(url)
 
-def upload_imagem():
-    file = filedialog.askopenfilename(filetypes=[("Imagens","*.png *.jpg *.jpeg")])
-    if not file: return
-
-    nome = os.path.basename(file)
-    destino = os.path.join(PASTA_IMAGENS, nome)
-
-    with open(file, "rb") as f:
-        with open(destino, "wb") as d:
-            d.write(f.read())
-
-    campos["foto"].delete(0,"end")
-    campos["foto"].insert(0, destino)
-
-    mostrar_imagem(destino)
-
 # ---------- BOTÕES ----------
 frame_botoes = tk.Frame(bottom_frame, bg="#1e1e1e")
 frame_botoes.pack()
@@ -254,7 +231,6 @@ tk.Button(frame_botoes,text="Novo",width=15,command=novo).pack(side="left", padx
 tk.Button(frame_botoes,text="Salvar",width=15,command=salvar_reg).pack(side="left", padx=5)
 tk.Button(frame_botoes,text="Excluir",width=15,command=excluir).pack(side="left", padx=5)
 tk.Button(frame_botoes,text="Abrir no Maps",width=15,command=abrir_maps).pack(side="left", padx=5)
-tk.Button(frame_botoes,text="Upload Imagem",width=15,command=upload_imagem).pack(side="left", padx=5)
 
 # ---------- EVENTOS ----------
 tabela.bind("<<TreeviewSelect>>", selecionar)
