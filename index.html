@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -50,6 +50,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="database.json" as="fetch" crossorigin="anonymous">
+    <link rel="preconnect" href="https://basemaps.cartocdn.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <!-- =========================
 🧠 SCRIPT PRINCIPAL / LÓGICA
@@ -170,7 +174,7 @@
         }
     </style>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -636,7 +640,7 @@
 <div style="width:250px">
 ${p.foto ? `
 <a href="${p.foto}" target="_blank">
-    <img src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
+    <img src="${p.foto}" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
 </a>
 ` : ""}
 <b>${badgeData(p.data)}</b><br>
@@ -680,7 +684,7 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
                 div.style.alignItems = "center";
                 div.style.gap = "12px";
 
-                let infoFotoLista = p.foto ? `<img src="${p.foto}" style="width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0;">` : "";
+                let infoFotoLista = p.foto ? `<img src="${p.foto}" loading="lazy" style="width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0;">` : "";
                 let infoDataLista = p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""}<br>` : "";
 
                 div.innerHTML = `
