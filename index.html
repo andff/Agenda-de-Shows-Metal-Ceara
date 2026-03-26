@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <!--                                                                                    ▄
  ███▄ ▄███▓▓█████▄▄▄█████▓ ▄▄▄       ██▓        ▄████▄  ▓█████ ▄▄▄       ██▀███   ▄▄▄  █▒    
 ▓██▒▀█▀ ██▒▓█   ▀▓  ██▒ ▓▒▒████▄    ▓██▒       ▒██▀ ▀█  ▓█   ▀▒████▄    ▓██ ▒ ██▒▒████▄    
@@ -10,8 +12,6 @@
        ░      ░  ░              ░  ░    ░  ░   ░ ░         ░  ░     ░  ░   ░           ░  ░
                                                ░                                           
 -->
-<!DOCTYPE html>
-<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -87,15 +87,17 @@
         <br>
         <!-- FIM RETIRAR DEPOIS DO LANÇAMENTO -->
 
-        <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__backInUp">
-            <div>
-                <img src="img/logo_metal_ceara.png" alt="Logo Metal Ceará" width="70"
-                    style="border-radius: 10px; box-shadow: 0px 0px 10px #ffffff;" />
+        <header>
+            <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__backInUp">
+                <div>
+                    <img src="img/logo_metal_ceara.png" alt="Logo Metal Ceará" width="70px" height="70px"
+                        style="border-radius: 10px; box-shadow: 0px 0px 10px #ffffff;" />
+                </div>
+                <div>
+                    <h1>Agenda de Shows<br>Metal Ceará</h1>
+                </div>
             </div>
-            <div>
-                <h1>Agenda de Shows<br>Metal Ceará</h1>
-            </div>
-        </div>
+        </header>
 
 
         <nav>
@@ -122,10 +124,10 @@
                     sobre a
                     cena underground no estado do Ceará.
                     <br>
-                    <img src="img/instagram_logo.png" alt="Instagram logo" width="15" />
+                    <img src="img/instagram_logo.png" alt="Instagram logo" width="15px" height="15px" />
                     Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
                     <br>
-                    <img src="img/whatsapp_logo.png" alt="WhatsApp logo" width="15" />
+                    <img src="img/whatsapp_logo.png" alt="WhatsApp logo" width="15px" height="15px" />
                     Whatsapp: <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Link do
                         Grupo</a>
 
@@ -279,13 +281,15 @@
         </div>
         <hr class="animate__animated animate__bounceInLeft animate__delay-1s">
 
-        <!-- LISTA DE EVENTOS -->
-        <div id="lista" class="animate__animated animate__backInUp animate__delay-2s"></div>
+        <main>
+            <!-- LISTA DE EVENTOS -->
+            <div id="lista" class="animate__animated animate__backInUp animate__delay-2s"></div>
+        </main>
 
         <!-- FOOTER -->
         <footer>
             <p>&copy; <span id="ano"></span> Copyright é o caralho, viva o opensource 🤘<br><br>
-                <img src="img/skull.svg" alt="Skull" width="10" /> METAL CEARÁ
+                <img src="img/skull.svg" alt="Skull" width="10px" height="10px" /> METAL CEARÁ
             </p>
             <script> document.getElementById("ano").textContent = new Date().getFullYear(); </script>
         </footer>

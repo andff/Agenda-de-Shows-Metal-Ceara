@@ -235,7 +235,7 @@ function render() {
                     <div style="width:250px">
                     ${p.foto ? `
                     <a href="${p.foto}" target="_blank">
-                        <img src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
+                        <img alt="${p.nome}" src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
                     </a>
                     ` : ""}
                     <b>${badgeData(p.data)}</b><br>
@@ -247,17 +247,17 @@ function render() {
 
                     ${p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""} <br>` : ""}
 
-                    ${p.whatsapp && p.whatsapp.trim() !== "" ? `<img src="img/whatsapp_logo.png" alt="WhatsApp" style="width:16px;height:16px;">WhatsApp: <a target="_blank" href="${formatarWhatsAppLink(p.whatsapp)}">${formatarWhatsAppExibicao(p.whatsapp)}</a><br>` : ""}
+                    ${p.whatsapp && p.whatsapp.trim() !== "" ? `<img alt="WhatsApp logo" src="img/whatsapp_logo.png" style="width:16px;height:16px;">WhatsApp: <a target="_blank" href="${formatarWhatsAppLink(p.whatsapp)}">${formatarWhatsAppExibicao(p.whatsapp)}</a><br>` : ""}
 
                     ${p.instagram ? `
-                    <img src="img/instagram_logo.png" style="width:16px;height:16px;">
+                    <img alt="Instagram logo" src="img/instagram_logo.png" style="width:16px;height:16px;">
                     Instagram: <a target="_blank" href="${p.instagram}">${extrairInstagram(p.instagram)}</a><br>
                     ` : ""}
 
                     ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:inline-block;background:orange;color:#fff;padding:5px 10px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">🎫 Comprar Ingresso</a><br>` : ""}
                     <br>
                     <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}">
-                    <img src="img/google_maps.svg" alt="Google Maps" style="width:16px;height:16px;"> Abrir no Google Maps
+                    <img alt="Google Maps logo" src="img/google_maps.svg" style="width:16px;height:16px;"> Abrir no Google Maps
                     </a>
                     </div>
                     `;
@@ -279,7 +279,7 @@ function render() {
         div.style.alignItems = "center";
         div.style.gap = "12px";
 
-        let infoFotoLista = p.foto ? `<img src="${p.foto}" style="width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0;">` : "";
+        let infoFotoLista = p.foto ? `<img alt="${p.nome}" src="${p.foto}" style="width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0;">` : "";
         let infoDataLista = p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""}<br>` : "";
 
         div.innerHTML = `
@@ -368,7 +368,7 @@ document.getElementById("btnLocalizacao").onclick = function () {
             map.setView([lat, lng], 14);
             marcadorUsuario.openPopup();
 
-            btn.innerHTML = "<img src='img/location.svg' width='34' height='34'>";
+            btn.innerHTML = "<img alt='Localização' src='img/location.svg' width='34px' height='34px'>";
             btn.disabled = false;
             btn.classList.add("ativo");
         },
@@ -379,7 +379,7 @@ document.getElementById("btnLocalizacao").onclick = function () {
                 3: "Tempo esgotado ao obter localização."
             };
             alert(msgs[err.code] || "Erro ao obter localização.");
-            btn.innerHTML = "<img src='img/location.svg' width='34' height='34'>";
+            btn.innerHTML = "<img alt='Localização' src='img/location.svg' width='34px' height='34px'>";
             btn.disabled = false;
         },
         { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
