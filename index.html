@@ -37,36 +37,19 @@
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Render-blocking Fonts em Async -->
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-            rel="stylesheet">
-    </noscript>
+        rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="img/logo_metal_ceara.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/logo_metal_ceara.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/logo_metal_ceara.png">
 
-    <!-- Render-blocking CSS Animations em Async -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print"
-        onload="this.media='all'" />
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    </noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <!-- Performance Optimizations -->
-    <link rel="preload" href="database.json" as="fetch" crossorigin="anonymous">
-    <link rel="preconnect" href="https://basemaps.cartocdn.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <!-- =========================
 🧠 SCRIPT PRINCIPAL / LÓGICA
@@ -187,7 +170,7 @@
         }
     </style>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -205,159 +188,162 @@
         <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__backInUp">
             <div>
                 <img src="img/logo_metal_ceara.png" width="70"
-                    style="border-radius: 10px; box-shadow: 0px 0px 10px #ffffff;" />
+                    style="border-radius: 10px; box-shadow: 0px 0px 10px #ffffff; alt: Logo Metal Ceará;" />
             </div>
             <div>
-                <h3>Agenda de Shows<br>Metal Ceará</h3>
+                <h1>Agenda de Shows<br>Metal Ceará</h1>
             </div>
         </div>
 
 
+        <nav>
+            <div class="sidebar-menu animate__animated animate__bounceInLeft animate__delay-1s">
+                <div class="menu-names">
+                    <button class="menu-btn" onclick="toggleMenu('ajuda', this)">Ajuda</button>
+                    <button class="menu-btn" onclick="toggleMenu('colabore', this)">Colabore</button>
+                    <button class="menu-btn" onclick="toggleMenu('estatisticas', this)">Estatísticas</button>
+                    <button class="menu-btn" onclick="toggleMenu('sobre', this)">Sobre</button>
+                </div>
 
-        <div class="sidebar-menu animate__animated animate__bounceInLeft animate__delay-1s">
-            <div class="menu-names">
-                <button class="menu-btn" onclick="toggleMenu('ajuda', this)">Ajuda</button>
-                <button class="menu-btn" onclick="toggleMenu('colabore', this)">Colabore</button>
-                <button class="menu-btn" onclick="toggleMenu('estatisticas', this)">Estatísticas</button>
-                <button class="menu-btn" onclick="toggleMenu('sobre', this)">Sobre</button>
-            </div>
+                <div id="ajuda" class="menu-content">
+                    Para usar o mapa, clique nos ícones coloridos:
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li><b style="color:#e74c3c">Vermelho:</b> Bares</li>
+                        <li><b style="color:#f1c40f">Amarelo:</b> Shows</li>
+                        <li><b style="color:#3498db">Azul:</b> Eventos</li>
+                    </ul>
+                    ou use a busca (evento, nome da banda, cidade) e os filtros para encontrar o que procura.
+                </div>
 
-            <div id="ajuda" class="menu-content">
-                Para usar o mapa, clique nos ícones coloridos:
-                <ul style="margin: 5px 0; padding-left: 20px;">
-                    <li><b style="color:#e74c3c">Vermelho:</b> Bares</li>
-                    <li><b style="color:#f1c40f">Amarelo:</b> Shows</li>
-                    <li><b style="color:#3498db">Azul:</b> Eventos</li>
-                </ul>
-                ou use a busca (evento, nome da banda, cidade) e os filtros para encontrar o que procura.
-            </div>
+                <div id="sobre" class="menu-content">
+                    O <b>Agenda de Shows Metal Ceará</b> é um projeto colaborativo que visa centralizar informações
+                    sobre a
+                    cena underground no estado do Ceará.
+                    <br>
+                    <img src="img/instagram_logo.png" width="15" />
+                    Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
+                    <br>
+                    <img src="img/whatsapp_logo.png" width="15" />
+                    Whatsapp: <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Link do
+                        Grupo</a>
 
-            <div id="sobre" class="menu-content">
-                O <b>Agenda de Shows Metal Ceará</b> é um projeto colaborativo que visa centralizar informações sobre a
-                cena underground no estado do Ceará.
-                <br>
-                <img src="img/instagram_logo.png" width="15" />
-                Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
-                <br>
-                <img src="img/whatsapp_logo.png" width="15" />
-                Whatsapp: <a href="https://chat.whatsapp.com/LpPIObZx6MIEqFG444peFl" target="_blank">Link do Grupo</a>
+                    <br><br>
 
-                <br><br>
+                    💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
+                    <br>
+                    📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a>
+                    público no Github
+                </div>
 
-                💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
-                <br>
-                📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a>
-                público no Github
-            </div>
-
-            <div id="colabore" class="menu-content">
-                <!--Clique no botão abaixo e preencha o formulário:
+                <div id="colabore" class="menu-content">
+                    <!--Clique no botão abaixo e preencha o formulário:
                 <br><br>
                 <a href="https://forms.gle/mSi6x5Lpfr6FpT1o8" target="_blank" class="btn_formulario">
                     <button>Ir para o formulário</button>
                 </a>
                 <br>--> EM BREVE...
-            </div>
+                </div>
 
-            <div id="estatisticas" class="menu-content">
-                <div id="conteudo-estatisticas"></div>
-                <script>
-                    // =========================
-                    // 📊 ESTATÍSTICAS + GRÁFICO
-                    // =========================
-                    function renderEstatisticas() {
-                        const porCidade = {};
-                        const porMes = {};
+                <div id="estatisticas" class="menu-content">
+                    <div id="conteudo-estatisticas"></div>
+                    <script>
+                        // =========================
+                        // 📊 ESTATÍSTICAS + GRÁFICO
+                        // =========================
+                        function renderEstatisticas() {
+                            const porCidade = {};
+                            const porMes = {};
 
-                        locais.forEach(l => {
-                            // Por cidade
-                            porCidade[l.cidade] = (porCidade[l.cidade] || 0) + 1;
+                            locais.forEach(l => {
+                                // Por cidade
+                                porCidade[l.cidade] = (porCidade[l.cidade] || 0) + 1;
 
-                            // Por mês
-                            if (l.data) {
-                                const [ano, mes] = l.data.split("-");
-                                const chave = `${ano}-${mes}`;
-                                porMes[chave] = (porMes[chave] || 0) + 1;
-                            }
-                        });
-
-                        const nomeMes = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
-
-                        const cidadesHTML = Object.entries(porCidade)
-                            .sort((a, b) => b[1] - a[1])
-                            .map(([cidade, total]) => `<li>${cidade}: <b>${total}</b></li>`)
-                            .join("");
-
-                        const mesesHTML = Object.entries(porMes)
-                            .sort()
-                            .map(([chave, total]) => {
-                                const [ano, mes] = chave.split("-");
-                                return `<li>${nomeMes[+mes - 1]}/${ano}: <b>${total}</b></li>`;
-                            })
-                            .join("");
-
-                        document.getElementById("conteudo-estatisticas").innerHTML = `
-        <b>📍 Por Cidade</b>
-        <ul style="margin:5px 0; padding-left:20px">${cidadesHTML}</ul>
-        <canvas id="graficoCidades" style="margin-top:10px; max-height:150px;"></canvas>
-        <br>
-        <b>📅 Por Mês</b>
-        <ul style="margin:5px 0; padding-left:20px">${mesesHTML}</ul>
-        <br>
-        <small style="color:#888">Total: ${locais.length} registros</small>
-    `;
-
-                        setTimeout(() => {
-                            const canvas = document.getElementById('graficoCidades');
-                            if (!canvas) return;
-                            const ctx = canvas.getContext('2d');
-                            if (!ctx) return;
-
-                            const labels = Object.keys(porCidade);
-                            const dados = Object.values(porCidade);
-
-                            const cores = labels.map((_, i) => {
-                                const palette = [
-                                    '#e74c3c', '#3498db', '#f1c40f', '#2ecc71',
-                                    '#9b59b6', '#e67e22', '#1abc9c', '#ff6b6b'
-                                ];
-                                return palette[i % palette.length];
-                            });
-
-                            if (window.graficoCidades && typeof window.graficoCidades.destroy === 'function') {
-                                window.graficoCidades.destroy();
-                            }
-
-                            window.graficoCidades = new Chart(ctx, {
-                                type: 'bar',
-                                data: {
-                                    labels: labels,
-                                    datasets: [{
-                                        data: dados,
-                                        backgroundColor: cores,
-                                        borderRadius: 4
-                                    }]
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    plugins: { legend: { display: false } },
-                                    scales: {
-                                        x: { ticks: { color: '#ccc', font: { size: 10 } } },
-                                        y: { beginAtZero: true, ticks: { color: '#ccc', font: { size: 10 } } }
-                                    }
+                                // Por mês
+                                if (l.data) {
+                                    const [ano, mes] = l.data.split("-");
+                                    const chave = `${ano}-${mes}`;
+                                    porMes[chave] = (porMes[chave] || 0) + 1;
                                 }
                             });
-                        }, 50);
 
-                    }
-                </script>
-                <!--<a href="https://lookerstudio.google.com/reporting/17e54070-a75b-42c3-8289-3d4796e46ded"
+                            const nomeMes = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+
+                            const cidadesHTML = Object.entries(porCidade)
+                                .sort((a, b) => b[1] - a[1])
+                                .map(([cidade, total]) => `<li>${cidade}: <b>${total}</b></li>`)
+                                .join("");
+
+                            const mesesHTML = Object.entries(porMes)
+                                .sort()
+                                .map(([chave, total]) => {
+                                    const [ano, mes] = chave.split("-");
+                                    return `<li>${nomeMes[+mes - 1]}/${ano}: <b>${total}</b></li>`;
+                                })
+                                .join("");
+
+                            document.getElementById("conteudo-estatisticas").innerHTML = `
+                                <b>📍 Por Cidade</b>
+                                <ul style="margin:5px 0; padding-left:20px">${cidadesHTML}</ul>
+                                <canvas id="graficoCidades" style="margin-top:10px; max-height:150px;"></canvas>
+                                <br>
+                                <b>📅 Por Mês</b>
+                                <ul style="margin:5px 0; padding-left:20px">${mesesHTML}</ul>
+                                <br>
+                                <small style="color:#888">Total: ${locais.length} registros</small>
+                            `;
+
+                            setTimeout(() => {
+                                const canvas = document.getElementById('graficoCidades');
+                                if (!canvas) return;
+                                const ctx = canvas.getContext('2d');
+                                if (!ctx) return;
+
+                                const labels = Object.keys(porCidade);
+                                const dados = Object.values(porCidade);
+
+                                const cores = labels.map((_, i) => {
+                                    const palette = [
+                                        '#e74c3c', '#3498db', '#f1c40f', '#2ecc71',
+                                        '#9b59b6', '#e67e22', '#1abc9c', '#ff6b6b'
+                                    ];
+                                    return palette[i % palette.length];
+                                });
+
+                                if (window.graficoCidades && typeof window.graficoCidades.destroy === 'function') {
+                                    window.graficoCidades.destroy();
+                                }
+
+                                window.graficoCidades = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            data: dados,
+                                            backgroundColor: cores,
+                                            borderRadius: 4
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        plugins: { legend: { display: false } },
+                                        scales: {
+                                            x: { ticks: { color: '#ccc', font: { size: 10 } } },
+                                            y: { beginAtZero: true, ticks: { color: '#ccc', font: { size: 10 } } }
+                                        }
+                                    }
+                                });
+                            }, 50);
+
+                        }
+                    </script>
+                    <!--<a href="https://lookerstudio.google.com/reporting/17e54070-a75b-42c3-8289-3d4796e46ded"
                     target="_blank">
                     Relatório de acessos
                 </a>-->
+                </div>
             </div>
-        </div>
+        </nav>
         <hr class="animate__animated animate__bounceInLeft animate__delay-1s">
 
         <!--<h5>Categorias</h5>-->
@@ -653,7 +639,7 @@
 <div style="width:250px">
 ${p.foto ? `
 <a href="${p.foto}" target="_blank">
-    <img src="${p.foto}" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
+    <img src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
 </a>
 ` : ""}
 <b>${badgeData(p.data)}</b><br>
@@ -697,7 +683,7 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
                 div.style.alignItems = "center";
                 div.style.gap = "12px";
 
-                let infoFotoLista = p.foto ? `<img src="${p.foto}" loading="lazy" style="width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0;">` : "";
+                let infoFotoLista = p.foto ? `<img src="${p.foto}" style="width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0;">` : "";
                 let infoDataLista = p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""}<br>` : "";
 
                 div.innerHTML = `
