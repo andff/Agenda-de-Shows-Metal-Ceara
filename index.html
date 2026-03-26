@@ -594,6 +594,20 @@
             });
         }
 
+        //extrair instagram da url e colocar no popup
+
+        function extrairInstagram(url) {
+            if (!url) return "";
+
+            try {
+                let partes = url.split("/");
+                let usuario = partes.filter(p => p.trim() !== "").pop();
+                return usuario ? "@" + usuario : "";
+            } catch {
+                return "";
+            }
+        }
+
         // render
         function render() {
             markerLayer.clearLayers();
@@ -620,14 +634,27 @@
 
                 let popup = `
 <div style="width:200px">
-${p.foto ? `<img src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px">` : ""}
+${p.foto ? `
+<a href="${p.foto}" target="_blank">
+    <img src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
+</a>
+` : ""}
 <b>${badgeData(p.data)}</b><br>
 <b>${p.nome}</b><br>
+
 ${p.descricao}<br><br>
-📍 ${p.cidade}<br>
+
+Cidade: ${p.cidade}<br>
+
 ${p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""} <br>` : ""}
-📞 ${p.whatsapp}<br>
-<a target="_blank" href="${p.instagram}">Instagram</a><br>
+
+${p.whatsapp && p.whatsapp.trim() !== "" ? `<img src="img/whatsapp_logo.png" alt="WhatsApp" style="width:16px;height:16px;"> ${p.whatsapp}<br>` : ""}
+
+${p.instagram ? `
+<img src="img/instagram_logo.png" style="width:16px;height:16px;">
+Instagram: <a target="_blank" href="${p.instagram}">${extrairInstagram(p.instagram)}</a><br>
+` : ""}
+
 ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:inline-block;background:orange;color:#fff;padding:5px 10px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">🎫 Comprar Ingresso</a><br>` : ""}
 <br>
 <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}">
