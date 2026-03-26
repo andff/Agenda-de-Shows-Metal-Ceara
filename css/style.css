@@ -6,6 +6,11 @@ body {
     overflow: hidden;
 }
 
+h1 {
+    font-size: 20px;
+}
+
+
 hr {
     border: 2px solid #3b3b3b;
     margin: 10px 0;
