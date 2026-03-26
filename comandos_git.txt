@@ -1,6 +1,6 @@
 Rodar o server local python
 
-    python3 -m http.server [PORT]
+    python3 -m http.server
 
 Criar o arquivo requirements.txt
 

@@ -597,13 +597,15 @@
                 else if (dias > 0 && dias <= 7) classe = "proximo";
                 else if (dias < 0) classe = "passado";
 
+                let dataFormatada = p.data ? p.data.split('-').reverse().join('/') : "";
+
                 let popup = `
 <div style="width:200px">
-<img src="${p.foto || ""}" style="width:100%;border-radius:8px;margin-bottom:6px">
+${p.foto ? `<img src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px">` : ""}
 <b>${p.nome}</b><br>
 ${p.descricao}<br><br>
 📍 ${p.cidade}<br>
-${p.data ? `📅 ${p.data} ${p.horario ? ` às ${p.horario}` : ""} ${badgeData(p.data)}<br>` : ""}
+${p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""} ${badgeData(p.data)}<br>` : ""}
 📞 ${p.telefone}<br>
 <a target="_blank" href="${p.instagram}">Instagram</a><br>
 ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:inline-block;background:orange;color:#fff;padding:5px 10px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">🎫 Comprar Ingresso</a><br>` : ""}
@@ -615,19 +617,46 @@ ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:i
 `;
 
                 let m = L.marker([p.lat, p.lng], { icon: icones[p.tipo] }).bindPopup(popup);
+
+                // Centralizar o mapa deslocando a visão um pouco para cima (para focar no pop-up em si)
+                m.on('click', function (e) {
+                    let px = map.project([p.lat, p.lng], 16);
+                    px.y -= 120; // offset (em pixels) para compensar a altura do popup
+                    map.setView(map.unproject(px, 16), 16);
+                });
+
                 markerLayer.addLayer(m);
 
                 let div = document.createElement("div");
                 div.className = "item " + classe;
-                div.innerHTML = `<b>${p.nome}</b><br>${p.cidade}<br>${p.data ? badgeData(p.data) : ""}`;
+                div.style.display = "flex";
+                div.style.alignItems = "center";
+                div.style.gap = "12px";
+
+                let infoFotoLista = p.foto ? `<img src="${p.foto}" style="width:50px;height:50px;border-radius:8px;object-fit:cover;flex-shrink:0;">` : "";
+                let infoDataLista = p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""}<br>` : "";
+
+                div.innerHTML = `
+                    ${infoFotoLista}
+                    <div style="flex-grow:1; font-size:14px;">
+                        <b>${p.nome}</b><br>
+                        ${p.cidade}<br>
+                        ${infoDataLista}
+                        ${p.data ? badgeData(p.data) : ""}
+                    </div>
+                `;
 
                 div.onclick = () => {
-                    map.setView([p.lat, p.lng], 16);
-                    m.openPopup();
                     if (window.innerWidth < 768) {
                         sidebar.classList.remove("ativo");
                         menuBtn.innerHTML = "☰";
                     }
+                    setTimeout(() => {
+                        let px = map.project([p.lat, p.lng], 16);
+                        px.y -= 120; // offset vertical para o popup ficar no meio
+                        map.setView(map.unproject(px, 16), 16);
+                        m.openPopup();
+                    }, 300); // dá um tempinho caso o menu mobile recolha e altere a dimensão da tela
                 };
 
                 lista.appendChild(div);
