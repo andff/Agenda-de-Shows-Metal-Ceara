@@ -548,10 +548,25 @@
         // badge
         function badgeData(data) {
             if (!data) return "";
+
             let dias = diasRestantes(data);
-            if (dias === 0) return `<span style="color:#0f0;font-weight:bold">HOJE</span>`;
-            if (dias > 0 && dias <= 7) return `<span style="color:orange;font-weight:bold">EM ${dias} DIAS</span>`;
-            if (dias < 0) return `<span style="color:#777">ENCERRADO</span>`;
+
+            if (dias === 0) {
+                return `<span style="color:#0f0;font-weight:bold">HOJE</span>`;
+            }
+
+            if (dias > 0) {
+                if (dias === 1) {
+                    return `<span style="color:orange;font-size:11px;">FALTA 1 DIA</span>`;
+                } else {
+                    return `<span style="color:orange;font-size:11px;">FALTAM ${dias} DIAS</span>`;
+                }
+            }
+
+            if (dias < 0) {
+                return `<span style="color:#777;font-size:11px;">ENCERRADO</span>`;
+            }
+
             return "";
         }
 
@@ -606,10 +621,11 @@
                 let popup = `
 <div style="width:200px">
 ${p.foto ? `<img src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px">` : ""}
+<b>${badgeData(p.data)}</b><br>
 <b>${p.nome}</b><br>
 ${p.descricao}<br><br>
 📍 ${p.cidade}<br>
-${p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""} ${badgeData(p.data)}<br>` : ""}
+${p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""} <br>` : ""}
 📞 ${p.whatsapp}<br>
 <a target="_blank" href="${p.instagram}">Instagram</a><br>
 ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:inline-block;background:orange;color:#fff;padding:5px 10px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">🎫 Comprar Ingresso</a><br>` : ""}
