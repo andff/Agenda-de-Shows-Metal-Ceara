@@ -30,7 +30,7 @@
     "cidade": "Fortaleza",
     "lat": -3.743883848325932,
     "lng": -38.53855786890982,
-    "descricao": "Rua Waldery Uchôa, 197 - Benfica - Fortaleza/CE",
+    "descricao": "O Bar mais Underground da cidade. Quinta a Sábado a partir das 19h - Rua Waldery Uchôa, 197 - Benfica",
     "whatsapp": "",
     "instagram": "https://www.instagram.com/covilrocknbar/",
     "horario": "20:00 - até ter cerveja",
@@ -112,7 +112,7 @@
     "cidade": "Fortaleza",
     "lat": -3.731533810437803,
     "lng": -38.489594176023296,
-    "descricao": "Pub 5 Elementos - \nRua Ana Bilhar, 1180, Meireles, Fortaleza, CE, 60160-110",
+    "descricao": "Pub 5 Elementos - \nRua Ana Bilhar, 1180, Meireles",
     "instagram": "https://www.instagram.com/5elementoscervejariaepub/",
     "data": "2026-04-11",
     "horario": "22:00",
@@ -174,7 +174,7 @@
     "cidade": "Fortaleza",
     "lat": -3.74244384079781,
     "lng": -38.53763416457214,
-    "descricao": "Clima leve, rock pesado e cerveja gelada. - Rua Waldery Uchoa, 42-Benfica, Fortaleza, Brazil 60020110",
+    "descricao": "Clima leve, rock pesado e cerveja gelada. - Rua Waldery Uchoa, 42 - Benfica",
     "instagram": "https://www.instagram.com/pub.barbarians/",
     "horario": "Terça a Quinta: 17h às 00h | Sexta e Sábado: 17h às 02h",
     "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_5sAL6k4cr8m7IXgq11KTgGUPQaZXmySQA&s"
@@ -198,5 +198,17 @@
     "descricao": "Bar com diversos tipos de cervejas e drinques, sala de karaokê com isolamento acústico e atmosfera amigável.",
     "instagram": "https://www.instagram.com/bullsbeerhouse/",
     "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3K-H3HrvqxJRKuYJF1ZN6P_UN74KapSb0Eg&s"
+  },
+  {
+    "nome": "The Bar | Pub",
+    "tipo": "show",
+    "cidade": "Fortaleza",
+    "lat": -3.7728744511789682,
+    "lng": -38.58067307014165,
+    "descricao": "Bandas: ‎Requiem (Avenged Sevenfold) Fuck the System (SOAD) - Av. Lineu Machado, 1514\nJóquei Clube",
+    "instagram": "https://www.instagram.com/thebarpub/",
+    "data": "2026-03-28",
+    "horario": "21:00",
+    "foto": "https://i.ibb.co/RGx18fW0/PROGRAMA-O-DA-SEMANA-FUNCIONAMENTO-Segunda-Fechado-Ter-a-18h-as-2h-Quarta.webp"
   }
 ]
