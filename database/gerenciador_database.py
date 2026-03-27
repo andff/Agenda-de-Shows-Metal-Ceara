@@ -84,6 +84,11 @@ scroll_y.pack(side="right", fill="y")
 scroll_x.pack(side="bottom", fill="x")
 tabela.pack(fill="both", expand=True)
 
+# Configuração de cores para formatação condicional
+tabela.tag_configure('hoje', background='#1b5e20', foreground='white')    # Verde escuro
+tabela.tag_configure('passado', background='#b71c1c', foreground='white') # Vermelho escuro
+
+
 def ordenar_coluna(col, reverse):
     lista = [(tabela.set(k, col), k) for k in tabela.get_children('')]
     try:
@@ -148,6 +153,7 @@ img_label.bind("<Button-1>", abrir_imagem_grande)
 # ---------- FUNÇÕES ----------
 def atualizar():
     tabela.delete(*tabela.get_children())
+    hoje = datetime.now().strftime('%Y-%m-%d')
 
     termo = busca.get().lower()
     tipo = filtro_tipo.get()
@@ -162,7 +168,18 @@ def atualizar():
             continue
 
         valores = [item.get(c,"") for c in cols]
-        tabela.insert("", "end", iid=i, values=valores)
+        
+        # Formatação condicional baseada na data
+        item_data = item.get("data", "")
+        tag = ""
+        
+        if item_data:
+            if item_data == hoje:
+                tag = "hoje"
+            elif item_data < hoje:
+                tag = "passado"
+        
+        tabela.insert("", "end", iid=i, values=valores, tags=(tag,))
 
         t = item.get("tipo","outro")
         tipos[t] = tipos.get(t,0)+1

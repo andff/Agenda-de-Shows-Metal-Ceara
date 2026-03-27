@@ -81,12 +81,6 @@
 
     <div id="sidebar">
 
-        <!-- RETIRAR DEPOIS DO LANÇAMENTO -->
-        <div style="text-align: center; color: #f2ff00; font-weight: bold; font-size: 15px;">
-            🚧 EM CONSTRUÇÃO 🚧</div>
-        <br>
-        <!-- FIM RETIRAR DEPOIS DO LANÇAMENTO -->
-
         <header>
             <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__backInUp">
                 <div>
@@ -187,18 +181,23 @@
                                 .join("");
 
                             document.getElementById("conteudo-estatisticas").innerHTML = `
-                                <b><u>Você é o visitante número:</u></b> <span id="contador-visitas">...</span>
+                                <b>Última atualização do banco de dados:</b><br><div style="width: 100%; text-align: center;">${window.lastDatabaseUpdate ? new Date(window.lastDatabaseUpdate).toLocaleString('pt-BR') : 'Recentemente'}</div>
+                                
+                                
+                                <b>Você é o visitante número:</b> <span id="contador-visitas" style='font-size: 20px; color: #fff'>...</span>
                                 <br>
-                                <b><u>Total de registros:</u></b>: ${locais.length}
+                                <b>Total de registros:</b> <span style='font-size: 20px; color: #fff'>${locais.length}</span>
                                 <br>
-                                <b><u>Registros por cidade:</u></b>
-                                <canvas id="graficoCidades" style="margin-top:10px; max-height:150px;"></canvas>
+                                <hr>
+                                <b>Registros por cidade:</b>
+                                
                                 <ul style="margin:5px 0; padding-left:30px">${cidadesHTML}</ul>
+                                <canvas id="graficoCidades" style="margin-top:10px; max-height:150px;"></canvas>
                                                                 
-                                <b><u>Registros por mês:</u></b>
+                                <b>Registros por mês:</b>
                                 <ul style="margin:5px 0; padding-left:30px">${mesesHTML}</ul>
                                 <br>
-                                <small style="color:#888">Atualizado em: ${window.lastDatabaseUpdate ? new Date(window.lastDatabaseUpdate).toLocaleString('pt-BR') : 'Recentemente'}</small>
+                                
                             `;
 
                             if (window.visitCount !== undefined) {
