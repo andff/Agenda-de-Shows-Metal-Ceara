@@ -39,28 +39,13 @@ var tiles = {
 
 };
 
-// Carrega mapa salvo ou usa o padrão 'dark'
-var mapaSalvo = localStorage.getItem('mapStyle');
-if (!tiles[mapaSalvo]) mapaSalvo = 'dark';
-var camadaTile = L.tileLayer(tiles[mapaSalvo], { attribution: '© OpenStreetMap' }).addTo(map);
-
-
-// Atualiza a UI inicial para refletir o mapa salvo
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('#menuMapa button').forEach(b => {
-        b.classList.toggle('selecionado', b.dataset.tile === mapaSalvo);
-    });
-});
-
-
 // ── Trocar tipo de mapa ──
 function trocarMapa(tipo) {
     if (camadaTile) map.removeLayer(camadaTile);
     camadaTile = L.tileLayer(tiles[tipo], { attribution: '© OpenStreetMap' }).addTo(map);
 
-    // Salva a preferência do usuário
-    localStorage.setItem('mapStyle', tipo);
-
+    // Salva a preferência no localStorage
+    localStorage.setItem('tipoMapa', tipo);
 
     document.querySelectorAll('#menuMapa button').forEach(b => {
         b.classList.toggle('selecionado', b.dataset.tile === tipo);
@@ -69,6 +54,11 @@ function trocarMapa(tipo) {
     document.getElementById('menuMapa').classList.remove('aberto');
     document.getElementById('btnMapa').classList.remove('ativo');
 }
+
+// Inicia com o tile salvo ou o padrão 'dark'
+var mapaSalvo = localStorage.getItem('tipoMapa') || 'dark';
+var camadaTile;
+trocarMapa(mapaSalvo);
 
 // Abre/fecha o menu de mapas
 document.getElementById('btnMapa').onclick = function () {
@@ -231,6 +221,7 @@ function formatarWhatsAppExibicao(numero) {
 
 // render
 function render() {
+    verificarFiltrosAtivos();
     markerLayer.clearLayers();
     lista.innerHTML = "";
 
@@ -333,15 +324,16 @@ function render() {
 }
 
 // eventos
+const clearSearchBtn = document.getElementById('clearSearch');
+
 busca.oninput = () => {
-    limparBusca.style.display = busca.value ? "block" : "none";
+    clearSearchBtn.style.display = busca.value ? 'block' : 'none';
     render();
 };
 
-limparBusca.onclick = () => {
-    busca.value = "";
-    limparBusca.style.display = "none";
-    busca.focus();
+clearSearchBtn.onclick = () => {
+    busca.value = '';
+    clearSearchBtn.style.display = 'none';
     render();
 };
 
@@ -349,6 +341,33 @@ cidadeFiltro.onchange = render;
 document.querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = render);
 dataInicio.onchange = render;
 dataFim.onchange = render;
+
+// Lógica para o botão de limpar filtros
+function verificarFiltrosAtivos() {
+    const btnLimpar = document.getElementById('btnLimparFiltros');
+    if (!btnLimpar) return;
+
+    const checkboxes = document.querySelectorAll("input[type=checkbox]");
+    const allChecked = Array.from(checkboxes).every(c => c.checked);
+
+    const isFiltered = busca.value !== "" ||
+        cidadeFiltro.value !== "todas" ||
+        !allChecked ||
+        dataInicio.value !== "" ||
+        dataFim.value !== "";
+
+    btnLimpar.style.display = isFiltered ? 'block' : 'none';
+}
+
+document.getElementById('btnLimparFiltros').onclick = () => {
+    busca.value = '';
+    clearSearchBtn.style.display = 'none';
+    cidadeFiltro.value = 'todas';
+    document.querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true);
+    dataInicio.value = '';
+    dataFim.value = '';
+    render();
+};
 
 
 

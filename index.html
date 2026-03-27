@@ -278,9 +278,9 @@
         </div>
 
         <!--<h3>Buscar</h3>-->
-        <div class="busca-container animate__animated animate__bounceInLeft animate__delay-1s">
+        <div class="search-container animate__animated animate__bounceInLeft animate__delay-1s">
             <input id="busca" placeholder="Buscar">
-            <button id="limparBusca" title="Limpar busca"><i class="bi bi-x-circle"></i></button>
+            <i class="bi bi-x-lg" id="clearSearch"></i>
         </div>
 
         <!--<h3>Cidade</h3>-->
@@ -293,6 +293,11 @@
             <input type="date" id="dataInicio">
             <input type="date" id="dataFim">
         </div>
+
+        <button id="btnLimparFiltros" class="animate__animated animate__bounceIn">
+            <i class="bi bi-trash"></i> Limpar Filtros
+        </button>
+
         <hr class="animate__animated animate__bounceInLeft animate__delay-1s">
 
         <main>
@@ -316,9 +321,8 @@
 
     <!-- Menu de tipos de mapa -->
     <div id="menuMapa">
-        <button onclick="trocarMapa('dark')" data-tile="dark">
-            <img src="img/mapa_escuro.svg" alt="Mapa Escuro" width="24" /> Escuro (padrão)</button>
-
+        <button onclick="trocarMapa('dark')" class="selecionado" data-tile="dark">
+            <img src="img/mapa_escuro.svg" alt="Mapa Escuro" width="24" /> Escuro</button>
 
         <button onclick="trocarMapa('positron')" data-tile="positron">
             <img src="img/mapa_claro.svg" alt="Mapa Claro" width="24" /> Claro</button>
