@@ -116,7 +116,8 @@
                         <li><b style="color:#f1c40f">Amarelo:</b> Shows</li>
                         <li><b style="color:#3498db">Azul:</b> Eventos</li>
                     </ul>
-                    ou use a busca (evento, nome da banda, cidade) e os filtros para encontrar o que procura.
+                    ou use a busca (evento, nome da banda, cidade, local ou endereço) e os filtros para encontrar o que
+                    procura.
                 </div>
 
                 <div id="sobre" class="menu-content">
@@ -186,15 +187,36 @@
                                 .join("");
 
                             document.getElementById("conteudo-estatisticas").innerHTML = `
-                                <b>📍 Por Cidade</b>
-                                <ul style="margin:5px 0; padding-left:20px">${cidadesHTML}</ul>
+                                <b><u>Você é o visitante número:</u></b> <span id="contador-visitas">...</span>
+                                <br>
+                                <b><u>Total de registros:</u></b>: ${locais.length}
+                                <br>
+                                <b><u>Registros por cidade:</u></b>
                                 <canvas id="graficoCidades" style="margin-top:10px; max-height:150px;"></canvas>
+                                <ul style="margin:5px 0; padding-left:30px">${cidadesHTML}</ul>
+                                                                
+                                <b><u>Registros por mês:</u></b>
+                                <ul style="margin:5px 0; padding-left:30px">${mesesHTML}</ul>
                                 <br>
-                                <b>📅 Por Mês</b>
-                                <ul style="margin:5px 0; padding-left:20px">${mesesHTML}</ul>
-                                <br>
-                                <small style="color:#888">Total: ${locais.length} registros</small>
+                                <small style="color:#888">Atualizado em: ${window.lastDatabaseUpdate ? new Date(window.lastDatabaseUpdate).toLocaleString('pt-BR') : 'Recentemente'}</small>
                             `;
+
+                            if (window.visitCount !== undefined) {
+                                document.getElementById('contador-visitas').innerText = window.visitCount;
+                            } else {
+                                fetch('https://api.counterapi.dev/v1/agenda-metal-ceara/visitantes/up')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        window.visitCount = data.count;
+                                        const spanVisitas = document.getElementById('contador-visitas');
+                                        if (spanVisitas) spanVisitas.innerText = window.visitCount;
+                                    })
+                                    .catch(error => {
+                                        console.error('Erro ao buscar visitas:', error);
+                                        const spanVisitas = document.getElementById('contador-visitas');
+                                        if (spanVisitas) spanVisitas.innerText = 'Indisponível';
+                                    });
+                            }
 
                             setTimeout(() => {
                                 const canvas = document.getElementById('graficoCidades');
@@ -342,6 +364,9 @@
     <script>
         console.log("Metal Ceará 🤘");
     </script>
+
+
+
 </body>
 
 </html>

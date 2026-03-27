@@ -61,7 +61,7 @@ stats_label = tk.Label(top_frame, fg="white", bg="#1e1e1e")
 stats_label.pack(side="right", padx=10)
 
 # ---------- TABELA ----------
-cols = ["nome","tipo","cidade","lat","lng","descricao","whatsapp","instagram","data","horario","linkingresso","foto"]
+cols = ["nome","tipo","cidade","local","endereco","lat","lng","descricao","whatsapp","instagram","data","horario","linkingresso","foto"]
 
 frame_tabela = tk.Frame(center_frame)
 frame_tabela.pack(fill="both", expand=True)

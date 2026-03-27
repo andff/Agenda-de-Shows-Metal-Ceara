@@ -88,7 +88,10 @@ var locais = [];
 
 // carregar JSON
 fetch("database/database.json")
-    .then(r => r.json())
+    .then(r => {
+        window.lastDatabaseUpdate = r.headers.get('Last-Modified');
+        return r.json();
+    })
     .then(data => {
         locais = data;
         popularCidades();
@@ -158,7 +161,11 @@ function filtros() {
     let df = dataFim.value;
 
     return locais.filter(l => {
-        if (nome && !l.nome.toLowerCase().includes(nome)) return false;
+        if (nome && !(
+            (l.nome && l.nome.toLowerCase().includes(nome)) ||
+            (l.local && l.local.toLowerCase().includes(nome)) ||
+            (l.endereco && l.endereco.toLowerCase().includes(nome))
+        )) return false;
         if (cidade != "todas" && l.cidade != cidade) return false;
         if (!tipos.includes(l.tipo)) return false;
 
@@ -244,6 +251,8 @@ function render() {
                     ${p.descricao}<br><br>
 
                     Cidade: ${p.cidade}<br>
+                    ${p.local ? `Local: ${p.local}<br>` : ""}
+                    ${p.endereco ? `Endereço: ${p.endereco}<br>` : ""}
 
                     ${p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""} <br>` : ""}
 
@@ -286,7 +295,7 @@ function render() {
                     ${infoFotoLista}
                     <div style="flex-grow:1; font-size:14px;">
                         <b>${p.nome}</b><br>
-                        ${p.cidade}<br>
+                        ${p.cidade}${p.local ? ` - ${p.local}` : ""}<br>
                         ${infoDataLista}
                         ${p.data ? badgeData(p.data) : ""}
                     </div>
