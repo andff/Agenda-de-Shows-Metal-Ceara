@@ -39,13 +39,28 @@ var tiles = {
 
 };
 
-// Inicia com o tile dark
-var camadaTile = L.tileLayer(tiles.dark, { attribution: '© OpenStreetMap' }).addTo(map);
+// Carrega mapa salvo ou usa o padrão 'dark'
+var mapaSalvo = localStorage.getItem('mapStyle');
+if (!tiles[mapaSalvo]) mapaSalvo = 'dark';
+var camadaTile = L.tileLayer(tiles[mapaSalvo], { attribution: '© OpenStreetMap' }).addTo(map);
+
+
+// Atualiza a UI inicial para refletir o mapa salvo
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#menuMapa button').forEach(b => {
+        b.classList.toggle('selecionado', b.dataset.tile === mapaSalvo);
+    });
+});
+
 
 // ── Trocar tipo de mapa ──
 function trocarMapa(tipo) {
     if (camadaTile) map.removeLayer(camadaTile);
     camadaTile = L.tileLayer(tiles[tipo], { attribution: '© OpenStreetMap' }).addTo(map);
+
+    // Salva a preferência do usuário
+    localStorage.setItem('mapStyle', tipo);
+
 
     document.querySelectorAll('#menuMapa button').forEach(b => {
         b.classList.toggle('selecionado', b.dataset.tile === tipo);
@@ -134,14 +149,14 @@ function badgeData(data) {
     let dias = diasRestantes(data);
 
     if (dias === 0) {
-        return `<span style="color:#0f0;font-weight:bold">HOJE</span>`;
+        return `<span style="font-size: 10px; background-color: darkgreen;color:#fff; text-align: center;font-weight:bold; padding: 5px; margin-top: 10px; display: block;  width: 90%;border-radius: 5px;" class="animate__animated animate__tada animate__delay-4s animate__infinite	animate__repeat-2">É HOJE</span>`;
     }
 
     if (dias > 0) {
         if (dias === 1) {
-            return `<span style="color:orange;font-size:11px;">FALTA 1 DIA</span>`;
+            return `<span style="color:orange;font-size:10px;">Falta 1 dia</span>`;
         } else {
-            return `<span style="color:orange;font-size:11px;">FALTAM ${dias} DIAS</span>`;
+            return `<span style="color:orange;font-size:10px;">Faltam ${dias} dias</span>`;
         }
     }
 
@@ -239,20 +254,19 @@ function render() {
         let dataFormatada = p.data ? p.data.split('-').reverse().join('/') : "";
 
         let popup = `
-                    <div style="width:250px">
+                    <div style="width:250px"> <!-- LARGURA DO POPUP-->
                     ${p.foto ? `
                     <a href="${p.foto}" target="_blank">
                         <img alt="${p.nome}" src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
                     </a>
                     ` : ""}
-                    <b>${badgeData(p.data)}</b><br>
-                    <b>${p.nome}</b><br>
-
-                    ${p.descricao}<br><br>
-
-                    Cidade: ${p.cidade}<br>
-                    ${p.local ? `Local: ${p.local}<br>` : ""}
-                    ${p.endereco ? `Endereço: ${p.endereco}<br>` : ""}
+                    <b>${badgeData(p.data)}</b>
+                    <h2>${p.nome}</h2>
+                    <!--<b>Cidade:</b> ${p.cidade}<br>-->
+                    
+                    ${p.descricao}<br>
+                    ${p.local ? `<b>Local:</b> ${p.local}<br>` : ""}
+                    ${p.endereco ? `<b>Endereço:</b> ${p.endereco}<br>` : ""}
 
                     ${p.data ? `📅 ${dataFormatada} ${p.horario ? ` às ${p.horario}` : ""} <br>` : ""}
 
@@ -263,8 +277,8 @@ function render() {
                     Instagram: <a target="_blank" href="${p.instagram}">${extrairInstagram(p.instagram)}</a><br>
                     ` : ""}
 
-                    ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:inline-block;background:orange;color:#fff;padding:5px 10px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">🎫 Comprar Ingresso</a><br>` : ""}
-                    <br>
+                    ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:block;background:orange;color:#fff;padding:5px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">Comprar Ingresso</a><br>` : ""}
+                    
                     <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}">
                     <img alt="Google Maps logo" src="img/google_maps.svg" style="width:16px;height:16px;"> Abrir no Google Maps
                     </a>
@@ -319,13 +333,50 @@ function render() {
 }
 
 // eventos
-busca.oninput = render;
+busca.oninput = () => {
+    limparBusca.style.display = busca.value ? "block" : "none";
+    render();
+};
+
+limparBusca.onclick = () => {
+    busca.value = "";
+    limparBusca.style.display = "none";
+    busca.focus();
+    render();
+};
+
 cidadeFiltro.onchange = render;
 document.querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = render);
 dataInicio.onchange = render;
 dataFim.onchange = render;
 
 
+
+// =========================
+// 🌍 CONTADOR DE VISITAS
+// =========================
+function atualizarContadorVisitas() {
+    const spanVisitas = document.getElementById('contador-visitas');
+    if (!spanVisitas) return;
+
+    if (window.visitCount !== undefined) {
+        spanVisitas.innerText = window.visitCount;
+    } else {
+        fetch('https://api.counterapi.dev/v1/agenda-metal-ceara/visitantes/up')
+            .then(response => response.json())
+            .then(data => {
+                window.visitCount = data.count;
+                spanVisitas.innerText = window.visitCount;
+            })
+            .catch(error => {
+                console.error('Erro ao buscar visitas:', error);
+                spanVisitas.innerText = 'Indisponível';
+            });
+    }
+}
+
+// Inicializa o contador ao carregar o script
+atualizarContadorVisitas();
 
 //GEOLOCALIZAÇÃO DO USUÁRIO
 // SCRIPT PARA O BOTÃO DE LOCALIZAÇÃO DO DISPOSITIVO

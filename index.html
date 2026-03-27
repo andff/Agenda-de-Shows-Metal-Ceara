@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 <!--                                                                                    ▄
  ███▄ ▄███▓▓█████▄▄▄█████▓ ▄▄▄       ██▓        ▄████▄  ▓█████ ▄▄▄       ██▀███   ▄▄▄  █▒    
 ▓██▒▀█▀ ██▒▓█   ▀▓  ██▒ ▓▒▒████▄    ▓██▒       ▒██▀ ▀█  ▓█   ▀▒████▄    ▓██ ▒ ██▒▒████▄    
@@ -12,6 +10,9 @@
        ░      ░  ░              ░  ░    ░  ░   ░ ░         ░  ░     ░  ░   ░           ░  ░
                                                ░                                           
 -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -43,19 +44,24 @@
     <meta property="twitter:image"
         content="http://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/img/logo_metal_ceara.png">
 
-
+    <!-- LEAFLET MAPS-->
     <link rel="stylesheet" href="css/leaflet.css" />
+
+    <!-- MEU STYLE -->
     <link rel="stylesheet" href="css/style.css?v=1.1" />
 
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
+    <!-- GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
 
+    <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/logo_metal_ceara.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/logo_metal_ceara.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/logo_metal_ceara.png">
@@ -63,21 +69,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
-    <!-- =========================
-🧠 SCRIPT PRINCIPAL / LÓGICA
-========================= -->
+    <!-- FORÇA ABRIR NO HTTPS -->
     <script>
         if (location.protocol === 'http:' && location.hostname !== 'localhost') {
             location.replace(location.href.replace('http:', 'https:'));
         }
     </script>
 
+    <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-    <button id="menuBtn">☰</button>
+    <button id="menuBtn"><i class="bi bi-list"></i></button>
 
     <div id="sidebar">
 
@@ -117,8 +122,8 @@
                 <div id="sobre" class="menu-content">
                     O <b>Agenda de Shows Metal Ceará</b> é um projeto colaborativo que visa centralizar informações
                     sobre a
-                    cena underground no estado do Ceará.
-                    <br>
+                    cena Rock no estado do Ceará.
+                    <br><br>
                     <img src="img/instagram_logo.png" alt="Instagram logo" width="15px" height="15px" />
                     Instagram: <a href="https://www.instagram.com/metal_ceara/" target="_blank">@metal_ceara</a>
                     <br>
@@ -131,7 +136,7 @@
                     💻 Desenvolvido por <a href="https://github.com/andff" target="_blank">André</a>
                     <br>
                     📁 <a href="https://github.com/andff/Agenda-de-Shows-Metal-Ceara" target="_blank">Repositório</a>
-                    público no Github
+                    público no Github <i class="bi bi-github"></i>
                 </div>
 
                 <div id="colabore" class="menu-content">
@@ -181,12 +186,9 @@
                                 .join("");
 
                             document.getElementById("conteudo-estatisticas").innerHTML = `
-                                <b>Última atualização do banco de dados:</b><br><div style="width: 100%; text-align: center;">${window.lastDatabaseUpdate ? new Date(window.lastDatabaseUpdate).toLocaleString('pt-BR') : 'Recentemente'}</div>
-                                
-                                
-                                <b>Você é o visitante número:</b> <span id="contador-visitas" style='font-size: 20px; color: #fff'>...</span>
-                                <br>
-                                <b>Total de registros:</b> <span style='font-size: 20px; color: #fff'>${locais.length}</span>
+                                <b>Última atualização:</b><br><div style="width: 100%; text-align: center;">${window.lastDatabaseUpdate ? new Date(window.lastDatabaseUpdate).toLocaleString('pt-BR') : 'Recentemente'}</div>
+                            
+                                <b>Total de registros:</b> <span style='font-size: 16px; color: #fff'>${locais.length}</span>
                                 <br>
                                 <hr>
                                 <b>Registros por cidade:</b>
@@ -200,21 +202,9 @@
                                 
                             `;
 
-                            if (window.visitCount !== undefined) {
-                                document.getElementById('contador-visitas').innerText = window.visitCount;
-                            } else {
-                                fetch('https://api.counterapi.dev/v1/agenda-metal-ceara/visitantes/up')
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        window.visitCount = data.count;
-                                        const spanVisitas = document.getElementById('contador-visitas');
-                                        if (spanVisitas) spanVisitas.innerText = window.visitCount;
-                                    })
-                                    .catch(error => {
-                                        console.error('Erro ao buscar visitas:', error);
-                                        const spanVisitas = document.getElementById('contador-visitas');
-                                        if (spanVisitas) spanVisitas.innerText = 'Indisponível';
-                                    });
+                            // Atualiza o contador na UI caso ainda não tenha sido
+                            if (typeof atualizarContadorVisitas === 'function') {
+                                atualizarContadorVisitas();
                             }
 
                             setTimeout(() => {
@@ -288,7 +278,10 @@
         </div>
 
         <!--<h3>Buscar</h3>-->
-        <input id="busca" placeholder="Buscar" class="animate__animated animate__bounceInLeft animate__delay-1s">
+        <div class="busca-container animate__animated animate__bounceInLeft animate__delay-1s">
+            <input id="busca" placeholder="Buscar">
+            <button id="limparBusca" title="Limpar busca"><i class="bi bi-x-circle"></i></button>
+        </div>
 
         <!--<h3>Cidade</h3>-->
         <select id="cidadeFiltro" class="animate__animated animate__bounceInLeft animate__delay-1s">
@@ -309,10 +302,11 @@
 
         <!-- FOOTER -->
         <footer>
-            <p>&copy; <span id="ano"></span> Copyright é o caralho, viva o opensource 🤘<br><br>
-                <img src="img/skull.svg" alt="Skull" width="10px" height="10px" /> METAL CEARÁ
-            </p>
+            &copy; <span id="ano"></span> Copyright é o caralho, viva o opensource 🤘<br><br>
+            <img src="img/skull.svg" alt="Skull" width="10px" height="10px" /> METAL CEARÁ
+
             <script> document.getElementById("ano").textContent = new Date().getFullYear(); </script>
+            - Visitante número: <span id="contador-visitas" style='color: #fff'>...</span>
         </footer>
 
     </div> <!-- FIM SIDEBAR -->
@@ -322,8 +316,9 @@
 
     <!-- Menu de tipos de mapa -->
     <div id="menuMapa">
-        <button onclick="trocarMapa('dark')" class="selecionado" data-tile="dark">
+        <button onclick="trocarMapa('dark')" data-tile="dark">
             <img src="img/mapa_escuro.svg" alt="Mapa Escuro" width="24" /> Escuro (padrão)</button>
+
 
         <button onclick="trocarMapa('positron')" data-tile="positron">
             <img src="img/mapa_claro.svg" alt="Mapa Claro" width="24" /> Claro</button>
@@ -343,14 +338,14 @@
     <button id="btnLocalizacao" title="Minha localização"><img src='img/location.svg' alt="Localização" width='30'
             height='30'></button>
 
-    <!-- =========================
-📦 BIBLIOTECA LEAFLET (MAPA)
-========================= -->
+    <!-- BIBLIOTECA LEAFLET (MAPA) -->
     <script src="js/leaflet.js"></script>
 
+    <!-- TODOS OS JSCRIPT -->
     <script src="js/app.js"></script>
 
-    <!-- Google tag (gtag.js) 
+    <!-- GOOGLE ANALYTICS
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ6P7P1CQM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -359,7 +354,7 @@
 
         gtag('config', 'G-HZ6P7P1CQM');
     </script>
--->
+    -->
     <script>
         console.log("Metal Ceará 🤘");
     </script>

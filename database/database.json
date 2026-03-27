@@ -1,13 +1,13 @@
 [
   {
-    "nome": "Guns N' Roses e Raimundos - World Tour 2026",
+    "nome": "Guns N' Roses World Tour 2026",
     "tipo": "show",
     "cidade": "Fortaleza",
     "local": "Arena Castelão",
     "endereco": "Av. Alberto Craveiro, 2901",
     "lat": -3.808186931340669,
     "lng": -38.52370445671905,
-    "descricao": "World Tour 2026 (Guns N' Roses / Raimundos)",
+    "descricao": "Guns N' Roses e Raimundos",
     "instagram": "https://www.instagram.com/gnrfortaleza/",
     "data": "2026-04-18",
     "horario": "21:00",
@@ -137,11 +137,11 @@
     "foto": "https://imagens.outgo.com.br/events/292388/thumb_lg_a43ead79-1896-483b-86d4-7ce9f6068a99.jpeg"
   },
   {
-    "nome": "LAPADA!",
+    "nome": "LAPADA! Metal Floresta",
     "tipo": "show",
     "cidade": "Fortaleza",
     "local": "Floresta",
-    "endereco": "Av. Santos Dumont, 1788 - Loja 1",
+    "endereco": "Av. Santos Dumont, 1788",
     "lat": -3.7332602708298666,
     "lng": -38.507981381164335,
     "descricao": "Bandas: DJ Cabeleira, ROOTS (Sepultura), Disasterpieces (Slipknot), Fuck The System Brasil (SOAD)",
