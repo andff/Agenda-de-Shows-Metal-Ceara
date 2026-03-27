@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /database/
+Disallow: /css/
+Disallow: /js/
+
+# Sitemap (lembre-se de alterar para o seu domínio real)
+Sitemap: https://andff.runasp.net/Agenda-de-Shows-Metal-Ceara/sitemap.xml
