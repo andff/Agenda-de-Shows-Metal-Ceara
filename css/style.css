@@ -381,6 +381,185 @@ footer {
     border-color: #3498db;
 }
 
+/* ── Botões de Controle do Topo ── */
+.top-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: center;
+    width: 100%;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Toggle Switch para Tema */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: .4s;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #3498db;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+/* Ícones dentro do slider */
+.slider-icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px;
+    align-items: center;
+    height: 100%;
+    font-size: 10px;
+    color: white;
+    pointer-events: none;
+}
+
+/* ── Tema Claro (Overrides) ── */
+body.light-theme #sidebar {
+    background: #ffffff;
+    color: #333;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme #sidebar header img {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .item {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+}
+
+body.light-theme .item:hover {
+    background: #f0f0f0;
+}
+
+body.light-theme .menu-btn {
+    color: #999;
+}
+
+body.light-theme .menu-btn:hover,
+body.light-theme .menu-btn.active {
+    color: #111;
+}
+
+body.light-theme hr {
+    border-color: #eee;
+}
+
+body.light-theme .menu-content {
+    background: #f8f9fa;
+    color: #444;
+    border-color: #ddd;
+}
+
+body.light-theme footer {
+    color: #777;
+}
+
+body.light-theme #contador-visitas {
+    color: #111 !important;
+}
+
+body.light-theme #busca,
+body.light-theme #cidadeFiltro,
+body.light-theme #dataInicio,
+body.light-theme #dataFim {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+body.light-theme .categoria-btn span {
+    background: #eee;
+    color: #666;
+}
+
+body.light-theme .categoria-btn input[type="checkbox"]:checked+span {
+    color: #fff;
+}
+
+body.light-theme #menuBtn {
+    background: #fff;
+    color: #111;
+    border-color: #ddd;
+}
+
+body.light-theme #btnLocalizacao,
+body.light-theme #btnMapa {
+    background: #fff;
+    border-color: #ddd;
+}
+
+body.light-theme .control-btn,
+body.light-theme .slider-icons i {
+    color: #444;
+}
+
+body.light-theme .slider {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .slider:before {
+    background-color: #444;
+}
+
 /* ── Menu de tipos de mapa ── */
 #menuMapa {
     position: absolute;

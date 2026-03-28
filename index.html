@@ -76,7 +76,7 @@
         }
     </script>
 
-    <!-- CHART.JS -->
+    <!-- GRÁFICOS CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -85,6 +85,23 @@
     <button id="menuBtn"><i class="bi bi-list"></i></button>
 
     <div id="sidebar">
+
+        <div class="top-controls animate__animated animate__backInDown">
+            <div class="theme-toggle">
+                <label class="theme-switch" for="theme-checkbox">
+                    <input type="checkbox" id="theme-checkbox">
+                    <span class="slider">
+                        <div class="slider-icons">
+                            <i class="bi bi-moon-stars-fill"></i>
+                            <i class="bi bi-sun-fill"></i>
+                        </div>
+                    </span>
+                </label>
+            </div>
+            <button id="btnShare" class="control-btn" title="Compartilhar">
+                <i class="bi bi-share-fill"></i>
+            </button>
+        </div>
 
         <header>
             <div style="display:flex; align-items:center; gap:20px;" class="animate__animated animate__backInUp">
@@ -109,14 +126,13 @@
                 </div>
 
                 <div id="ajuda" class="menu-content">
-                    Para usar o mapa, clique nos ícones coloridos:
+                    Para usar, clique nos ícones coloridos no mapa:
                     <ul style="margin: 5px 0; padding-left: 20px;">
                         <li><b style="color:#e74c3c">Vermelho:</b> Bares</li>
                         <li><b style="color:#f1c40f">Amarelo:</b> Shows</li>
                         <li><b style="color:#3498db">Azul:</b> Eventos</li>
                     </ul>
-                    ou use a busca (evento, nome da banda, cidade, local ou endereço) e os filtros para encontrar o que
-                    procura.
+                    ou use os filtros abaixo para localizar o que procura.
                 </div>
 
                 <div id="sobre" class="menu-content">
@@ -195,11 +211,11 @@
                                 <b>Registros por cidade:</b>
                                 
                                 <ul style="margin:5px 0; padding-left:30px">${cidadesHTML}</ul>
-                                <canvas id="graficoCidades" style="margin-top:10px; max-height:150px;"></canvas>
+                                <canvas id="graficoCidades" style="max-height:100px;"></canvas>
                                                                 
                                 <b>Registros por mês:</b>
                                 <ul style="margin:5px 0; padding-left:30px">${mesesHTML}</ul>
-                                <br>
+                                
                                 
                             `;
 
@@ -253,10 +269,10 @@
 
                         }
                     </script>
-                    <a href="https://lookerstudio.google.com/reporting/17e54070-a75b-42c3-8289-3d4796e46ded"
+                    <!--<a href="https://lookerstudio.google.com/reporting/17e54070-a75b-42c3-8289-3d4796e46ded"
                         target="_blank">
                         Relatório de acessos
-                    </a>
+                    </a>-->
                 </div>
             </div>
         </nav>
@@ -281,7 +297,7 @@
         <!--<h3>Buscar</h3>-->
         <div class="search-container animate__animated animate__bounceInLeft animate__delay-1s">
             <input id="busca" placeholder="Buscar">
-            <i class="bi bi-x-lg" id="clearSearch"></i>
+            <i class="bi bi-x" id="clearSearch"></i>
         </div>
 
         <!--<h3>Cidade</h3>-->

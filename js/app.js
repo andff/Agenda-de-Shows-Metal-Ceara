@@ -4,6 +4,44 @@ menuBtn.onclick = () => {
     menuBtn.innerHTML = sidebar.classList.contains("ativo") ? "✖" : "☰";
 };
 
+// ── Tema Claro / Escuro ──
+const themeCheckbox = document.getElementById('theme-checkbox');
+const currentTheme = localStorage.getItem('theme') || 'dark';
+
+// Aplica o tema salvo ao carregar
+if (currentTheme === 'light') {
+    document.body.classList.add('light-theme');
+    themeCheckbox.checked = true;
+}
+
+themeCheckbox.addEventListener('change', function () {
+    if (this.checked) {
+        document.body.classList.add('light-theme');
+        localStorage.setItem('theme', 'light');
+        trocarMapa('positron'); // Muda o mapa para a versão clara
+    } else {
+        document.body.classList.remove('light-theme');
+        localStorage.setItem('theme', 'dark');
+        trocarMapa('dark'); // Volta para o mapa escuro padrão
+    }
+});
+
+// ── Compartilhar ──
+document.getElementById('btnShare').onclick = () => {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Agenda de Shows Metal Ceará 🤘',
+            text: 'Confira os shows e eventos de Metal no Ceará!',
+            url: window.location.href
+        }).catch((error) => console.log('Erro ao compartilhar', error));
+    } else {
+        // Fallback: Copiar Link
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('Link do site copiado para a área de transferência!');
+        });
+    }
+};
+
 // toggle menu lateral
 function toggleMenu(id, btn) {
     const content = document.getElementById(id);
@@ -36,7 +74,6 @@ var tiles = {
     positron: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
     voyager: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
     topo: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-
 };
 
 // ── Trocar tipo de mapa ──
@@ -55,8 +92,11 @@ function trocarMapa(tipo) {
     document.getElementById('btnMapa').classList.remove('ativo');
 }
 
-// Inicia com o tile salvo ou o padrão 'dark'
-var mapaSalvo = localStorage.getItem('tipoMapa') || 'dark';
+// Inicia com o tile salvo ou o padrão sincronizado com o tema
+var mapaSalvo = localStorage.getItem('tipoMapa');
+if (!mapaSalvo) {
+    mapaSalvo = (localStorage.getItem('theme') === 'light') ? 'positron' : 'dark';
+}
 var camadaTile;
 trocarMapa(mapaSalvo);
 
@@ -161,7 +201,7 @@ function badgeData(data) {
 function filtros() {
     let nome = busca.value.toLowerCase();
     let cidade = cidadeFiltro.value;
-    let tipos = [...document.querySelectorAll("input[type=checkbox]:checked")].map(c => c.value);
+    let tipos = [...document.querySelectorAll(".categorias-container input[type=checkbox]:checked")].map(c => c.value);
     let di = dataInicio.value;
     let df = dataFim.value;
 
@@ -189,7 +229,6 @@ function filtros() {
 }
 
 //extrair instagram da url e colocar no popup
-
 function extrairInstagram(url) {
     if (!url) return "";
 
@@ -251,12 +290,11 @@ function render() {
                     <div style="width:250px"> <!-- LARGURA DO POPUP-->
                     ${p.foto ? `
                     <a href="${p.foto}" target="_blank">
-                        <img alt="${p.nome}" src="${p.foto}" style="width:100%;border-radius:8px;margin-bottom:6px;cursor:pointer">
+                        <img alt="${p.nome}" src="${p.foto}" style="width:100\%;border-radius:8px;margin-bottom:6px;cursor:pointer">
                     </a>
                     ` : ""}
                     <b>${badgeData(p.data)}</b>
                     <h2>${p.nome}</h2>
-                    <!--<b>Cidade:</b> ${p.cidade}<br>-->
                     
                     ${p.descricao}<br>
                     ${p.local ? `<b>Local:</b> ${p.local}<br>` : ""}
@@ -281,7 +319,6 @@ function render() {
 
         let m = L.marker([p.lat, p.lng], { icon: icones[p.tipo] }).bindPopup(popup);
 
-        // Centralizar o mapa deslocando a visão um pouco para cima (para focar no pop-up em si)
         m.on('click', function (e) {
             let px = map.project([p.lat, p.lng], 16);
             px.y -= 120; // offset (em pixels) para compensar a altura do popup
@@ -319,7 +356,7 @@ function render() {
                 px.y -= 120; // offset vertical para o popup ficar no meio
                 map.setView(map.unproject(px, 16), 16);
                 m.openPopup();
-            }, 300); // dá um tempinho caso o menu mobile recolha e altere a dimensão da tela
+            }, 300); 
         };
 
         lista.appendChild(div);
@@ -341,7 +378,7 @@ clearSearchBtn.onclick = () => {
 };
 
 cidadeFiltro.onchange = render;
-document.querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = render);
+document.querySelectorAll(".categorias-container input[type=checkbox]").forEach(c => c.onchange = render);
 dataInicio.onchange = render;
 dataFim.onchange = render;
 
@@ -350,7 +387,7 @@ function verificarFiltrosAtivos() {
     const btnLimpar = document.getElementById('btnLimparFiltros');
     if (!btnLimpar) return;
 
-    const checkboxes = document.querySelectorAll("input[type=checkbox]");
+    const checkboxes = document.querySelectorAll(".categorias-container input[type=checkbox]");
     const allChecked = Array.from(checkboxes).every(c => c.checked);
 
     const isFiltered = busca.value !== "" ||
@@ -366,13 +403,11 @@ document.getElementById('btnLimparFiltros').onclick = () => {
     busca.value = '';
     clearSearchBtn.style.display = 'none';
     cidadeFiltro.value = 'todas';
-    document.querySelectorAll("input[type=checkbox]").forEach(c => c.checked = true);
+    document.querySelectorAll(".categorias-container input[type=checkbox]").forEach(c => c.checked = true);
     dataInicio.value = '';
     dataFim.value = '';
     render();
 };
-
-
 
 // =========================
 // 🌍 CONTADOR DE VISITAS
@@ -401,14 +436,11 @@ function atualizarContadorVisitas() {
 atualizarContadorVisitas();
 
 //GEOLOCALIZAÇÃO DO USUÁRIO
-// SCRIPT PARA O BOTÃO DE LOCALIZAÇÃO DO DISPOSITIVO
-
 var marcadorUsuario = null;
 var circuloUsuario = null;
 
 document.getElementById("btnLocalizacao").onclick = function () {
     var btn = this;
-
     if (!navigator.geolocation) {
         alert("Geolocalização não suportada pelo seu navegador.");
         return;
