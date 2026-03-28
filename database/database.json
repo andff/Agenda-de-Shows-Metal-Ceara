@@ -137,21 +137,6 @@
     "foto": "https://imagens.outgo.com.br/events/292388/thumb_lg_a43ead79-1896-483b-86d4-7ce9f6068a99.jpeg"
   },
   {
-    "nome": "LAPADA! Metal Floresta",
-    "tipo": "show",
-    "cidade": "Fortaleza",
-    "local": "Floresta",
-    "endereco": "Av. Santos Dumont, 1788",
-    "lat": -3.7332602708298666,
-    "lng": -38.507981381164335,
-    "descricao": "Bandas: DJ Cabeleira, ROOTS (Sepultura), Disasterpieces (Slipknot), Fuck The System Brasil (SOAD)",
-    "instagram": "https://www.instagram.com/floresta_bar/",
-    "data": "2026-03-27",
-    "horario": "18:00",
-    "linkingresso": "https://www.sympla.com.br/evento/lapada-metal-no-floresta/3326480?algoliaID=a2bf8d90c22e51cded032823b5dd73cc",
-    "foto": "https://i.ibb.co/whqQfwKL/Sextou-do-jeito-mais-pesado-poss-vel-O-Floresta-vira-palco-do-metal-com-tributos-insanos-a-S.jpg"
-  },
-  {
     "nome": "Hell Fire Fest",
     "tipo": "show",
     "cidade": "Fortaleza",
@@ -221,20 +206,5 @@
     "data": "2026-03-28",
     "horario": "21:00",
     "foto": "https://i.ibb.co/RGx18fW0/PROGRAMA-O-DA-SEMANA-FUNCIONAMENTO-Segunda-Fechado-Ter-a-18h-as-2h-Quarta.webp"
-  },
-  {
-    "nome": "Trítono, Black Sabbath tributo",
-    "tipo": "show",
-    "cidade": "Fortaleza",
-    "local": "House Garden Pub",
-    "endereco": "R. Doutor José Lino, 126 - Varjota",
-    "lat": -3.729326749668027,
-    "lng": -38.48779038508793,
-    "descricao": "Black Sabbath, contando com os maiores clássicos da era Ozzy",
-    "instagram": "https://www.instagram.com/housegardenpub/",
-    "data": "2026-03-27",
-    "horario": "22:00",
-    "linkingresso": "https://www.sympla.com.br/evento/tritono-black-sabbath-tributo/3351945?algoliaID=a2bf8d90c22e51cded032823b5dd73cc#event-location",
-    "foto": "https://i.ibb.co/W4WT0qts/Sexta-feira-27-03-j-temos-encontro-marcado-l-no-housegardenpub-onde-estaremos-realizan.webp"
   }
 ]
