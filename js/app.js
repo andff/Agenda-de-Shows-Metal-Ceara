@@ -166,6 +166,9 @@ function filtros() {
     let df = dataFim.value;
 
     return locais.filter(l => {
+        // Se o evento tem data e ela já passou, não exibe (tira da lista e do mapa)
+        if (l.data && diasRestantes(l.data) < 0) return false;
+
         if (nome && !(
             (l.nome && l.nome.toLowerCase().includes(nome)) ||
             (l.local && l.local.toLowerCase().includes(nome)) ||
@@ -268,7 +271,7 @@ function render() {
                     Instagram: <a target="_blank" href="${p.instagram}">${extrairInstagram(p.instagram)}</a><br>
                     ` : ""}
 
-                    ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:block;background:orange;color:#fff;padding:5px;border-radius:5px;text-decoration:none;margin-top:5px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">Comprar Ingresso</a><br>` : ""}
+                    ${p.linkingresso ? `<a target="_blank" href="${p.linkingresso}" style="display:block;background:orange;color:#fff;padding:5px;border-radius:5px;text-decoration:none;margin:10px;font-weight:bold;width:100\%;text-align:center;box-sizing:border-box">Comprar Ingresso</a>` : ""}
                     
                     <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}">
                     <img alt="Google Maps logo" src="img/google_maps.svg" style="width:16px;height:16px;"> Abrir no Google Maps
