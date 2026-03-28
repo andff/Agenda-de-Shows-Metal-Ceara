@@ -356,7 +356,7 @@ function render() {
                 px.y -= 120; // offset vertical para o popup ficar no meio
                 map.setView(map.unproject(px, 16), 16);
                 m.openPopup();
-            }, 300); 
+            }, 300);
         };
 
         lista.appendChild(div);

@@ -126,13 +126,13 @@
                 </div>
 
                 <div id="ajuda" class="menu-content">
-                    Para usar, clique nos ícones coloridos no mapa:
+                    Clique nos ícones coloridos no mapa para ver os detalhes.
                     <ul style="margin: 5px 0; padding-left: 20px;">
                         <li><b style="color:#e74c3c">Vermelho:</b> Bares</li>
                         <li><b style="color:#f1c40f">Amarelo:</b> Shows</li>
                         <li><b style="color:#3498db">Azul:</b> Eventos</li>
                     </ul>
-                    ou use os filtros abaixo para localizar o que procura.
+                    Utilize os filtros abaixo.
                 </div>
 
                 <div id="sobre" class="menu-content">
@@ -215,6 +215,7 @@
                                                                 
                                 <b>Registros por mês:</b>
                                 <ul style="margin:5px 0; padding-left:30px">${mesesHTML}</ul>
+                                <canvas id="graficoMeses" style="max-height:100px;"></canvas>
                                 
                                 
                             `;
@@ -225,46 +226,93 @@
                             }
 
                             setTimeout(() => {
-                                const canvas = document.getElementById('graficoCidades');
-                                if (!canvas) return;
-                                const ctx = canvas.getContext('2d');
-                                if (!ctx) return;
+                                // --- Gráfico de Cidades (Barra) ---
+                                const canvasCidades = document.getElementById('graficoCidades');
+                                if (canvasCidades) {
+                                    const ctxCidades = canvasCidades.getContext('2d');
+                                    const labelsCidades = Object.keys(porCidade);
+                                    const dadosCidades = Object.values(porCidade);
+                                    const coresCidades = labelsCidades.map((_, i) => {
+                                        const palette = ['#e74c3c', '#3498db', '#f1c40f', '#2ecc71', '#9b59b6', '#e67e22', '#1abc9c', '#ff6b6b'];
+                                        return palette[i % palette.length];
+                                    });
 
-                                const labels = Object.keys(porCidade);
-                                const dados = Object.values(porCidade);
+                                    if (window.graficoCidades && typeof window.graficoCidades.destroy === 'function') {
+                                        window.graficoCidades.destroy();
+                                    }
 
-                                const cores = labels.map((_, i) => {
-                                    const palette = [
-                                        '#e74c3c', '#3498db', '#f1c40f', '#2ecc71',
-                                        '#9b59b6', '#e67e22', '#1abc9c', '#ff6b6b'
-                                    ];
-                                    return palette[i % palette.length];
-                                });
-
-                                if (window.graficoCidades && typeof window.graficoCidades.destroy === 'function') {
-                                    window.graficoCidades.destroy();
+                                    window.graficoCidades = new Chart(ctxCidades, {
+                                        type: 'bar',
+                                        data: {
+                                            labels: labelsCidades,
+                                            datasets: [{
+                                                data: dadosCidades,
+                                                backgroundColor: coresCidades,
+                                                borderRadius: 4
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: { legend: { display: false } },
+                                            scales: {
+                                                x: { ticks: { color: '#ccc', font: { size: 10 } } },
+                                                y: { beginAtZero: true, ticks: { color: '#ccc', font: { size: 10 } } }
+                                            }
+                                        }
+                                    });
                                 }
 
-                                window.graficoCidades = new Chart(ctx, {
-                                    type: 'bar',
-                                    data: {
-                                        labels: labels,
-                                        datasets: [{
-                                            data: dados,
-                                            backgroundColor: cores,
-                                            borderRadius: 4
-                                        }]
-                                    },
-                                    options: {
-                                        responsive: true,
-                                        maintainAspectRatio: false,
-                                        plugins: { legend: { display: false } },
-                                        scales: {
-                                            x: { ticks: { color: '#ccc', font: { size: 10 } } },
-                                            y: { beginAtZero: true, ticks: { color: '#ccc', font: { size: 10 } } }
-                                        }
+                                // --- Gráfico de Meses (Rosca/Doughnut) ---
+                                const canvasMeses = document.getElementById('graficoMeses');
+                                if (canvasMeses) {
+                                    const ctxMeses = canvasMeses.getContext('2d');
+
+                                    const dataMeses = Object.entries(porMes).sort();
+                                    const labelsMeses = dataMeses.map(([chave, total]) => {
+                                        const [ano, mes] = chave.split("-");
+                                        return `${nomeMes[+mes - 1]}/${ano}`;
+                                    });
+                                    const valoresMeses = dataMeses.map(([_, total]) => total);
+
+                                    const coresMeses = labelsMeses.map((_, i) => {
+                                        const palette = ['#e74c3c', '#3498db', '#f1c40f', '#2ecc71', '#9b59b6', '#e67e22', '#1abc9c', '#ff6b6b'];
+                                        return palette[i % palette.length];
+                                    });
+
+                                    if (window.graficoMeses && typeof window.graficoMeses.destroy === 'function') {
+                                        window.graficoMeses.destroy();
                                     }
-                                });
+
+                                    window.graficoMeses = new Chart(ctxMeses, {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: labelsMeses,
+                                            datasets: [{
+                                                data: valoresMeses,
+                                                backgroundColor: coresMeses,
+                                                borderWidth: 0,
+                                                hoverOffset: 10
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            cutout: '50%',
+                                            plugins: {
+                                                legend: {
+                                                    position: 'bottom',
+                                                    labels: {
+                                                        color: '#ccc',
+                                                        font: { size: 10 },
+                                                        boxWidth: 10,
+                                                        padding: 10
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
                             }, 50);
 
                         }

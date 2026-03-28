@@ -54,7 +54,7 @@ select {
     border-radius: 6px;
     font-size: 13px;
     /* Aumentei levemente para melhor leitura */
-    font-weight: bold;
+    font-weight: normal;
 }
 
 #busca {
